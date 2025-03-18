@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceqi82i6u6pkp"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ojx1x"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ajc80"]
+size = Vector2(25, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mp5tw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sfaif"]
+
+[node name="TownSquare" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_ojx1x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_ajc80")
+
+[node name="Cube" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
+shape = SubResource("BoxShape3D_mp5tw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
+mesh = SubResource("BoxMesh_sfaif")

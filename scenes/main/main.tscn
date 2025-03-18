@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://do5x56a1ql3ul"]
+
+[ext_resource type="PackedScene" uid="uid://ceqi82i6u6pkp" path="res://scenes/locations/town_square/town_square.tscn" id="1_4pjjh"]
+[ext_resource type="PackedScene" uid="uid://bm7lmhrturpas" path="res://scenes/player/player.tscn" id="2_5wouh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s7ki5"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_kx02m"]
+sky_material = SubResource("ProceduralSkyMaterial_s7ki5")
+
+[sub_resource type="Environment" id="Environment_0oh05"]
+background_mode = 2
+sky = SubResource("Sky_kx02m")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0oh05")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.858065, -0.458783, 0.230744, 0, 0.449319, 0.893371, -0.513541, -0.766571, 0.385545, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="TownSquare" parent="." instance=ExtResource("1_4pjjh")]
+
+[node name="Player" parent="." instance=ExtResource("2_5wouh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)

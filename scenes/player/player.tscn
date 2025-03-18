@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm7lmhrturpas"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_35mox"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wluhy"]
+size = Vector2(100, 180)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_21n38"]
+size = Vector3(1, 1.8, 0.2)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_35mox")
+
+[node name="Visuals" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Visuals"]
+transparent = false
+double_sided = false
+texture = SubResource("PlaceholderTexture2D_wluhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_21n38")
+
+[node name="CameraController" type="Node3D" parent="."]
+top_level = true
+
+[node name="CameraTarget" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 3)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
