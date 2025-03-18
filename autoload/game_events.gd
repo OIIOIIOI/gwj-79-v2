@@ -1,4 +1,5 @@
 extends Node
 
 
-#signal example(param: int)
+signal dialog_started()
+signal dialog_ended()

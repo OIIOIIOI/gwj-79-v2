@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c4u5s2llrmm4u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mldtx"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+
+[resource]
+default_font_size = 32
+MarginContainer/constants/margin_bottom = 20
+MarginContainer/constants/margin_left = 20
+MarginContainer/constants/margin_right = 20
+MarginContainer/constants/margin_top = 20
+Panel/styles/panel = SubResource("StyleBoxFlat_mldtx")

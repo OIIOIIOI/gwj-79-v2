@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=10 format=3 uid="uid://bjnfa1aj6pb1n"]
+
+[ext_resource type="Script" path="res://resources/dialog_chunk.gd" id="1_1nhan"]
+[ext_resource type="Script" path="res://resources/game_action.gd" id="2_7cbtm"]
+[ext_resource type="Script" path="res://resources/dialog.gd" id="2_8sg7q"]
+
+[sub_resource type="Resource" id="Resource_0bvdo"]
+script = ExtResource("1_1nhan")
+speaker_name = ""
+text = "You approach the strange cube in the middle of the town square..."
+style = 1
+actions = Array[ExtResource("2_7cbtm")]([])
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrxxu"]
+size = Vector2(400, 600)
+
+[sub_resource type="Resource" id="Resource_mo0k1"]
+script = ExtResource("1_1nhan")
+speaker_name = "Cube"
+sprite = SubResource("PlaceholderTexture2D_xrxxu")
+text = "Hello! I'm Cube!"
+style = 0
+actions = Array[ExtResource("2_7cbtm")]([])
+
+[sub_resource type="Gradient" id="Gradient_6vnmv"]
+colors = PackedColorArray(1, 0, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgn88"]
+gradient = SubResource("Gradient_6vnmv")
+width = 400
+height = 600
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Resource" id="Resource_nqyxj"]
+script = ExtResource("1_1nhan")
+speaker_name = "Cube"
+sprite = SubResource("GradientTexture2D_dgn88")
+text = "I'M ANGRY!!!!!!!"
+style = 2
+actions = Array[ExtResource("2_7cbtm")]([])
+
+[resource]
+script = ExtResource("2_8sg7q")
+chunks = Array[ExtResource("1_1nhan")]([SubResource("Resource_0bvdo"), SubResource("Resource_mo0k1"), SubResource("Resource_nqyxj")])

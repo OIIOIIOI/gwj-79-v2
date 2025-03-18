@@ -11,16 +11,19 @@ config_version=5
 [application]
 
 config/name="GWJ 79 v2"
-run/main_scene="res://scenes/ui/title_screen/title_screen.tscn"
+run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
 
 [autoload]
 
 GameEnums="*res://autoload/game_enums.gd"
 GameEvents="*res://autoload/game_events.gd"
 SceneTransition="*res://autoload/scene_transition.tscn"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 
@@ -38,8 +41,18 @@ folder_colors={
 "res://addons/": "gray",
 "res://assets/": "orange",
 "res://autoload/": "pink",
+"res://resources/": "blue",
 "res://scenes/": "teal"
 }
+
+[global_group]
+
+interactables=""
+player=""
+
+[gui]
+
+theme/custom="res://assets/ui/game_theme.tres"
 
 [input]
 
@@ -91,3 +104,10 @@ action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="player"
+3d_physics/layer_3="interactable"
+3d_physics/layer_4="npc"
