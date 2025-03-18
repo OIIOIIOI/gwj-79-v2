@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ceqi82i6u6pkp"]
+[gd_scene load_steps=8 format=3 uid="uid://ceqi82i6u6pkp"]
 
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="1_7ivpw"]
-[ext_resource type="Script" path="res://resources/game_action.gd" id="2_4t0ku"]
-[ext_resource type="Resource" uid="uid://bjnfa1aj6pb1n" path="res://resources/cube_dialog.tres" id="2_qdubf"]
+[ext_resource type="Resource" uid="uid://jeoopaiy6ghn" path="res://resources/dialogs/cube_dialog_2.tres" id="2_yei84"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ojx1x"]
 
@@ -13,15 +12,12 @@ size = Vector2(25, 25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sfaif"]
 
-[sub_resource type="Resource" id="Resource_n60lr"]
-script = ExtResource("2_4t0ku")
-name = "add_step"
-value = "step_a"
-
-[sub_resource type="Resource" id="Resource_a42ge"]
-script = ExtResource("2_4t0ku")
-name = "update_score"
-value = "42"
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wccme"]
+albedo_color = Color(0.65, 0, 0.65, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+rim = 0.05
+rim_tint = 0.19
 
 [node name="TownSquare" type="Node3D"]
 
@@ -43,42 +39,9 @@ shape = SubResource("BoxShape3D_mp5tw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
 mesh = SubResource("BoxMesh_sfaif")
+surface_material_override/0 = SubResource("StandardMaterial3D_wccme")
 
 [node name="CubeIC" parent="Cube" instance=ExtResource("1_7ivpw")]
 collision_layer = 4
 collision_mask = 2
-actions = Array[ExtResource("2_4t0ku")]([SubResource("Resource_n60lr"), SubResource("Resource_a42ge")])
-dialog = ExtResource("2_qdubf")
-
-[node name="Cube2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -3)
-collision_layer = 8
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2"]
-shape = SubResource("BoxShape3D_mp5tw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2"]
-mesh = SubResource("BoxMesh_sfaif")
-
-[node name="Cube2IC" parent="Cube2" instance=ExtResource("1_7ivpw")]
-collision_layer = 4
-collision_mask = 2
-dialog = ExtResource("2_qdubf")
-
-[node name="Cube3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, -1)
-collision_layer = 8
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube3"]
-shape = SubResource("BoxShape3D_mp5tw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube3"]
-mesh = SubResource("BoxMesh_sfaif")
-
-[node name="Cube3IC" parent="Cube3" instance=ExtResource("1_7ivpw")]
-collision_layer = 4
-collision_mask = 2
-dialog = ExtResource("2_qdubf")
-radius = 3.0
+dialog = ExtResource("2_yei84")

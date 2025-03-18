@@ -17,6 +17,7 @@ script = ExtResource("1_35mox")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Visuals"]
+modulate = Color(0, 0, 0, 1)
 transparent = false
 double_sided = false
 texture = SubResource("PlaceholderTexture2D_wluhy")

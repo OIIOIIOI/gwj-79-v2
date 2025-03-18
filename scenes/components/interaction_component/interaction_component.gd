@@ -7,7 +7,7 @@ class_name InteractionComponent
 @export var radius := 1.0
 
 
-var is_active := false
+var is_in_range := false
 
 
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
@@ -24,10 +24,10 @@ func _ready() -> void:
 func on_body_entered(body: Node3D) -> void:
 	#print("on_body_entered", body.name)
 	if body is Player:
-		is_active = true
+		is_in_range = true
 
 
 func on_body_exited(body: Node3D) -> void:
 	#print("on_body_exited", body.name)
 	if body is Player:
-		is_active = false
+		is_in_range = false

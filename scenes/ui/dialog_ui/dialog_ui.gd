@@ -28,6 +28,7 @@ func reset_ui() -> void:
 
 func _process(_delta: float) -> void:
 	if is_active && Input.is_action_just_pressed(&"action"):
+		print("DialogUI Action detected: ", current_dialog)
 		display_next_chunk()
 
 
@@ -50,18 +51,21 @@ func start_dialog(dialog: Dialog) -> void:
 func end_dialog() -> void:
 	reset_ui()
 
-	is_active = false
 	current_dialog = null
 	current_chunk_index = 0
 
 	GameEvents.dialog_ended.emit()
+
+	await get_tree().process_frame
+	is_active = false
 
 
 func display_current_chunk() -> void:
 	var chunk := current_dialog.chunks[current_chunk_index]
 
 	# Set text style and content
-	text_label.text = ""
+	#text_label.text = ""
+	text_label.clear()
 	match chunk.style:
 		DialogChunk.DIALOG_CHUNK_STYLE.Comment:
 			text_label.push_italics()
@@ -88,6 +92,10 @@ func display_current_chunk() -> void:
 		speaker_sprite.texture = chunk.sprite
 	else:
 		speaker_sprite.texture = null
+
+	# Force a layout refresh to fix positioning bug
+	visible = false
+	visible = true
 
 
 func display_next_chunk() -> void:
