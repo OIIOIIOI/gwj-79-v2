@@ -2,8 +2,9 @@ extends Area3D
 class_name InteractionComponent
 
 
-@export var actions: Array[GameAction] = []
+@export var condition: Condition
 @export var dialog: Dialog
+@export var actions: Array[Action] = []
 @export var radius := 1.0
 
 
@@ -31,3 +32,9 @@ func on_body_exited(body: Node3D) -> void:
 	#print("on_body_exited", body.name)
 	if body is Player:
 		is_in_range = false
+
+
+func is_valid() -> bool:
+	if condition:
+		return is_in_range && condition.check()
+	return is_in_range

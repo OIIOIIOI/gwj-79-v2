@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=11 format=3 uid="uid://bjnfa1aj6pb1n"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=12 format=3 uid="uid://bjnfa1aj6pb1n"]
 
 [ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_5hk7d"]
-[ext_resource type="Script" path="res://resources/game_action.gd" id="2_22wsb"]
+[ext_resource type="Script" path="res://resources/action.gd" id="2_5bjkx"]
 [ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="3_0o0es"]
 
 [sub_resource type="Resource" id="Resource_0bvdo"]
@@ -9,7 +9,7 @@ script = ExtResource("1_5hk7d")
 speaker_name = ""
 text = "You approach the strange cube in the middle of the town square..."
 style = 1
-actions = Array[ExtResource("2_22wsb")]([])
+actions = Array[ExtResource("2_5bjkx")]([])
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrxxu"]
 size = Vector2(400, 600)
@@ -19,8 +19,8 @@ script = ExtResource("1_5hk7d")
 speaker_name = "Cube"
 sprite = SubResource("PlaceholderTexture2D_xrxxu")
 text = "Hello! I'm Cube!"
-style = 0
-actions = Array[ExtResource("2_22wsb")]([])
+style = null
+actions = Array[ExtResource("2_5bjkx")]([])
 
 [sub_resource type="Gradient" id="Gradient_6vnmv"]
 colors = PackedColorArray(1, 0, 1, 1, 1, 0, 0, 1)
@@ -37,14 +37,19 @@ speaker_name = "Cube"
 sprite = SubResource("GradientTexture2D_dgn88")
 text = "I'M ANGRY!!!!!!!"
 style = 2
-actions = Array[ExtResource("2_22wsb")]([])
+actions = Array[ExtResource("2_5bjkx")]([])
+
+[sub_resource type="Resource" id="Resource_xot50"]
+script = ExtResource("2_5bjkx")
+type = 0
+value = "step_one"
 
 [sub_resource type="Resource" id="Resource_ss3av"]
 script = ExtResource("1_5hk7d")
 speaker_name = ""
 text = "You decide to leave it alone for now..."
 style = 1
-actions = Array[ExtResource("2_22wsb")]([])
+actions = Array[ExtResource("2_5bjkx")]([SubResource("Resource_xot50")])
 
 [resource]
 script = ExtResource("3_0o0es")

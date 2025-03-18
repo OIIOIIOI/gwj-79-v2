@@ -12,4 +12,4 @@ enum DIALOG_CHUNK_STYLE {
 @export var sprite: Texture2D = null
 @export var text := ""
 @export var style: DialogChunk.DIALOG_CHUNK_STYLE = DIALOG_CHUNK_STYLE.Normal
-@export var actions: Array[GameAction] = []
+@export var actions: Array[Action] = []

@@ -20,6 +20,7 @@ run/max_fps=60
 GameEnums="*res://autoload/game_enums.gd"
 GameEvents="*res://autoload/game_events.gd"
 SceneTransition="*res://autoload/scene_transition.tscn"
+GameData="*res://autoload/game_data.gd"
 
 [debug]
 

@@ -17,33 +17,25 @@ func _process(_delta: float) -> void:
 		activate_closest_interactable()
 
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_pressed(&"action"):
-		#print("InteractionManager _unhandled_input")
-	#if can_interact && event.is_action_pressed(&"action"):
-		#get_viewport().set_input_as_handled()
-		#activate_closest_interactable()
-
-
 func activate_closest_interactable() -> void:
-	var all_active := get_active_interactables()
-	#print("Found ", all_active.size(), " interactables")
-	var closest := get_closest_interactable(all_active)
+	var all_valid := get_valid_interactables()
+	#print("Found ", all_valid.size(), " valid interactables")
+	var closest := get_closest_interactable(all_valid)
 	if closest:
 		print("Closest: ", closest.name)
 		activate_interactable(closest)
 
 
-func get_active_interactables() -> Array[InteractionComponent]:
-	var active_interactables: Array[InteractionComponent] = []
+func get_valid_interactables() -> Array[InteractionComponent]:
+	var valid_interactables: Array[InteractionComponent] = []
 
 	var interactables = get_tree().get_nodes_in_group(&"interactables")
 	for interactable in interactables:
 		if interactable is InteractionComponent:
-			if interactable.is_in_range:
-				active_interactables.append(interactable)
+			if interactable.is_valid():
+				valid_interactables.append(interactable)
 
-	return active_interactables
+	return valid_interactables
 
 
 func get_closest_interactable(interactables: Array[InteractionComponent]) -> InteractionComponent:
@@ -68,19 +60,14 @@ func get_closest_interactable(interactables: Array[InteractionComponent]) -> Int
 
 
 func activate_interactable(interactable: InteractionComponent) -> void:
-	#print("Activating ", interactable.name)
+	# Start dialog if possible
 	if interactable.dialog && dialog_ui:
 		dialog_ui.start_dialog(interactable.dialog)
 
+	# Execute immediate actions if needed
 	if interactable.actions:
 		for action in interactable.actions:
-			execute_action(action)
-
-
-func execute_action(action:GameAction) -> void:
-	match action:
-		_:
-			print(action.name, ": ", action.value)
+			GameEvents.execute_action(action)
 
 
 func on_dialog_started() -> void:

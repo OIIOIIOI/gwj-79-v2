@@ -97,6 +97,11 @@ func display_current_chunk() -> void:
 	visible = false
 	visible = true
 
+	# Execute chunk actions
+	if chunk.actions.size() > 0:
+		for action in chunk.actions:
+			GameEvents.execute_action(action)
+
 
 func display_next_chunk() -> void:
 	if current_chunk_index < current_dialog.chunks.size() - 1:

@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceqi82i6u6pkp"]
+[gd_scene load_steps=14 format=3 uid="uid://ceqi82i6u6pkp"]
 
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="1_7ivpw"]
+[ext_resource type="Resource" uid="uid://bjnfa1aj6pb1n" path="res://resources/dialogs/cube_dialog.tres" id="2_qdubf"]
 [ext_resource type="Resource" uid="uid://jeoopaiy6ghn" path="res://resources/dialogs/cube_dialog_2.tres" id="2_yei84"]
+[ext_resource type="Script" path="res://resources/condition.gd" id="2_ysnj1"]
+[ext_resource type="Resource" uid="uid://bjyfg7cnuen13" path="res://resources/dialogs/cube_dialog_3.tres" id="5_u1af2"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ojx1x"]
 
@@ -18,6 +21,21 @@ emission_enabled = true
 emission = Color(1, 0, 0, 1)
 rim = 0.05
 rim_tint = 0.19
+
+[sub_resource type="Resource" id="Resource_3v123"]
+script = ExtResource("2_ysnj1")
+type = 0
+value = "step_zero"
+
+[sub_resource type="Resource" id="Resource_3cedf"]
+script = ExtResource("2_ysnj1")
+type = 0
+value = "step_one"
+
+[sub_resource type="Resource" id="Resource_oobxw"]
+script = ExtResource("2_ysnj1")
+type = 0
+value = "step_two"
 
 [node name="TownSquare" type="Node3D"]
 
@@ -41,7 +59,20 @@ shape = SubResource("BoxShape3D_mp5tw")
 mesh = SubResource("BoxMesh_sfaif")
 surface_material_override/0 = SubResource("StandardMaterial3D_wccme")
 
-[node name="CubeIC" parent="Cube" instance=ExtResource("1_7ivpw")]
+[node name="ICStepZero" parent="Cube" instance=ExtResource("1_7ivpw")]
 collision_layer = 4
 collision_mask = 2
+condition = SubResource("Resource_3v123")
+dialog = ExtResource("2_qdubf")
+
+[node name="ICStepOne" parent="Cube" instance=ExtResource("1_7ivpw")]
+collision_layer = 4
+collision_mask = 2
+condition = SubResource("Resource_3cedf")
 dialog = ExtResource("2_yei84")
+
+[node name="ICStepTwo" parent="Cube" instance=ExtResource("1_7ivpw")]
+collision_layer = 4
+collision_mask = 2
+condition = SubResource("Resource_oobxw")
+dialog = ExtResource("5_u1af2")
