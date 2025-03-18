@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MemoryItem" load_steps=4 format=3 uid="uid://cshudplmct2nb"]
+
+[ext_resource type="Script" path="res://resources/memory/memory_item.gd" id="1_e5rpw"]
+
+[sub_resource type="Gradient" id="Gradient_ey7eg"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.501961, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5eg25"]
+gradient = SubResource("Gradient_ey7eg")
+fill_to = Vector2(0, 1)
+
+[resource]
+script = ExtResource("1_e5rpw")
+sprite = SubResource("GradientTexture2D_5eg25")

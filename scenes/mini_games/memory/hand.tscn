@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1fertlpkhf3p"]
+
+[ext_resource type="Script" path="res://scenes/mini_games/memory/hand.gd" id="1_pkl4v"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xlgev"]
+size = Vector2(128, 2048)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1no27"]
+radius = 48.0
+
+[node name="Hand" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_pkl4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 960)
+texture = SubResource("PlaceholderTexture2D_xlgev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1no27")
