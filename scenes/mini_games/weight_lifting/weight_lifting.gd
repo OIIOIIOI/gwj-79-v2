@@ -79,14 +79,17 @@ func _process(delta: float) -> void:
 			end_game()
 
 
-func get_progress() -> float:
+func get_progress(clamped := true) -> float:
 	var r = inverse_lerp(start_marker.global_position.y, end_marker.global_position.y, arm.global_position.y)
-	return abs(clampf(r, 0.25, 1.0))
+	if clamped:
+		return absf(clampf(r, 0.25, 1.0))
+	else:
+		return absf(clampf(r, 0.0, 1.0))
 
 
 func get_hold_progress() -> float:
 	var r = inverse_lerp(0.0, WIN_HOLD_DURATION, held_time)
-	return abs(clampf(r, 0.0, 1.0))
+	return absf(clampf(r, 0.0, 1.0))
 
 
 func reset_visuals() -> void:
