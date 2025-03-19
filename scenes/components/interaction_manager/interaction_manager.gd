@@ -13,16 +13,16 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if can_interact && Input.is_action_just_pressed(&"action"):
-		print("InteractionManager Action detected")
+		#print("InteractionManager Action detected")
 		activate_closest_interactable()
 
 
 func activate_closest_interactable() -> void:
 	var all_valid := get_valid_interactables()
-	print("Found ", all_valid.size(), " valid interactables")
+	#print("Found ", all_valid.size(), " valid interactables")
 	var closest := get_closest_interactable(all_valid)
 	if closest:
-		print("Closest: ", closest.name)
+		#print("Closest: ", closest.name)
 		activate_interactable(closest)
 
 
@@ -30,7 +30,6 @@ func get_valid_interactables() -> Array[InteractionComponent]:
 	var valid_interactables: Array[InteractionComponent] = []
 
 	var interactables = get_tree().get_nodes_in_group(&"interactables")
-	print("interactables: ", interactables.size())
 	for interactable in interactables:
 		if interactable is InteractionComponent:
 			if interactable.is_valid():

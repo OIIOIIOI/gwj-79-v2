@@ -28,7 +28,7 @@ func reset_ui() -> void:
 
 func _process(_delta: float) -> void:
 	if is_active && Input.is_action_just_pressed(&"action"):
-		print("DialogUI Action detected: ", current_dialog)
+		#print("DialogUI Action detected: ", current_dialog)
 		display_next_chunk()
 
 
@@ -63,39 +63,41 @@ func end_dialog() -> void:
 func display_current_chunk() -> void:
 	var chunk := current_dialog.chunks[current_chunk_index]
 
-	# Set text style and content
-	#text_label.text = ""
-	text_label.clear()
-	match chunk.style:
-		DialogChunk.DIALOG_CHUNK_STYLE.Comment:
-			text_label.push_italics()
-			text_label.append_text(chunk.text)
-			text_label.pop()
-		DialogChunk.DIALOG_CHUNK_STYLE.Red:
-			text_label.push_bold()
-			text_label.push_color(Color.RED)
-			text_label.append_text(chunk.text)
-			text_label.pop_all()
-		_:
-			text_label.append_text(chunk.text)
-
-	# Show speaker name if specified
-	if !chunk.speaker_name.is_empty():
-		name_label.text = chunk.speaker_name
-		name_panel.visible = true
+	if chunk.text.is_empty():
+		visible = false
 	else:
-		name_label.text = ""
-		name_panel.visible = false
+		# Set text style and content
+		text_label.clear()
+		match chunk.style:
+			DialogChunk.DIALOG_CHUNK_STYLE.Comment:
+				text_label.push_italics()
+				text_label.append_text(chunk.text)
+				text_label.pop()
+			DialogChunk.DIALOG_CHUNK_STYLE.Red:
+				text_label.push_bold()
+				text_label.push_color(Color.RED)
+				text_label.append_text(chunk.text)
+				text_label.pop_all()
+			_:
+				text_label.append_text(chunk.text)
 
-	# Set speaker sprite if specified
-	if chunk.sprite:
-		speaker_sprite.texture = chunk.sprite
-	else:
-		speaker_sprite.texture = null
+		# Show speaker name if specified
+		if !chunk.speaker_name.is_empty():
+			name_label.text = chunk.speaker_name
+			name_panel.visible = true
+		else:
+			name_label.text = ""
+			name_panel.visible = false
 
-	# Force a layout refresh to fix positioning bug
-	visible = false
-	visible = true
+		# Set speaker sprite if specified
+		if chunk.sprite:
+			speaker_sprite.texture = chunk.sprite
+		else:
+			speaker_sprite.texture = null
+
+		# Force a layout refresh to fix positioning bug
+		visible = false
+		visible = true
 
 	# Execute chunk actions
 	if chunk.actions.size() > 0:

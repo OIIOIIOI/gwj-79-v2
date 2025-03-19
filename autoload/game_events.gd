@@ -7,7 +7,7 @@ signal step_added(step: String)
 
 
 func execute_action(action:Action) -> void:
-	print("GameEvents execute_action: ", action.type, " ", action.value)
+	#print("GameEvents execute_action: ", action.type, " ", action.value)
 	match action.type:
 		Action.ACTION_TYPE.AddStep:
 			step_added.emit(action.value)

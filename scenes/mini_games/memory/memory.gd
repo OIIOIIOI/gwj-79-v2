@@ -186,11 +186,13 @@ func check_results() -> void:
 	var first_drawer = opened_drawers[0]
 	var second_drawer = opened_drawers[1]
 	if first_drawer.item == second_drawer.item:
-		for drawer in opened_drawers:
-			drawer.fade()
+		first_drawer.fade()
+		await get_tree().create_timer(0.1).timeout
+		second_drawer.fade()
 	else:
-		for drawer in opened_drawers:
-			drawer.close()
+		first_drawer.close()
+		await get_tree().create_timer(0.1).timeout
+		second_drawer.close()
 
 	await second_drawer.animation_player.animation_finished
 
@@ -203,7 +205,6 @@ func check_results() -> void:
 
 
 func end_game() -> void:
-	print("GAME FINISHED")
 	game_state = GAME_STATE.End
 
 	await get_tree().create_timer(0.5).timeout

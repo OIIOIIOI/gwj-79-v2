@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ceqi82i6u6pkp"]
+[gd_scene load_steps=17 format=3 uid="uid://ceqi82i6u6pkp"]
 
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="1_7ivpw"]
 [ext_resource type="Resource" uid="uid://bjnfa1aj6pb1n" path="res://resources/dialogs/cube_dialog.tres" id="2_qdubf"]
 [ext_resource type="Resource" uid="uid://jeoopaiy6ghn" path="res://resources/dialogs/cube_dialog_2.tres" id="2_yei84"]
 [ext_resource type="Script" path="res://resources/condition.gd" id="2_ysnj1"]
 [ext_resource type="Resource" uid="uid://bjyfg7cnuen13" path="res://resources/dialogs/cube_dialog_3.tres" id="5_u1af2"]
-[ext_resource type="Script" path="res://resources/action.gd" id="6_1q3fb"]
+[ext_resource type="Resource" uid="uid://23beltuymyb6" path="res://resources/dialogs/memory_dialog.tres" id="6_7gcys"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ojx1x"]
 
@@ -43,11 +43,6 @@ value = "step_two"
 [sub_resource type="CylinderMesh" id="CylinderMesh_4wmg4"]
 top_radius = 0.3
 height = 1.8
-
-[sub_resource type="Resource" id="Resource_nu502"]
-script = ExtResource("6_1q3fb")
-type = 1
-value = "scene_memory"
 
 [node name="TownSquare" type="Node3D"]
 
@@ -96,5 +91,5 @@ mesh = SubResource("CylinderMesh_4wmg4")
 surface_material_override/0 = SubResource("StandardMaterial3D_wccme")
 
 [node name="ICMemory" parent="StaticBody3D" instance=ExtResource("1_7ivpw")]
-actions = Array[ExtResource("6_1q3fb")]([SubResource("Resource_nu502")])
+dialog = ExtResource("6_7gcys")
 radius = 1.5
