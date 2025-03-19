@@ -15,7 +15,7 @@ enum GAME_STATE {
 
 
 var game_state: GAME_STATE = GAME_STATE.Initializing
-var target_position := Vector2.ZERO
+var arm_target_position := Vector2.ZERO
 var held_time := 0.0
 
 
@@ -39,13 +39,13 @@ func _ready() -> void:
 
 
 func animate_start() -> void:
-	target_position = start_marker.global_position
+	arm_target_position = start_marker.global_position
 
 	var tween := create_tween()
 	tween.set_parallel()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(arm, ^"global_position", target_position, 1.0)
+	tween.tween_property(arm, ^"global_position", arm_target_position, 1.0)
 
 	await tween.finished
 
@@ -56,14 +56,14 @@ func _process(delta: float) -> void:
 	if game_state == GAME_STATE.Ready:
 		# Handle action
 		if Input.is_action_just_pressed(&"action"):
-			target_position.y -= UP_SPEED * (1.0 - get_progress())
+			arm_target_position.y -= UP_SPEED * (1.0 - get_progress())
 		# Move down
-		if (target_position.y < start_marker.global_position.y):
-			target_position.y += DOWN_SPEED * delta
+		if (arm_target_position.y < start_marker.global_position.y):
+			arm_target_position.y += DOWN_SPEED * delta
 
 		# Clamp and update
-		target_position.y = clampf(target_position.y, end_marker.global_position.y, start_marker.global_position.y)
-		arm.global_position = target_position
+		arm_target_position.y = clampf(arm_target_position.y, end_marker.global_position.y, start_marker.global_position.y)
+		arm.global_position = arm_target_position
 
 		# Update win progress
 		if get_progress() >= WIN_HOLD_THRESHOLD:
