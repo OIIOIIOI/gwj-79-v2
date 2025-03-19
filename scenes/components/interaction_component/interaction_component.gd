@@ -23,18 +23,19 @@ func _ready() -> void:
 
 
 func on_body_entered(body: Node3D) -> void:
-	#print("on_body_entered", body.name)
+	print("on_body_entered", body.name)
 	if body is Player:
 		is_in_range = true
 
 
 func on_body_exited(body: Node3D) -> void:
-	#print("on_body_exited", body.name)
+	print("on_body_exited", body.name)
 	if body is Player:
 		is_in_range = false
 
 
 func is_valid() -> bool:
+	print("check validity: ", name, ": ", is_in_range)
 	if condition:
 		return is_in_range && condition.check()
 	return is_in_range

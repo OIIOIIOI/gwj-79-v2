@@ -11,8 +11,6 @@ enum GAME_STATE {
 	Moving,
 	Opening,
 	Checking,
-	Fail,
-	Success,
 	End,
 }
 
@@ -98,7 +96,7 @@ func _process(_delta: float) -> void:
 		move_hand(cardinal_direction)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if game_state == GAME_STATE.Opening || game_state == GAME_STATE.Checking:
 		hand.global_position = current_drawer.hand_target.global_position
 
@@ -199,6 +197,15 @@ func check_results() -> void:
 	opened_drawers.clear()
 
 	if (count_gone_drawers() == drawers.size()):
-		print("GAME FINISHED")
+		end_game()
 	else:
 		game_state = GAME_STATE.Ready
+
+
+func end_game() -> void:
+	print("GAME FINISHED")
+	game_state = GAME_STATE.End
+
+	await get_tree().create_timer(0.5).timeout
+
+	SceneTransition.transition_to(SceneTransition.SCENE_MAIN)

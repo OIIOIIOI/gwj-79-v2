@@ -4,6 +4,17 @@ extends CanvasLayer
 signal transition_halfway
 
 
+const SCENE_TITLE := "scene_title"
+const SCENE_MAIN := "scene_main"
+const SCENE_MEMORY := "scene_memory"
+
+const scenes: Dictionary = {
+	SCENE_TITLE: preload("res://scenes/ui/title_screen/title_screen.tscn"),
+	SCENE_MAIN: preload("res://scenes/main/main.tscn"),
+	SCENE_MEMORY: preload("res://scenes/mini_games/memory/memory.tscn"),
+}
+
+
 var skip_emit = false
 
 
@@ -36,19 +47,6 @@ func transition_to_packed(scene: PackedScene, paused: bool = false):
 	get_tree().change_scene_to_packed(scene)
 
 
-#func transition_to_location(location: GameEnums.WARP_LOCATION):
-	transition()
-
-	await transition_halfway
-
-	get_tree().paused = false
-
-	#match location:
-		#0: get_tree().change_scene_to_packed(location_town_square)
-		#1: get_tree().change_scene_to_packed(location_library)
-		#_: get_tree().change_scene_to_packed(title_scene)
-
-
-func transition_to_title():
-	#transition_to_packed(title_scene)
-	pass
+func transition_to(scene_name: String) -> void:
+	if scenes.has(scene_name):
+		transition_to_packed(scenes.get(scene_name))

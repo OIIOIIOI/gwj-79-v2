@@ -11,5 +11,7 @@ func execute_action(action:Action) -> void:
 	match action.type:
 		Action.ACTION_TYPE.AddStep:
 			step_added.emit(action.value)
+		Action.ACTION_TYPE.LoadScene:
+			SceneTransition.transition_to(action.value)
 		_:
 			print("Unknown Action type: ", action.type, " with value: ", action.value)

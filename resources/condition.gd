@@ -12,6 +12,7 @@ enum CONDITION_TYPE {
 
 
 func check() -> bool:
+	print("Check condition: ", type, " - ", value)
 	match type:
 		CONDITION_TYPE.CurrentStepIs:
 			print("CHECK CurrentStepIs: ", GameData.steps.back(), ", expected: ", value)

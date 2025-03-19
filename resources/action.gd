@@ -4,6 +4,7 @@ class_name Action
 
 enum ACTION_TYPE {
 	AddStep,
+	LoadScene,
 }
 
 
