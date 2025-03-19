@@ -111,13 +111,14 @@ func sync_mayor_position(progress: float) -> void:
 func end_game() -> void:
 	game_state = GAME_STATE.End
 
+	var tween_duration := 1.0
 	var tween := create_tween()
 	tween.set_parallel()
 	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(mayor_arm, ^"global_position", mayor_win_marker.global_position, 0.5)
-	tween.tween_property(mayor_arm, ^"rotation", mayor_win_marker.rotation, 0.5)
-	tween.tween_property(mayor_arm, ^"scale", mayor_win_marker.scale, 0.5)
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(mayor_arm, ^"global_position", mayor_win_marker.global_position, tween_duration)
+	tween.tween_property(mayor_arm, ^"rotation", mayor_win_marker.rotation, tween_duration)
+	tween.tween_property(mayor_arm, ^"scale", mayor_win_marker.scale, tween_duration)
 
 	await tween.finished
 	await get_tree().create_timer(0.75).timeout
