@@ -2,12 +2,15 @@ extends Node2D
 class_name Memory
 
 
-const HAND_SPEED := 10.0
+const HAND_MOVE_DURATION := 0.3
 const HAND_ROTATION := 15.0
+
 enum GAME_STATE {
-	Start,
+	Initializing,
 	Ready,
 	Moving,
+	Opening,
+	Checking,
 	Fail,
 	Success,
 	End,
@@ -17,22 +20,17 @@ enum GAME_STATE {
 @export var items: MemoryItems
 
 var drawers: Array[Drawer]
-var hovered_drawers: Array[Drawer] = []
 var opened_drawers: Array[Drawer] = []
 var current_drawer: Drawer
-var game_state: GAME_STATE = GAME_STATE.Start
+var game_state: GAME_STATE = GAME_STATE.Initializing
 
 
-@onready var hand: Area2D = $Hand
+@onready var hand: Hand = $Hand
 
 
 func _ready() -> void:
 	drawers = get_all_drawers()
 	assign_items()
-
-	hand.area_entered.connect(on_hand_area_entered)
-	hand.area_exited.connect(on_hand_area_exited)
-
 	animate_start()
 
 
@@ -43,6 +41,14 @@ func get_all_drawers() -> Array[Drawer]:
 		if node is Drawer:
 			valid_drawers.append(node)
 	return valid_drawers
+
+
+func count_gone_drawers() -> int:
+	var i = 0
+	for drawer in drawers:
+		if drawer.is_gone:
+			i += 1
+	return i
 
 
 func assign_items() -> void:
@@ -62,7 +68,7 @@ func assign_items() -> void:
 func animate_start() -> void:
 	current_drawer = drawers.pick_random() as Drawer
 	var screen_half_width := get_viewport().get_visible_rect().size.x * 0.5
-	var hand_position := current_drawer.global_position
+	var hand_position := current_drawer.hand_target.global_position
 	var hand_rotation: float = inverse_lerp(0.0, screen_half_width, hand_position.x) * HAND_ROTATION
 
 	game_state = GAME_STATE.Moving
@@ -83,14 +89,18 @@ func _process(_delta: float) -> void:
 	if game_state == GAME_STATE.Ready:
 		# Handle action
 		if Input.is_action_just_pressed(&"action"):
-			if current_drawer:
-				current_drawer.toggle()
-			#if hovered_drawers.size() > 0:
-				#hovered_drawers.back().toggle()
+			if current_drawer && !current_drawer.is_open:
+				open_drawer(current_drawer)
+
 		# Handle move
 		var input_dir := Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
 		var cardinal_direction = get_cardinal_direction(input_dir)
 		move_hand(cardinal_direction)
+
+
+func _physics_process(delta: float) -> void:
+	if game_state == GAME_STATE.Opening || game_state == GAME_STATE.Checking:
+		hand.global_position = current_drawer.hand_target.global_position
 
 
 func get_cardinal_direction(direction: Vector2) -> Vector2:
@@ -111,69 +121,84 @@ func get_cardinal_direction(direction: Vector2) -> Vector2:
 	return Vector2.ZERO
 
 
-func _physics_process(delta: float) -> void:
-	pass
-	# Move and rotate hand
-	#if game_state == GAME_STATE.Playing:
-		#var screen_half_width := get_viewport().get_visible_rect().size.x * 0.5
-		#var hand_position := current_drawer.global_position
-		#var hand_rotation: float = inverse_lerp(0.0, screen_half_width, hand_position.x) * HAND_ROTATION
-		#hand.global_position = hand.global_position.lerp(hand_position, 1.0 - exp(-delta * HAND_SPEED))
-		#hand.global_rotation_degrees = hand_rotation
-
-
-func move_hand(direction: Vector2) -> void:
+func get_target_drawer(from: Drawer, direction: Vector2) -> Drawer:
 	var target_drawer: Drawer = null
 	match direction:
 		Vector2.UP:
-			if current_drawer.up_drawer:
-				target_drawer = current_drawer.up_drawer
+			if from.up_drawer:
+				target_drawer = from.up_drawer
 		Vector2.RIGHT:
-			if current_drawer.right_drawer:
-				target_drawer = current_drawer.right_drawer
+			if from.right_drawer:
+				target_drawer = from.right_drawer
 		Vector2.DOWN:
-			if current_drawer.down_drawer:
-				target_drawer = current_drawer.down_drawer
+			if from.down_drawer:
+				target_drawer = from.down_drawer
 		Vector2.LEFT:
-			if current_drawer.left_drawer:
-				target_drawer = current_drawer.left_drawer
-		_: return
+			if from.left_drawer:
+				target_drawer = from.left_drawer
+		_: return null
 
+	#if target_drawer.is_gone || target_drawer.is_open:
+		#return get_target_drawer(target_drawer, direction)
+
+	return target_drawer
+
+
+func move_hand(direction: Vector2) -> void:
+	var target_drawer: Drawer = get_target_drawer(current_drawer, direction)
 	if target_drawer && target_drawer != current_drawer:
 		game_state = GAME_STATE.Moving
 		current_drawer = target_drawer
 
 		var screen_half_width := get_viewport().get_visible_rect().size.x * 0.5
-		var hand_position := current_drawer.global_position
+		var hand_position := current_drawer.hand_target.global_position
 		var hand_rotation: float = inverse_lerp(0.0, screen_half_width, hand_position.x) * HAND_ROTATION
 
 		var tween := create_tween()
 		tween.set_parallel()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(hand, ^"global_position", hand_position, 0.5)
-		tween.tween_property(hand, ^"global_rotation_degrees", hand_rotation, 0.5)
+		tween.tween_property(hand, ^"global_position", hand_position, HAND_MOVE_DURATION)
+		tween.tween_property(hand, ^"global_rotation_degrees", hand_rotation, HAND_MOVE_DURATION)
 
 		await tween.finished
 
 		game_state = GAME_STATE.Ready
 
 
-func on_hand_area_entered(area: Area2D) -> void:
-	if area is Drawer:
-		# Stop highlighting other drawers
-		for drawer in hovered_drawers:
-			drawer.highlight(false)
-		# Add new drawer and highlight it
-		hovered_drawers.append(area)
-		area.highlight()
+func open_drawer(drawer: Drawer) -> void:
+	game_state = GAME_STATE.Opening
+
+	drawer.open()
+	await drawer.animation_player.animation_finished
+
+	opened_drawers.append(drawer)
+	check_results()
 
 
-func on_hand_area_exited(area: Area2D) -> void:
-	if area is Drawer:
-		# Remove from list and stop highlighting
-		hovered_drawers.erase(area)
-		area.highlight(false)
-		# Highlight next latest drawer instead
-		if hovered_drawers.size() > 0:
-			hovered_drawers.back().highlight()
+func check_results() -> void:
+	game_state = GAME_STATE.Checking
+
+	if opened_drawers.size() < 2:
+		game_state = GAME_STATE.Ready
+		return
+
+	await get_tree().create_timer(0.5).timeout
+
+	var first_drawer = opened_drawers[0]
+	var second_drawer = opened_drawers[1]
+	if first_drawer.item == second_drawer.item:
+		for drawer in opened_drawers:
+			drawer.fade()
+	else:
+		for drawer in opened_drawers:
+			drawer.close()
+
+	await second_drawer.animation_player.animation_finished
+
+	opened_drawers.clear()
+
+	if (count_gone_drawers() == drawers.size()):
+		print("GAME FINISHED")
+	else:
+		game_state = GAME_STATE.Ready

@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 class_name Drawer
 
 
@@ -8,6 +8,7 @@ class_name Drawer
 @export var left_drawer: Drawer
 
 
+var item: MemoryItem
 var is_open := false
 var is_gone := false
 
@@ -15,9 +16,11 @@ var is_gone := false
 @onready var item_sprite: Sprite2D = $Visuals/Item
 @onready var front_sprite: Sprite2D = $Visuals/Front
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hand_target: Marker2D = %HandTarget
 
 
-func assign_item(item: MemoryItem) -> void:
+func assign_item(memory_item: MemoryItem) -> void:
+	item = memory_item
 	item_sprite.texture = item.sprite
 
 
@@ -25,12 +28,19 @@ func highlight(active: bool = true) -> void:
 	front_sprite.modulate = Color.PINK if active else Color.WHITE
 
 
-func toggle() -> void:
-	if is_open:
-		animation_player.play_backwards(&"open")
-	else:
-		animation_player.play(&"open")
+func open() -> void:
+	animation_player.play(&"open")
+	await animation_player.animation_finished
+	is_open = true
 
 
-func set_is_open(value: bool) -> void:
-	is_open = value
+func close() -> void:
+	animation_player.play_backwards(&"open")
+	await animation_player.animation_finished
+	is_open = false
+
+
+func fade() -> void:
+	animation_player.play(&"fade")
+	await animation_player.animation_finished
+	is_gone = true
