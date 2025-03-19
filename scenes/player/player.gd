@@ -11,11 +11,16 @@ const SPEED = 4.0
 
 @onready var visuals: Node3D = $Visuals
 @onready var camera_controller: Node3D = $CameraController
+@onready var footsteps_sfx: AudioStreamPlayer = $SFX/Footsteps/FootstepsSFX
+@onready var footsteps_timer: Timer = $SFX/Footsteps/FootstepsTimer
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
 	visuals.scale.x = -1.0 if facing_left else 1.0
+
+	footsteps_timer.timeout.connect(on_footsteps_timer_timeout)
+	footsteps_sfx.volume_db = linear_to_db(0.5)
 
 	GameEvents.dialog_started.connect(on_dialog_started)
 	GameEvents.dialog_ended.connect(on_dialog_ended)
@@ -35,10 +40,15 @@ func _physics_process(delta: float) -> void:
 		#animation_player.play(&"walk")
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		# Start footsteps SFX timer
+		if footsteps_timer.is_stopped():
+			footsteps_timer.start(0.05)
 	else:
 		#animation_player.play(&"idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		# Stop footsteps SFX timer
+		footsteps_timer.stop()
 
 	if direction.x < -0.05:
 		visuals.scale.x = -1.0
@@ -59,3 +69,9 @@ func on_dialog_started() -> void:
 
 func on_dialog_ended() -> void:
 	can_move = true
+
+
+func on_footsteps_timer_timeout() -> void:
+	if !footsteps_sfx.playing:
+		footsteps_sfx.play()
+	footsteps_timer.start(0.5)

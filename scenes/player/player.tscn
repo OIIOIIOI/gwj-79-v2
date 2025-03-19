@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm7lmhrturpas"]
+[gd_scene load_steps=9 format=3 uid="uid://bm7lmhrturpas"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_35mox"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wluhy"]
-size = Vector2(100, 180)
+[ext_resource type="Texture2D" uid="uid://b61epxgvpghab" path="res://assets/sprites/characters/hero_test.png" id="2_b6fhm"]
+[ext_resource type="AudioStream" uid="uid://b4iqh7bju51g7" path="res://assets/sfx/Foot1_footsteps.wav" id="2_dbkc0"]
+[ext_resource type="AudioStream" uid="uid://dk3skip6o22wl" path="res://assets/sfx/Foot2_footsteps.wav" id="3_ewqyh"]
+[ext_resource type="AudioStream" uid="uid://cq4akvw4xnkju" path="res://assets/sfx/Foot3_footsteps.wav" id="4_7woif"]
+[ext_resource type="AudioStream" uid="uid://c1gtlok2g04fk" path="res://assets/sfx/Foot4_footsteps.wav" id="5_mtrc3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_21n38"]
 size = Vector3(1, 1.8, 0.2)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hdsop"]
+random_pitch = 1.5
+streams_count = 4
+stream_0/stream = ExtResource("2_dbkc0")
+stream_1/stream = ExtResource("3_ewqyh")
+stream_2/stream = ExtResource("4_7woif")
+stream_3/stream = ExtResource("5_mtrc3")
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
@@ -14,13 +24,15 @@ collision_mask = 13
 script = ExtResource("1_35mox")
 
 [node name="Visuals" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Visuals"]
-modulate = Color(0, 0, 0, 1)
-transparent = false
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+centered = false
+offset = Vector2(-200, 0)
+flip_h = true
 double_sided = false
-texture = SubResource("PlaceholderTexture2D_wluhy")
+alpha_cut = 2
+texture = ExtResource("2_b6fhm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -33,3 +45,13 @@ top_level = true
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 3)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Footsteps" type="Node" parent="SFX"]
+
+[node name="FootstepsSFX" type="AudioStreamPlayer" parent="SFX/Footsteps"]
+stream = SubResource("AudioStreamRandomizer_hdsop")
+
+[node name="FootstepsTimer" type="Timer" parent="SFX/Footsteps"]
+one_shot = true
