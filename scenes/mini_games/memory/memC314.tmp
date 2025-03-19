@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://32jtbmml0n67"]
+
+[ext_resource type="Script" path="res://scenes/mini_games/memory/memory.gd" id="1_gecvb"]
+[ext_resource type="Script" path="res://resources/memory/memory_item.gd" id="2_fl2bh"]
+[ext_resource type="Resource" uid="uid://cshudplmct2nb" path="res://resources/memory/item_a.tres" id="3_r1bxh"]
+[ext_resource type="Resource" uid="uid://c5amv5ht4uoyj" path="res://resources/memory/item_b.tres" id="4_57gqg"]
+[ext_resource type="Resource" uid="uid://blicbk761dur6" path="res://resources/memory/item_c.tres" id="5_d33bg"]
+[ext_resource type="Resource" uid="uid://v0gni2m8eufp" path="res://resources/memory/item_d.tres" id="6_bmhjn"]
+[ext_resource type="Resource" uid="uid://o1wj7sani4k1" path="res://resources/memory/item_e.tres" id="7_vbcd2"]
+[ext_resource type="PackedScene" uid="uid://u8tdxwhl1u6q" path="res://scenes/mini_games/memory/drawer.tscn" id="8_d2pkd"]
+[ext_resource type="PackedScene" uid="uid://b1fertlpkhf3p" path="res://scenes/mini_games/memory/hand.tscn" id="9_abgmd"]
+
+[sub_resource type="Gradient" id="Gradient_2qu8h"]
+colors = PackedColorArray(0.48, 0.27576, 0.1488, 1, 0.478431, 0.27451, 0.14902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m3ib0"]
+gradient = SubResource("Gradient_2qu8h")
+width = 1920
+height = 128
+
+[node name="Memory" type="Node2D"]
+script = ExtResource("1_gecvb")
+items = Array[ExtResource("2_fl2bh")]([ExtResource("3_r1bxh"), ExtResource("4_57gqg"), ExtResource("5_d33bg"), ExtResource("6_bmhjn"), ExtResource("7_vbcd2")])
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1, 8.5)
+texture = SubResource("GradientTexture2D_m3ib0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BottomRow" type="Node2D" parent="."]
+position = Vector2(-32, 128)
+
+[node name="Drawer1" parent="BottomRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(-640, 0)
+
+[node name="Drawer2" parent="BottomRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(-192, 0)
+
+[node name="Drawer3" parent="BottomRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(256, 0)
+
+[node name="Drawer4" parent="BottomRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(704, 0)
+
+[node name="OverlayBottom" type="Node2D" parent="."]
+position = Vector2(0, 192)
+
+[node name="Sprite2D" type="Sprite2D" parent="OverlayBottom"]
+texture = SubResource("GradientTexture2D_m3ib0")
+
+[node name="MiddleRow" type="Node2D" parent="."]
+position = Vector2(-32, -128)
+
+[node name="Drawer1" parent="MiddleRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(-640, 0)
+
+[node name="CentralDrawer" parent="MiddleRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(32, 0)
+scale = Vector2(2.167, 1)
+
+[node name="Drawer2" parent="MiddleRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(704, 0)
+
+[node name="OverlayMiddle" type="Node2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="Sprite2D" type="Sprite2D" parent="OverlayMiddle"]
+texture = SubResource("GradientTexture2D_m3ib0")
+
+[node name="TopRow" type="Node2D" parent="."]
+position = Vector2(-32, -384)
+
+[node name="Drawer1" parent="TopRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(-640, 0)
+
+[node name="Drawer2" parent="TopRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(-192, 0)
+
+[node name="Drawer3" parent="TopRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(256, 0)
+
+[node name="Drawer4" parent="TopRow" instance=ExtResource("8_d2pkd")]
+position = Vector2(704, 0)
+
+[node name="OverlayTop" type="Node2D" parent="."]
+position = Vector2(0, -384)
+
+[node name="Sprite2D" type="Sprite2D" parent="OverlayTop"]
+scale = Vector2(1, 2)
+texture = SubResource("GradientTexture2D_m3ib0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="OverlayTop"]
+position = Vector2(-3.05176e-05, 192)
+scale = Vector2(0.0333333, 1)
+texture = SubResource("GradientTexture2D_m3ib0")
+
+[node name="Hand" parent="." instance=ExtResource("9_abgmd")]

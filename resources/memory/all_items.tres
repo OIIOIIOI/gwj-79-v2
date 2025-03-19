@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MemoryItems" load_steps=8 format=3 uid="uid://24huqm6j6v0p"]
+
+[ext_resource type="Script" path="res://resources/memory/memory_item.gd" id="1_gtcrd"]
+[ext_resource type="Resource" uid="uid://cshudplmct2nb" path="res://resources/memory/item_a.tres" id="2_2785q"]
+[ext_resource type="Resource" uid="uid://c5amv5ht4uoyj" path="res://resources/memory/item_b.tres" id="3_nbx2o"]
+[ext_resource type="Resource" uid="uid://blicbk761dur6" path="res://resources/memory/item_c.tres" id="4_nphvw"]
+[ext_resource type="Resource" uid="uid://v0gni2m8eufp" path="res://resources/memory/item_d.tres" id="5_5gev6"]
+[ext_resource type="Resource" uid="uid://o1wj7sani4k1" path="res://resources/memory/item_e.tres" id="6_bki74"]
+[ext_resource type="Script" path="res://resources/memory/memory_items.gd" id="7_axs88"]
+
+[resource]
+script = ExtResource("7_axs88")
+list = Array[ExtResource("1_gtcrd")]([ExtResource("2_2785q"), ExtResource("3_nbx2o"), ExtResource("4_nphvw"), ExtResource("5_5gev6"), ExtResource("6_bki74")])

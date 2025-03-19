@@ -13,7 +13,7 @@ collision_layer = 2
 script = ExtResource("1_pkl4v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 960)
+position = Vector2(0, 992)
 texture = SubResource("PlaceholderTexture2D_xlgev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
