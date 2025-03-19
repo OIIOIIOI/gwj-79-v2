@@ -110,3 +110,4 @@ rotation = 0.261799
 scale = Vector2(1.35, 1.35)
 
 [node name="PauseScreen" parent="." instance=ExtResource("2_ro1h3")]
+visible = false

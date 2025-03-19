@@ -1,17 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwyq2cqf6ldqj"]
+[gd_scene load_steps=7 format=3 uid="uid://dwyq2cqf6ldqj"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/hammer_time/hammer_time.gd" id="1_2tw1a"]
 [ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="2_ueuri"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pug42"]
-size = Vector2(4, 4)
+[sub_resource type="Gradient" id="Gradient_hr63p"]
+colors = PackedColorArray(0.701961, 0.584314, 0.509804, 1, 0.701961, 0.584314, 0.509804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_10a6r"]
+gradient = SubResource("Gradient_hr63p")
+width = 1920
+height = 1080
+
+[sub_resource type="Gradient" id="Gradient_2qu8h"]
+colors = PackedColorArray(0.48, 0.27576, 0.1488, 1, 0.478431, 0.27451, 0.14902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2itbq"]
+gradient = SubResource("Gradient_2qu8h")
+width = 1920
+height = 540
 
 [node name="HammerTime" type="Node2D"]
 script = ExtResource("1_2tw1a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_pug42")
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_10a6r")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(0, 270)
+texture = SubResource("GradientTexture2D_2itbq")
 
 [node name="PauseScreen" parent="." instance=ExtResource("2_ueuri")]
+visible = false

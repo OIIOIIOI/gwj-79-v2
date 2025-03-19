@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cghqe17ct1qg6"]
+[gd_scene load_steps=6 format=3 uid="uid://cghqe17ct1qg6"]
 
 [ext_resource type="Script" path="res://scenes/ui/dialog_ui/dialog_ui.gd" id="1_g8obg"]
+[ext_resource type="FontFile" uid="uid://bkeqergu8t7lv" path="res://assets/ui/fonts/EBGaramond-ExtraBold.woff2" id="2_iqclj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nvpu7"]
 size = Vector2(400, 600)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbstx"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_muvoh"]
+font = ExtResource("2_iqclj")
+font_size = 32
 
 [node name="DialogUI" type="CanvasLayer"]
 script = ExtResource("1_g8obg")
@@ -63,6 +68,7 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "NPC Name"
+label_settings = SubResource("LabelSettings_muvoh")
 
 [node name="TextPanel" type="Panel" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 200)

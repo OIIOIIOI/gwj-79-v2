@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://u8tdxwhl1u6q" path="res://scenes/mini_games/memory/drawer.tscn" id="8_d2pkd"]
 [ext_resource type="PackedScene" uid="uid://b1fertlpkhf3p" path="res://scenes/mini_games/memory/hand.tscn" id="9_abgmd"]
 
-[sub_resource type="Gradient" id="Gradient_2qu8h"]
+[sub_resource type="Gradient" id="Gradient_fu85d"]
 colors = PackedColorArray(0.48, 0.27576, 0.1488, 1, 0.478431, 0.27451, 0.14902, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m3ib0"]
-gradient = SubResource("Gradient_2qu8h")
+gradient = SubResource("Gradient_fu85d")
 width = 1920
 height = 128
 
@@ -137,3 +137,4 @@ z_index = 10
 position = Vector2(0, 640)
 
 [node name="PauseScreen" parent="." instance=ExtResource("5_uhb58")]
+visible = false

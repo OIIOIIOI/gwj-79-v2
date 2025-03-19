@@ -40,3 +40,4 @@ dialog_ui = NodePath("../DialogUI")
 [node name="DialogUI" parent="." instance=ExtResource("4_v0f87")]
 
 [node name="PauseScreen" parent="." instance=ExtResource("5_bvmd1")]
+visible = false
