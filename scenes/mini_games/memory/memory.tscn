@@ -17,11 +17,11 @@ height = 128
 script = ExtResource("1_gecvb")
 items = ExtResource("2_qtop4")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(1, 8.5)
 texture = SubResource("GradientTexture2D_m3ib0")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="BottomRow" type="Node2D" parent="."]
 position = Vector2(-32, 320)

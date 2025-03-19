@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bclvvd40stsfw"]
+
+[ext_resource type="Script" path="res://scenes/mini_games/weight_lifting/weight_lifting.gd" id="1_up734"]
+
+[sub_resource type="Gradient" id="Gradient_0tiu4"]
+colors = PackedColorArray(0.4, 0.4, 0.4, 1, 0.6, 0.6, 0.6, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_khhvv"]
+gradient = SubResource("Gradient_0tiu4")
+width = 1920
+height = 1080
+fill_to = Vector2(0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2088r"]
+size = Vector2(800, 128)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_48xc4"]
+size = Vector2(256, 512)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m50n5"]
+size = Vector2(128, 1024)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_47cs1"]
+size = Vector2(384, 256)
+
+[node name="WeightLifting" type="Node2D"]
+script = ExtResource("1_up734")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_khhvv")
+
+[node name="Arm" type="Node2D" parent="."]
+position = Vector2(0, 832)
+
+[node name="Weight" type="Node2D" parent="Arm"]
+
+[node name="Bar" type="Sprite2D" parent="Arm/Weight"]
+modulate = Color(0.449303, 1, 0, 1)
+texture = SubResource("PlaceholderTexture2D_2088r")
+
+[node name="Left" type="Sprite2D" parent="Arm/Weight"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-512, 0)
+texture = SubResource("PlaceholderTexture2D_48xc4")
+
+[node name="Right" type="Sprite2D" parent="Arm/Weight"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(512, 0)
+texture = SubResource("PlaceholderTexture2D_48xc4")
+
+[node name="Arm" type="Sprite2D" parent="Arm"]
+position = Vector2(0, 544)
+texture = SubResource("PlaceholderTexture2D_m50n5")
+
+[node name="Hand" type="Sprite2D" parent="Arm"]
+texture = SubResource("PlaceholderTexture2D_47cs1")
+
+[node name="StartMarker" type="Marker2D" parent="."]
+position = Vector2(0, 256)
+
+[node name="EndMarker" type="Marker2D" parent="."]
+position = Vector2(0, -256)
