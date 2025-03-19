@@ -7,11 +7,13 @@ signal transition_halfway
 const SCENE_TITLE := "scene_title"
 const SCENE_MAIN := "scene_main"
 const SCENE_MEMORY := "scene_memory"
+const SCENE_WEIGHT_LIFTING := "scene_weight_lifting"
 
 const scenes: Dictionary = {
 	SCENE_TITLE: preload("res://scenes/ui/title_screen/title_screen.tscn"),
 	SCENE_MAIN: preload("res://scenes/main/main.tscn"),
 	SCENE_MEMORY: preload("res://scenes/mini_games/memory/memory.tscn"),
+	SCENE_WEIGHT_LIFTING: preload("res://scenes/mini_games/weight_lifting/weight_lifting.tscn"),
 }
 
 
