@@ -1,7 +1,5 @@
 extends CanvasLayer
-
-
-@export var play_scene: PackedScene
+class_name TitleScreen
 
 
 @onready var play_button: Button = %PlayButton
@@ -16,8 +14,7 @@ func _ready() -> void:
 
 
 func on_play_button_pressed() -> void:
-	if play_scene:
-		SceneTransition.transition_to_packed(play_scene)
+	SceneTransition.transition_to(SceneTransition.SCENE_MAIN)
 
 
 func on_quit_button_pressed() -> void:

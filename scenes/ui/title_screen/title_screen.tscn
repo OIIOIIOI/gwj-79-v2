@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq3xryn0vsn8s"]
+[gd_scene load_steps=2 format=3 uid="uid://dq3xryn0vsn8s"]
 
 [ext_resource type="Script" path="res://scenes/ui/title_screen/title_screen.gd" id="1_bjuk2"]
-[ext_resource type="PackedScene" uid="uid://do5x56a1ql3ul" path="res://scenes/main/main.tscn" id="2_nr5ec"]
 
 [node name="TitleScreen" type="CanvasLayer"]
 script = ExtResource("1_bjuk2")
-play_scene = ExtResource("2_nr5ec")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
