@@ -19,6 +19,8 @@ var target_position := Vector2.ZERO
 var held_time := 0.0
 
 
+@onready var goal_line: Sprite2D = $GoalLine
+
 @onready var arm: Node2D = $Arm
 @onready var start_marker: Marker2D = $StartMarker
 @onready var end_marker: Marker2D = $EndMarker
@@ -31,7 +33,7 @@ var held_time := 0.0
 
 
 func _ready() -> void:
-	reset_mayor_position()
+	reset_visuals()
 	sync_mayor_position(0.0)
 	animate_start()
 
@@ -87,10 +89,12 @@ func get_hold_progress() -> float:
 	return abs(clampf(r, 0.0, 1.0))
 
 
-func reset_mayor_position() -> void:
+func reset_visuals() -> void:
 	mayor_arm.global_position = mayor_start_marker.global_position
 	mayor_arm.rotation = mayor_start_marker.rotation
 	mayor_arm.scale = mayor_start_marker.scale
+
+	goal_line.global_position.y = lerpf(start_marker.global_position.y, end_marker.global_position.y, WIN_HOLD_THRESHOLD)
 
 
 func sync_mayor_position(progress: float) -> void:
