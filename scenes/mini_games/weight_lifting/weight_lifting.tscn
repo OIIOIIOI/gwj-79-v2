@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bclvvd40stsfw"]
+[gd_scene load_steps=12 format=3 uid="uid://bclvvd40stsfw"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/weight_lifting/weight_lifting.gd" id="1_up734"]
+[ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="2_ro1h3"]
 
 [sub_resource type="Gradient" id="Gradient_0tiu4"]
 colors = PackedColorArray(0.4, 0.4, 0.4, 1, 0.6, 0.6, 0.6, 1)
@@ -107,3 +108,5 @@ rotation = 0.261799
 position = Vector2(1100, 305)
 rotation = 0.261799
 scale = Vector2(1.35, 1.35)
+
+[node name="PauseScreen" parent="." instance=ExtResource("2_ro1h3")]

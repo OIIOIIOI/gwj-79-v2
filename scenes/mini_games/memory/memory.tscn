@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://32jtbmml0n67"]
+[gd_scene load_steps=8 format=3 uid="uid://32jtbmml0n67"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/memory/memory.gd" id="1_gecvb"]
 [ext_resource type="Resource" uid="uid://24huqm6j6v0p" path="res://resources/memory/all_items.tres" id="2_qtop4"]
+[ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="5_uhb58"]
 [ext_resource type="PackedScene" uid="uid://u8tdxwhl1u6q" path="res://scenes/mini_games/memory/drawer.tscn" id="8_d2pkd"]
 [ext_resource type="PackedScene" uid="uid://b1fertlpkhf3p" path="res://scenes/mini_games/memory/hand.tscn" id="9_abgmd"]
 
@@ -134,3 +135,5 @@ texture = SubResource("GradientTexture2D_m3ib0")
 [node name="Hand" parent="." instance=ExtResource("9_abgmd")]
 z_index = 10
 position = Vector2(0, 640)
+
+[node name="PauseScreen" parent="." instance=ExtResource("5_uhb58")]
