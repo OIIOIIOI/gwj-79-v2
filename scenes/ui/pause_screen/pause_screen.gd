@@ -50,4 +50,4 @@ func on_resume_button_pressed() -> void:
 
 
 func on_quit_button_pressed() -> void:
-	SceneTransition.transition_to(SceneTransition.SCENE_TITLE)
+	SceneTransition.transition_to(GameEnums.SCENES.Scene_Title)

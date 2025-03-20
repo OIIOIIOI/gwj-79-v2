@@ -126,4 +126,4 @@ func end_game() -> void:
 	await tween.finished
 	await get_tree().create_timer(0.75).timeout
 
-	SceneTransition.transition_to(SceneTransition.SCENE_MAIN)
+	SceneTransition.transition_to(GameEnums.SCENES.Scene_Main)
