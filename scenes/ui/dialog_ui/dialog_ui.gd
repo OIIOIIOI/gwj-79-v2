@@ -8,10 +8,9 @@ var current_chunk_index := 0
 
 
 @onready var background: TextureRect = %Background
-@onready var name_panel: Panel = %NamePanel
-@onready var name_label: Label = %NameLabel
-@onready var text_label: RichTextLabel = %TextLabel
 @onready var speaker_sprite: TextureRect = %SpeakerSprite
+@onready var speaker_name: TextureRect = %SpeakerName
+@onready var text_label: RichTextLabel = %TextLabel
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
@@ -23,10 +22,9 @@ func _ready() -> void:
 func reset_ui() -> void:
 	visible = false
 	background.texture = null
-	name_panel.visible = false
-	name_label.text = ""
-	text_label.text = ""
 	speaker_sprite.texture = null
+	speaker_name.texture = null
+	text_label.text = ""
 
 
 func _process(_delta: float) -> void:
@@ -58,6 +56,7 @@ func end_dialog() -> void:
 
 	current_dialog = null
 	current_chunk_index = 0
+	audio_stream_player.stop()
 
 	GameEvents.dialog_ended.emit()
 
@@ -72,31 +71,21 @@ func display_current_chunk() -> void:
 		# Set text style and content
 		text_label.clear()
 		match chunk.style:
-			DialogChunk.DIALOG_CHUNK_STYLE.Comment:
-				text_label.push_italics()
-				text_label.append_text(chunk.text)
-				text_label.pop()
-			DialogChunk.DIALOG_CHUNK_STYLE.Red:
-				text_label.push_bold()
-				text_label.push_color(Color.RED)
-				text_label.append_text(chunk.text)
-				text_label.pop_all()
+			#DialogChunk.DIALOG_CHUNK_STYLE.Comment:
+				#text_label.push_italics()
+				#text_label.append_text(chunk.text)
+				#text_label.pop()
+			#DialogChunk.DIALOG_CHUNK_STYLE.Red:
+				#text_label.push_bold()
+				#text_label.push_color(Color.RED)
+				#text_label.append_text(chunk.text)
+				#text_label.pop_all()
 			_:
 				text_label.append_text(chunk.text)
 
-		# Show speaker name if specified
-		if !chunk.speaker_name.is_empty():
-			name_label.text = chunk.speaker_name
-			name_panel.visible = true
-		else:
-			name_label.text = ""
-			name_panel.visible = false
-
-		# Set speaker sprite if specified
-		if chunk.sprite:
-			speaker_sprite.texture = chunk.sprite
-		else:
-			speaker_sprite.texture = null
+		# Set speaker sprite and name
+		speaker_sprite.texture = chunk.speaker_sprite
+		speaker_name.texture = chunk.speaker_name
 
 		# Force a layout refresh to fix positioning bug
 		visible = false

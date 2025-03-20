@@ -1,17 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cghqe17ct1qg6"]
+[gd_scene load_steps=4 format=3 uid="uid://cghqe17ct1qg6"]
 
 [ext_resource type="Script" path="res://scenes/ui/dialog_ui/dialog_ui.gd" id="1_g8obg"]
-[ext_resource type="FontFile" uid="uid://bkeqergu8t7lv" path="res://assets/ui/fonts/EBGaramond-ExtraBold.woff2" id="2_iqclj"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nvpu7"]
-size = Vector2(400, 600)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbstx"]
-bg_color = Color(0.2, 0.2, 0.2, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_muvoh"]
-font = ExtResource("2_iqclj")
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://dg2eqc6i48pfr" path="res://assets/sprites/characters/mayor/MAYOR_dialog.png" id="2_2qbha"]
+[ext_resource type="Texture2D" uid="uid://c5b6dxppxls4v" path="res://assets/ui/dialogs/MayorEd.png" id="2_x8hni"]
 
 [node name="DialogUI" type="CanvasLayer"]
 script = ExtResource("1_g8obg")
@@ -25,79 +16,75 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -750.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="SpeakerSprite" type="TextureRect" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_2qbha")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
+alignment = 2
 
-[node name="SpeakerSprite" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+
+[node name="SpeakerName" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_x8hni")
+
+[node name="TextPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 205)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 40
+
+[node name="TextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TextPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "How the hell am I supposed to care about the end of the world...
+And another line of text for testing!"
+scroll_active = false
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-texture = SubResource("PlaceholderTexture2D_nvpu7")
-stretch_mode = 5
-
-[node name="NamePanel" type="Panel" parent="CenterContainer/VBoxContainer/SpeakerSprite"]
-unique_name_in_owner = true
-z_index = 1
-custom_minimum_size = Vector2(300, 60)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -40.0
-offset_right = 150.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_xbstx")
-
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/SpeakerSprite/NamePanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NameLabel" type="Label" parent="CenterContainer/VBoxContainer/SpeakerSprite/NamePanel/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "NPC Name"
-label_settings = SubResource("LabelSettings_muvoh")
-
-[node name="TextPanel" type="Panel" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(500, 200)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/TextPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="TextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/TextPanel/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-bbcode_enabled = true
-text = "This is a dialog chunk for a very interesting NPC..."
-scroll_active = false
+mouse_filter = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

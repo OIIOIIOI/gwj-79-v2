@@ -3,13 +3,13 @@
 [ext_resource type="FontFile" uid="uid://dvbuw8pirnn4o" path="res://assets/ui/fonts/EBGaramond-Medium.woff2" id="1_ge7ig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mldtx"]
-bg_color = Color(0.15, 0.15, 0.15, 1)
+bg_color = Color(1, 1, 1, 1)
 
 [resource]
 default_font = ExtResource("1_ge7ig")
 default_font_size = 32
-MarginContainer/constants/margin_bottom = 20
-MarginContainer/constants/margin_left = 20
-MarginContainer/constants/margin_right = 20
-MarginContainer/constants/margin_top = 20
+MarginContainer/constants/margin_bottom = 40
+MarginContainer/constants/margin_left = 40
+MarginContainer/constants/margin_right = 40
+MarginContainer/constants/margin_top = 40
 Panel/styles/panel = SubResource("StyleBoxFlat_mldtx")
