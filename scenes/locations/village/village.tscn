@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=15 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
 [ext_resource type="PackedScene" uid="uid://d4m2cb7ojb5uq" path="res://scenes/buildings/police_station.tscn" id="2_ln3k2"]
 [ext_resource type="PackedScene" uid="uid://bcoblg3cfor8u" path="res://scenes/buildings/antique_shop.tscn" id="3_j47ek"]
 [ext_resource type="Texture2D" uid="uid://br4ofwon81k1e" path="res://assets/sprites/characters/antique_dealer/OLD ONE.png" id="4_g7syq"]
+[ext_resource type="PackedScene" uid="uid://b0xeoph3lqin2" path="res://scenes/buildings/well.tscn" id="4_jlo6p"]
 [ext_resource type="Texture2D" uid="uid://gr3dnfgmy6s6" path="res://assets/sprites/characters/mayor/MAYOR.png" id="5_lr7nl"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="5_wouho"]
 [ext_resource type="Texture2D" uid="uid://cbqwcudjdt5c4" path="res://assets/sprites/characters/guard/GUARD.png" id="6_6fsy7"]
 [ext_resource type="Resource" uid="uid://23beltuymyb6" path="res://resources/dialogs/memory_dialog.tres" id="6_q0emj"]
 [ext_resource type="Resource" uid="uid://c7f1biymkteww" path="res://resources/dialogs/mayor_dialog.tres" id="8_u2d1l"]
+[ext_resource type="Resource" uid="uid://d3cikge67rmma" path="res://resources/dialogs/test_dialog.tres" id="10_syane"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2yk6u"]
 
@@ -41,6 +43,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63924, 0, 0)
 [node name="AntiqueShop" parent="Buildings" instance=ExtResource("3_j47ek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6128, 0, 0.868564)
 
+[node name="Well" parent="Buildings" instance=ExtResource("4_jlo6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8021)
+
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="AntiqueDealer" type="Sprite3D" parent="NPCs"]
@@ -69,3 +74,6 @@ offset = Vector2(0, 437)
 flip_h = true
 pixel_size = 0.002
 texture = ExtResource("6_6fsy7")
+
+[node name="IC" parent="NPCs/Guard" instance=ExtResource("5_wouho")]
+dialog = ExtResource("10_syane")

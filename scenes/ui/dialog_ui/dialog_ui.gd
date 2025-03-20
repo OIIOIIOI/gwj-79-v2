@@ -67,30 +67,6 @@ func end_dialog() -> void:
 func display_current_chunk() -> void:
 	var chunk := current_dialog.chunks[current_chunk_index]
 
-	if !chunk.text.is_empty():
-		# Set text style and content
-		text_label.clear()
-		match chunk.style:
-			#DialogChunk.DIALOG_CHUNK_STYLE.Comment:
-				#text_label.push_italics()
-				#text_label.append_text(chunk.text)
-				#text_label.pop()
-			#DialogChunk.DIALOG_CHUNK_STYLE.Red:
-				#text_label.push_bold()
-				#text_label.push_color(Color.RED)
-				#text_label.append_text(chunk.text)
-				#text_label.pop_all()
-			_:
-				text_label.append_text(chunk.text)
-
-		# Set speaker sprite and name
-		speaker_sprite.texture = chunk.speaker_sprite
-		speaker_name.texture = chunk.speaker_name
-
-		# Force a layout refresh to fix positioning bug
-		visible = false
-		visible = true
-
 	# Execute chunk actions
 	if chunk.actions.size() > 0:
 		for action in chunk.actions:
@@ -100,6 +76,26 @@ func display_current_chunk() -> void:
 	if chunk.sfx:
 		audio_stream_player.stream = chunk.sfx
 		audio_stream_player.play()
+
+	# Show text
+	if !chunk.text.is_empty():
+		# Set text style and content
+		text_label.clear()
+		match chunk.style:
+			#DialogChunk.DIALOG_CHUNK_STYLE.Comment:
+				#text_label.push_italics()
+				#text_label.append_text(chunk.text)
+				#text_label.pop()
+			DialogChunk.DIALOG_CHUNK_STYLE.Old:
+				text_label.append_text("[shake rate=10.0 level=3 connected=1]%s[/shake]" % [chunk.text])
+			_:
+				text_label.append_text("%s" % [chunk.text])
+
+		# Set speaker sprite and name
+		speaker_sprite.texture = chunk.speaker_sprite
+		speaker_name.texture = chunk.speaker_name
+	else:
+		display_next_chunk()
 
 
 func display_next_chunk() -> void:

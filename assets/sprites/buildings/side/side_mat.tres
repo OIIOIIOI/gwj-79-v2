@@ -1,13 +1,9 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cp5c2ypb10r2q"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cp5c2ypb10r2q"]
 
 [ext_resource type="Texture2D" uid="uid://d4eblqn58r3mg" path="res://assets/sprites/buildings/side/GENERICBUILDING-SIDE.png" id="1_f3yl2"]
-[ext_resource type="Texture2D" uid="uid://e8dn4etxrud" path="res://assets/sprites/buildings/side/GENERICBUILDING-SIDE_NormalMap.png" id="2_ux3pk"]
 
 [resource]
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_f3yl2")
-normal_enabled = true
-normal_scale = 3.0
-normal_texture = ExtResource("2_ux3pk")
 texture_repeat = false

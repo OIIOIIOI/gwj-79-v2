@@ -27,7 +27,6 @@ environment = SubResource("Environment_0oh05")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.271944, 0.962312, 0, -0.962313, 0.271944, 0, 0, 0)
 light_energy = 0.5
-shadow_enabled = true
 
 [node name="Village" parent="." instance=ExtResource("1_88grx")]
 

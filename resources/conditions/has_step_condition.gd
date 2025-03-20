@@ -6,4 +6,7 @@ class_name HasStepCondition
 
 
 func check() -> bool:
-	return GameData.has_step(step)
+	if invert:
+		return !GameData.has_step(step)
+	else:
+		return GameData.has_step(step)

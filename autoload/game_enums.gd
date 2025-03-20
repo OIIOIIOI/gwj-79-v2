@@ -11,6 +11,14 @@ enum SCENES {
 
 enum STEPS {
 	Step_JustStarted,
+	Step_ObtainedBook,
+	Step_ObtainedSeed,
+	Step_DroppedSeed,
+	Step_ObtainedWeapon,
+	Step_DroppedWeapon,
+	Step_ObtainedEmerald,
+	Step_DroppedEmerald,
+	Step_DroppedBook,
 }
 
 enum OBJECTS {

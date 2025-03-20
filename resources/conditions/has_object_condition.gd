@@ -6,4 +6,7 @@ class_name HasObjectCondition
 
 
 func check() -> bool:
-	return GameData.has_object(object)
+	if invert:
+		return !GameData.has_object(object)
+	else:
+		return GameData.has_object(object)
