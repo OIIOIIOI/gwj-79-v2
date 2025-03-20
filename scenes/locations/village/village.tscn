@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://nje8qvt00yvc"]
+
+[ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
+[ext_resource type="PackedScene" uid="uid://d4m2cb7ojb5uq" path="res://scenes/buildings/police_station.tscn" id="2_ln3k2"]
+[ext_resource type="PackedScene" uid="uid://bcoblg3cfor8u" path="res://scenes/buildings/antique_shop.tscn" id="3_j47ek"]
+[ext_resource type="Texture2D" uid="uid://br4ofwon81k1e" path="res://assets/sprites/characters/antique_dealer/OLD ONE.png" id="4_g7syq"]
+[ext_resource type="Texture2D" uid="uid://gr3dnfgmy6s6" path="res://assets/sprites/characters/mayor/MAYOR.png" id="5_lr7nl"]
+[ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="5_wouho"]
+[ext_resource type="Texture2D" uid="uid://cbqwcudjdt5c4" path="res://assets/sprites/characters/guard/GUARD.png" id="6_6fsy7"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2yk6u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f87cp"]
+albedo_color = Color(0.199991, 0.326889, 0.236147, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4ga44"]
+material = SubResource("StandardMaterial3D_f87cp")
+size = Vector2(100, 20)
+
+[node name="Village" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_2yk6u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_4ga44")
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="TownHall" parent="Buildings" instance=ExtResource("1_jguh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="PoliceStation" parent="Buildings" instance=ExtResource("2_ln3k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63924, 0, 0)
+
+[node name="AntiqueShop" parent="Buildings" instance=ExtResource("3_j47ek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6128, 0, 0.868564)
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="AntiqueDealer" type="Sprite3D" parent="NPCs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 0, 1.28419)
+offset = Vector2(0, 411)
+flip_h = true
+pixel_size = 0.002
+texture = ExtResource("4_g7syq")
+
+[node name="InteractionComponent" parent="NPCs/AntiqueDealer" instance=ExtResource("5_wouho")]
+
+[node name="Mayor" type="Sprite3D" parent="NPCs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52131, 0, -0.623636)
+offset = Vector2(0, 439)
+flip_h = true
+pixel_size = 0.002
+texture = ExtResource("5_lr7nl")
+
+[node name="Guard" type="Sprite3D" parent="NPCs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99159, 0, 0.500733)
+offset = Vector2(0, 437)
+flip_h = true
+pixel_size = 0.002
+texture = ExtResource("6_6fsy7")

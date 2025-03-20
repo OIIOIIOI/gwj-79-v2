@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv6ritmb82tm0"]
+
+[ext_resource type="QuadMesh" uid="uid://dq2gb8fo0drq0" path="res://assets/sprites/buildings/town_hall/townhall_mesh.tres" id="1_injtj"]
+[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_xi1sj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_agnyr"]
+
+[node name="TownHall" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_xi1sj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_agnyr")
+
+[node name="Front" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = ExtResource("1_injtj")

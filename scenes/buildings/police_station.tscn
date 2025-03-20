@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4m2cb7ojb5uq"]
+
+[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_612e5"]
+[ext_resource type="QuadMesh" uid="uid://bu6s7nqubgv1q" path="res://assets/sprites/buildings/police_station/policestation_mesh.tres" id="2_0g41v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_agnyr"]
+
+[node name="PoliceStation" type="StaticBody3D"]
+script = ExtResource("1_612e5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_agnyr")
+
+[node name="Front" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15, 0)
+mesh = ExtResource("2_0g41v")

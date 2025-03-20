@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcoblg3cfor8u"]
+
+[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_keibq"]
+[ext_resource type="QuadMesh" uid="uid://cfuxt5xuenxhm" path="res://assets/sprites/buildings/antique_shop/antiqueshop_mesh.tres" id="2_isme2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_agnyr"]
+
+[node name="AntiqueShop" type="StaticBody3D"]
+script = ExtResource("1_keibq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_agnyr")
+
+[node name="Front" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = ExtResource("2_isme2")

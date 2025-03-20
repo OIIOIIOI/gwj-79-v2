@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1qyk7wn1ofyh"]
+
+[ext_resource type="Texture2D" uid="uid://drrvypept4dxo" path="res://assets/sprites/characters/hero/HERO.png" id="1_1dfv2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yn3ld"]
+size = Vector3(0.8, 1.8, 0.5)
+
+[node name="HumanSizeReference" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.9, 0.25)
+mesh = SubResource("BoxMesh_yn3ld")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, -0.9, 0)
+centered = false
+offset = Vector2(-200, -25)
+pixel_size = 0.002
+texture = ExtResource("1_1dfv2")
