@@ -24,6 +24,8 @@ var game_state: GAME_STATE = GAME_STATE.Initializing
 
 
 @onready var hand: Hand = $Hand
+@onready var win_sfx: AudioStreamPlayer = $WinSFX
+@onready var lose_sfx: AudioStreamPlayer = $LoseSFX
 
 
 func _ready() -> void:
@@ -85,6 +87,11 @@ func animate_start() -> void:
 
 func _process(_delta: float) -> void:
 	if game_state == GAME_STATE.Ready:
+		# TODO Remove this
+		# Handle cheat
+		if Input.is_action_just_pressed(&"open_book"):
+			end_game()
+
 		# Handle action
 		if Input.is_action_just_pressed(&"action"):
 			if current_drawer && !current_drawer.is_open:
@@ -190,6 +197,7 @@ func check_results() -> void:
 		await get_tree().create_timer(0.1).timeout
 		second_drawer.fade()
 	else:
+		lose_sfx.play()
 		first_drawer.close()
 		await get_tree().create_timer(0.1).timeout
 		second_drawer.close()
@@ -207,6 +215,9 @@ func check_results() -> void:
 func end_game() -> void:
 	game_state = GAME_STATE.End
 
-	await get_tree().create_timer(0.5).timeout
+	win_sfx.play()
+	await win_sfx.finished
+
+	#await get_tree().create_timer(0.5).timeout
 
 	SceneTransition.transition_to(GameEnums.SCENES.Scene_Main)

@@ -6,7 +6,7 @@ class_name Player
 @export var can_move := true
 
 
-const SPEED = 4.0
+const SPEED = 2.0
 
 
 @onready var visuals: Node3D = $Visuals
@@ -40,15 +40,10 @@ func _physics_process(delta: float) -> void:
 		#animation_player.play(&"walk")
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		# Start footsteps SFX timer
-		if footsteps_timer.is_stopped():
-			footsteps_timer.start(0.05)
 	else:
 		#animation_player.play(&"idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		# Stop footsteps SFX timer
-		footsteps_timer.stop()
 
 	if direction.x < -0.05:
 		visuals.scale.x = -1.0
@@ -57,6 +52,15 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	handle_camera()
+
+	if velocity.length_squared() > 0.0:
+		# Start footsteps SFX timer
+		if footsteps_timer.is_stopped():
+			footsteps_timer.start(0.05)
+	else:
+		# Stop footsteps SFX timer
+		footsteps_timer.stop()
+
 
 
 func handle_camera():

@@ -30,6 +30,7 @@ var held_time := 0.0
 @onready var mayor_end_marker: Marker2D = $MayorEndMarker
 @onready var mayor_win_marker: Marker2D = $MayorWinMarker
 
+@onready var win_sfx: AudioStreamPlayer = $WinSFX
 
 
 func _ready() -> void:
@@ -119,6 +120,8 @@ func sync_mayor_position(progress: float) -> void:
 func end_game() -> void:
 	game_state = GAME_STATE.End
 
+	win_sfx.play()
+
 	var tween_duration := 1.0
 	var tween := create_tween()
 	tween.set_parallel()
@@ -129,7 +132,9 @@ func end_game() -> void:
 	tween.tween_property(mayor_arm, ^"scale", mayor_win_marker.scale, tween_duration)
 
 	await tween.finished
-	await get_tree().create_timer(0.75).timeout
+	if win_sfx.playing:
+		await win_sfx.finished
+	#await get_tree().create_timer(0.75).timeout
 
 	# Trigger end action
 	var end_action = AddStepAction.new()

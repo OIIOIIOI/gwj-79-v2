@@ -5,6 +5,7 @@ class_name DialogUI
 var is_active := false
 var current_dialog: Dialog
 var current_chunk_index := 0
+var is_loading_scene := false
 
 
 @onready var background: TextureRect = %Background
@@ -52,7 +53,8 @@ func start_dialog(dialog: Dialog) -> void:
 
 
 func end_dialog() -> void:
-	reset_ui()
+	if !is_loading_scene:
+		reset_ui()
 
 	current_dialog = null
 	current_chunk_index = 0
@@ -70,6 +72,8 @@ func display_current_chunk() -> void:
 	# Execute chunk actions
 	if chunk.actions.size() > 0:
 		for action in chunk.actions:
+			if action is LoadSceneAction:
+				is_loading_scene = true
 			GameEvents.execute_action(action)
 
 	# Play SFX

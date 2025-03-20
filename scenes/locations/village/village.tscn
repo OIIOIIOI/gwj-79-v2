@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=29 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
 [ext_resource type="PackedScene" uid="uid://d4m2cb7ojb5uq" path="res://scenes/buildings/police_station.tscn" id="2_ln3k2"]
@@ -11,6 +11,20 @@
 [ext_resource type="Resource" uid="uid://23beltuymyb6" path="res://resources/dialogs/memory_dialog.tres" id="6_q0emj"]
 [ext_resource type="Resource" uid="uid://c7f1biymkteww" path="res://resources/dialogs/mayor_dialog.tres" id="8_u2d1l"]
 [ext_resource type="Resource" uid="uid://d3cikge67rmma" path="res://resources/dialogs/test_dialog.tres" id="10_syane"]
+[ext_resource type="Texture2D" uid="uid://0iopkfxnnkqp" path="res://assets/sprites/decoration/ENV-herbe1.png" id="12_jny03"]
+[ext_resource type="Texture2D" uid="uid://dp751or4ktdeb" path="res://assets/sprites/decoration/ENV-plante3 1.png" id="12_pj02o"]
+[ext_resource type="Texture2D" uid="uid://g4lf45a6gn01" path="res://assets/sprites/decoration/ENV-herbe2.png" id="13_70tj6"]
+[ext_resource type="Texture2D" uid="uid://dbtfquwt6p21" path="res://assets/sprites/decoration/ENV-plante2.png" id="14_evcxr"]
+[ext_resource type="Texture2D" uid="uid://cnqblnsx85nb4" path="res://assets/sprites/decoration/ENV-plante3.png" id="16_48pe8"]
+[ext_resource type="Texture2D" uid="uid://bhf6xar23dite" path="res://assets/sprites/decoration/ENV-plante4.png" id="17_070j3"]
+[ext_resource type="Texture2D" uid="uid://buys2c8njc3jp" path="res://assets/sprites/decoration/ENV-plante.png" id="18_hmwpo"]
+[ext_resource type="Texture2D" uid="uid://cdv7ijvb84bys" path="res://assets/sprites/decoration/ENV-plante3 2.png" id="19_nqbkj"]
+[ext_resource type="Texture2D" uid="uid://c4vs4js12e4su" path="res://assets/sprites/decoration/ENV-wall 1.png" id="20_rj13x"]
+[ext_resource type="Texture2D" uid="uid://djtt2sn2gtybs" path="res://assets/sprites/decoration/ENV-wall 2.png" id="21_c8t6l"]
+[ext_resource type="Texture2D" uid="uid://b5mfdkl07gti5" path="res://assets/sprites/decoration/ENV-wall 3.png" id="22_nwj4v"]
+[ext_resource type="Texture2D" uid="uid://bhsmqenofhybf" path="res://assets/sprites/decoration/ENV-wall 4.png" id="23_4mpda"]
+[ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="24_fopko"]
+[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="25_fvhx0"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2yk6u"]
 
@@ -41,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63924, 0, 0)
 
 [node name="AntiqueShop" parent="Buildings" instance=ExtResource("3_j47ek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6128, 0, 0.868564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.613, 0, 0.8)
 
 [node name="Well" parent="Buildings" instance=ExtResource("4_jlo6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8021)
@@ -77,3 +91,107 @@ texture = ExtResource("6_6fsy7")
 
 [node name="IC" parent="NPCs/Guard" instance=ExtResource("5_wouho")]
 dialog = ExtResource("10_syane")
+
+[node name="Decoration" type="Node3D" parent="."]
+
+[node name="Plants" type="Node3D" parent="Decoration"]
+
+[node name="Plant01" type="Sprite3D" parent="Decoration/Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91563, 0, 0.983601)
+centered = false
+pixel_size = 0.003
+texture = ExtResource("12_jny03")
+
+[node name="Plant02" type="Sprite3D" parent="Decoration/Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01486, 0, 1.4496)
+centered = false
+pixel_size = 0.003
+texture = ExtResource("13_70tj6")
+
+[node name="Plant03" type="Sprite3D" parent="Decoration/Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92621, 0, 3.70056)
+centered = false
+pixel_size = 0.003
+texture = ExtResource("14_evcxr")
+
+[node name="Plant04" type="Sprite3D" parent="Decoration/Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.686424, 0, 3.64987)
+centered = false
+pixel_size = 0.003
+texture = ExtResource("12_pj02o")
+
+[node name="Plant05" type="Sprite3D" parent="Decoration/Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22883, 0, 2.93217)
+centered = false
+pixel_size = 0.003
+texture = ExtResource("16_48pe8")
+
+[node name="Plant06" type="Sprite3D" parent="Decoration/Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61972, -4.76837e-07, 2.81322)
+centered = false
+pixel_size = 0.003
+texture = ExtResource("17_070j3")
+
+[node name="Plant07" type="Sprite3D" parent="Decoration/Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0135995, 0, 3.19118)
+centered = false
+pixel_size = 0.003
+texture = ExtResource("18_hmwpo")
+
+[node name="Walls" type="Node3D" parent="Decoration"]
+
+[node name="Wall01" type="Sprite3D" parent="Decoration/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42536, 1.10339, 0.801)
+pixel_size = 0.003
+texture = ExtResource("19_nqbkj")
+
+[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall01"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall02" type="Sprite3D" parent="Decoration/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12522, 1.78713, 0.801)
+pixel_size = 0.003
+texture = ExtResource("20_rj13x")
+
+[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall02"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall03" type="Sprite3D" parent="Decoration/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77768, 1.709, -0.999)
+pixel_size = 0.003
+texture = ExtResource("21_c8t6l")
+
+[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall03"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall04" type="Sprite3D" parent="Decoration/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34187, 1.07784, 0.001)
+pixel_size = 0.003
+texture = ExtResource("22_nwj4v")
+
+[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall04"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall05" type="Sprite3D" parent="Decoration/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.10821, 0.621729, 0.001)
+pixel_size = 0.003
+texture = ExtResource("23_4mpda")
+
+[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall05"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall06" type="Sprite3D" parent="Decoration/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.86467, 0.507829, 0.001)
+pixel_size = 0.003
+texture = ExtResource("24_fopko")
+
+[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall06"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall07" type="Sprite3D" parent="Decoration/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77951, 0.730922, 0.001)
+pixel_size = 0.003
+texture = ExtResource("24_fopko")
+
+[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall07"]
+script = ExtResource("25_fvhx0")
