@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=13 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
 [ext_resource type="PackedScene" uid="uid://d4m2cb7ojb5uq" path="res://scenes/buildings/police_station.tscn" id="2_ln3k2"]
@@ -7,10 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://gr3dnfgmy6s6" path="res://assets/sprites/characters/mayor/MAYOR.png" id="5_lr7nl"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="5_wouho"]
 [ext_resource type="Texture2D" uid="uid://cbqwcudjdt5c4" path="res://assets/sprites/characters/guard/GUARD.png" id="6_6fsy7"]
-[ext_resource type="Script" path="res://resources/conditions/has_object_condition.gd" id="6_6mjgy"]
-[ext_resource type="Script" path="res://resources/actions/action.gd" id="6_x6cwf"]
-[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="8_x8yhu"]
-[ext_resource type="Script" path="res://resources/actions/add_remove_object_action.gd" id="9_kc8v3"]
+[ext_resource type="Resource" uid="uid://23beltuymyb6" path="res://resources/dialogs/memory_dialog.tres" id="6_q0emj"]
+[ext_resource type="Resource" uid="uid://c7f1biymkteww" path="res://resources/dialogs/mayor_dialog.tres" id="8_u2d1l"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2yk6u"]
 
@@ -20,24 +18,6 @@ albedo_color = Color(0.199991, 0.326889, 0.236147, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_4ga44"]
 material = SubResource("StandardMaterial3D_f87cp")
 size = Vector2(100, 20)
-
-[sub_resource type="Resource" id="Resource_kwsim"]
-script = ExtResource("6_6mjgy")
-object = 1
-
-[sub_resource type="Resource" id="Resource_fa6tp"]
-script = ExtResource("8_x8yhu")
-scene = 0
-
-[sub_resource type="Resource" id="Resource_rujht"]
-script = ExtResource("9_kc8v3")
-object = 1
-action = 0
-
-[sub_resource type="Resource" id="Resource_6f5tv"]
-script = ExtResource("9_kc8v3")
-object = 3
-action = 0
 
 [node name="Village" type="Node3D"]
 
@@ -71,8 +51,7 @@ pixel_size = 0.002
 texture = ExtResource("4_g7syq")
 
 [node name="IC" parent="NPCs/AntiqueDealer" instance=ExtResource("5_wouho")]
-condition = SubResource("Resource_kwsim")
-actions = Array[ExtResource("6_x6cwf")]([SubResource("Resource_fa6tp")])
+dialog = ExtResource("6_q0emj")
 
 [node name="Mayor" type="Sprite3D" parent="NPCs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52131, 0, -0.623636)
@@ -82,7 +61,7 @@ pixel_size = 0.002
 texture = ExtResource("5_lr7nl")
 
 [node name="IC" parent="NPCs/Mayor" instance=ExtResource("5_wouho")]
-actions = Array[ExtResource("6_x6cwf")]([SubResource("Resource_rujht"), SubResource("Resource_6f5tv")])
+dialog = ExtResource("8_u2d1l")
 
 [node name="Guard" type="Sprite3D" parent="NPCs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99159, 0, 0.500733)

@@ -16,6 +16,14 @@ font_size = 32
 [node name="DialogUI" type="CanvasLayer"]
 script = ExtResource("1_g8obg")
 
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
@@ -90,3 +98,6 @@ layout_mode = 2
 bbcode_enabled = true
 text = "This is a dialog chunk for a very interesting NPC..."
 scroll_active = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

@@ -7,10 +7,12 @@ var current_dialog: Dialog
 var current_chunk_index := 0
 
 
+@onready var background: TextureRect = %Background
 @onready var name_panel: Panel = %NamePanel
 @onready var name_label: Label = %NameLabel
 @onready var text_label: RichTextLabel = %TextLabel
 @onready var speaker_sprite: TextureRect = %SpeakerSprite
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -20,6 +22,7 @@ func _ready() -> void:
 
 func reset_ui() -> void:
 	visible = false
+	background.texture = null
 	name_panel.visible = false
 	name_label.text = ""
 	text_label.text = ""
@@ -35,6 +38,8 @@ func _process(_delta: float) -> void:
 func start_dialog(dialog: Dialog) -> void:
 	if dialog == null || dialog.chunks.size() == 0:
 		return
+
+	background.texture = dialog.background
 
 	visible = true
 	current_dialog = dialog
@@ -63,9 +68,7 @@ func end_dialog() -> void:
 func display_current_chunk() -> void:
 	var chunk := current_dialog.chunks[current_chunk_index]
 
-	if chunk.text.is_empty():
-		visible = false
-	else:
+	if !chunk.text.is_empty():
 		# Set text style and content
 		text_label.clear()
 		match chunk.style:
@@ -103,6 +106,11 @@ func display_current_chunk() -> void:
 	if chunk.actions.size() > 0:
 		for action in chunk.actions:
 			GameEvents.execute_action(action)
+
+	# Play SFX
+	if chunk.sfx:
+		audio_stream_player.stream = chunk.sfx
+		audio_stream_player.play()
 
 
 func display_next_chunk() -> void:
