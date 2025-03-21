@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbc3u7stsusdd"
-path.s3tc="res://.godot/imported/GENERICBUILDING-C.png-e179252a062f62be743691faa87e0181.s3tc.ctex"
+uid="uid://b2gchg7eoag1y"
+path.s3tc="res://.godot/imported/circle_particle.png-cc9218d8efd4467ad311bc899cc4b92b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/buildings/antique_shop/GENERICBUILDING-C.png"
-dest_files=["res://.godot/imported/GENERICBUILDING-C.png-e179252a062f62be743691faa87e0181.s3tc.ctex"]
+source_file="res://assets/sprites/circle_particle.png"
+dest_files=["res://.godot/imported/circle_particle.png-cc9218d8efd4467ad311bc899cc4b92b.s3tc.ctex"]
 
 [params]
 

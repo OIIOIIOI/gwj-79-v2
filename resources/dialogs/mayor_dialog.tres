@@ -18,7 +18,7 @@ actions = Array[ExtResource("3_ex4p1")]([])
 
 [sub_resource type="Resource" id="Resource_ahumb"]
 script = ExtResource("5_6bhww")
-scene = 2
+scene = 3
 
 [sub_resource type="Resource" id="Resource_rsv0h"]
 script = ExtResource("1_chey0")

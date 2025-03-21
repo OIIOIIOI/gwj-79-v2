@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://d1ugk00rgh6xk"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://d1ugk00rgh6xk"]
 
 [ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_tr63d"]
 [ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_0ruwi"]
 [ext_resource type="Script" path="res://resources/actions/action.gd" id="2_e11vn"]
+[ext_resource type="Texture2D" uid="uid://c44kglmjrmhkq" path="res://assets/ui/dialogs/You.png" id="3_e7lsd"]
 
 [sub_resource type="Resource" id="Resource_m5211"]
 script = ExtResource("1_tr63d")
+speaker_name = ExtResource("3_e7lsd")
 text = "This well seems pretty old!
 It's very dark too..."
 style = 0

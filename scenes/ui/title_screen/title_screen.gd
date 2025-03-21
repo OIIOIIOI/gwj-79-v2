@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func on_play_button_pressed() -> void:
-	SceneTransition.transition_to(GameEnums.SCENES.Scene_Main)
+	SceneTransition.transition_to(GameEnums.SCENES.Scene_Intro)
 
 
 func on_quit_button_pressed() -> void:

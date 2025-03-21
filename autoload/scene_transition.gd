@@ -10,6 +10,8 @@ const scenes: Dictionary = {
 	GameEnums.SCENES.Scene_WeightLifting: preload("res://scenes/mini_games/weight_lifting/weight_lifting.tscn"),
 	GameEnums.SCENES.Scene_HammerTime: preload("res://scenes/mini_games/hammer_time/hammer_time.tscn"),
 	GameEnums.SCENES.Scene_Memory: preload("res://scenes/mini_games/memory/memory.tscn"),
+	GameEnums.SCENES.Scene_Intro: preload("res://scenes/intro/intro.tscn"),
+	GameEnums.SCENES.Scene_Outro: preload("res://scenes/intro/intro.tscn"),
 }
 
 

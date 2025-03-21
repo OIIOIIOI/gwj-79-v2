@@ -3,6 +3,7 @@ extends Node
 
 var steps: Array[String] = []
 var objects: Array[String] = []
+var latest_player_position: Vector3 = Vector3.ZERO
 
 
 func _ready() -> void:

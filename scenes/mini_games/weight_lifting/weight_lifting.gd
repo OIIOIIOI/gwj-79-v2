@@ -132,9 +132,9 @@ func end_game() -> void:
 	tween.tween_property(mayor_arm, ^"scale", mayor_win_marker.scale, tween_duration)
 
 	await tween.finished
-	if win_sfx.playing:
-		await win_sfx.finished
-	#await get_tree().create_timer(0.75).timeout
+	#if win_sfx.playing:
+		#await win_sfx.finished
+	await get_tree().create_timer(0.75).timeout
 
 	# Trigger end action
 	var end_action = AddStepAction.new()

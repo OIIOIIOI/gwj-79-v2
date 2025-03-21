@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cghqe17ct1qg6"]
+[gd_scene load_steps=8 format=3 uid="uid://cghqe17ct1qg6"]
 
 [ext_resource type="Script" path="res://scenes/ui/dialog_ui/dialog_ui.gd" id="1_g8obg"]
 [ext_resource type="Texture2D" uid="uid://dg2eqc6i48pfr" path="res://assets/sprites/characters/mayor/MAYOR_dialog.png" id="2_2qbha"]
 [ext_resource type="Texture2D" uid="uid://c5b6dxppxls4v" path="res://assets/ui/dialogs/MayorEd.png" id="2_x8hni"]
+[ext_resource type="FontFile" uid="uid://dvbuw8pirnn4o" path="res://assets/ui/fonts/EBGaramond-Medium.woff2" id="4_wt1bl"]
+[ext_resource type="FontFile" uid="uid://cf3hv0kj77ja2" path="res://assets/ui/fonts/EBGaramond-MediumItalic.woff2" id="5_gudox"]
+[ext_resource type="FontFile" uid="uid://78lquhw8xxqi" path="res://assets/ui/fonts/EBGaramond-BoldItalic.woff2" id="6_iy0qx"]
+[ext_resource type="FontFile" uid="uid://br1jcswq0hn2q" path="res://assets/ui/fonts/EBGaramond-Bold.woff2" id="7_p4msh"]
 
 [node name="DialogUI" type="CanvasLayer"]
+layer = 30
 script = ExtResource("1_g8obg")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -75,7 +80,14 @@ theme_override_constants/margin_bottom = 40
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_wt1bl")
+theme_override_fonts/italics_font = ExtResource("5_gudox")
+theme_override_fonts/bold_italics_font = ExtResource("6_iy0qx")
+theme_override_fonts/bold_font = ExtResource("7_p4msh")
+theme_override_font_sizes/bold_italics_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
 theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
 text = "How the hell am I supposed to care about the end of the world...
 And another line of text for testing!"

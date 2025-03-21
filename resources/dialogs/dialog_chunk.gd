@@ -4,6 +4,8 @@ class_name DialogChunk
 
 enum DIALOG_CHUNK_STYLE {
 	Normal,
+	Bold,
+	Italic,
 	Old,
 }
 

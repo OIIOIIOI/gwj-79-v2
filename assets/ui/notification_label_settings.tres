@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://djjsea4stxvof"]
+
+[ext_resource type="FontFile" uid="uid://cf3hv0kj77ja2" path="res://assets/ui/fonts/EBGaramond-MediumItalic.woff2" id="1_7r3i4"]
+
+[resource]
+font = ExtResource("1_7r3i4")
+font_size = 40

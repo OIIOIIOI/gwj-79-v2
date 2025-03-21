@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8jhve57o6u40"]
+
+[ext_resource type="Script" path="res://scenes/ui/notification_ui/notification.gd" id="1_d1gmc"]
+[ext_resource type="LabelSettings" uid="uid://djjsea4stxvof" path="res://assets/ui/notification_label_settings.tres" id="1_ylae8"]
+
+[node name="Notification" type="PanelContainer"]
+size_flags_horizontal = 0
+script = ExtResource("1_d1gmc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+label_settings = ExtResource("1_ylae8")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,6 +1,11 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dpgujca673mqr"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dpgujca673mqr"]
+
+[ext_resource type="Texture2D" uid="uid://s2vskrfmhcrj" path="res://assets/sprites/buildings/well/WELL-base.png" id="1_ugsdb"]
 
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 diffuse_mode = 3
 specular_mode = 1
-albedo_color = Color(1, 0, 1, 1)
+albedo_texture = ExtResource("1_ugsdb")

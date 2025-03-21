@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=30 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
+[ext_resource type="Texture2D" uid="uid://co3nwe30owhyo" path="res://assets/sprites/GROUND-Dif.png" id="1_y2kcc"]
 [ext_resource type="PackedScene" uid="uid://d4m2cb7ojb5uq" path="res://scenes/buildings/police_station.tscn" id="2_ln3k2"]
 [ext_resource type="PackedScene" uid="uid://bcoblg3cfor8u" path="res://scenes/buildings/antique_shop.tscn" id="3_j47ek"]
 [ext_resource type="Texture2D" uid="uid://br4ofwon81k1e" path="res://assets/sprites/characters/antique_dealer/OLD ONE.png" id="4_g7syq"]
@@ -10,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cbqwcudjdt5c4" path="res://assets/sprites/characters/guard/GUARD.png" id="6_6fsy7"]
 [ext_resource type="Resource" uid="uid://23beltuymyb6" path="res://resources/dialogs/memory_dialog.tres" id="6_q0emj"]
 [ext_resource type="Resource" uid="uid://c7f1biymkteww" path="res://resources/dialogs/mayor_dialog.tres" id="8_u2d1l"]
-[ext_resource type="Resource" uid="uid://d3cikge67rmma" path="res://resources/dialogs/test_dialog.tres" id="10_syane"]
 [ext_resource type="Texture2D" uid="uid://0iopkfxnnkqp" path="res://assets/sprites/decoration/ENV-herbe1.png" id="12_jny03"]
 [ext_resource type="Texture2D" uid="uid://dp751or4ktdeb" path="res://assets/sprites/decoration/ENV-plante3 1.png" id="12_pj02o"]
 [ext_resource type="Texture2D" uid="uid://g4lf45a6gn01" path="res://assets/sprites/decoration/ENV-herbe2.png" id="13_70tj6"]
@@ -29,11 +29,17 @@
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2yk6u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f87cp"]
-albedo_color = Color(0.199991, 0.326889, 0.236147, 1)
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_y2kcc")
+uv1_scale = Vector3(20, 4, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4ga44"]
 material = SubResource("StandardMaterial3D_f87cp")
 size = Vector2(100, 20)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wmw1y"]
+plane = Plane(0, 0, -1, 0)
 
 [node name="Village" type="Node3D"]
 
@@ -49,21 +55,100 @@ mesh = SubResource("PlaneMesh_4ga44")
 [node name="Buildings" type="Node3D" parent="."]
 
 [node name="TownHall" parent="Buildings" instance=ExtResource("1_jguh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Wall03" type="Sprite3D" parent="Buildings/TownHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77768, 1.709, 0.000999987)
+pixel_size = 0.003
+texture = ExtResource("21_c8t6l")
+
+[node name="RotationComponent" type="Node" parent="Buildings/TownHall/Wall03"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall07" type="Sprite3D" parent="Buildings/TownHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385082, 1.10466, 0.00100005)
+pixel_size = 0.003
+texture = ExtResource("24_fopko")
+
+[node name="RotationComponent" type="Node" parent="Buildings/TownHall/Wall07"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall08" type="Sprite3D" parent="Buildings/TownHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385082, 1.50344, 0.00100005)
+pixel_size = 0.003
+texture = ExtResource("24_fopko")
+
+[node name="RotationComponent" type="Node" parent="Buildings/TownHall/Wall08"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall09" type="Sprite3D" parent="Buildings/TownHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385082, 1.89632, 0.00100005)
+pixel_size = 0.003
+texture = ExtResource("24_fopko")
+
+[node name="RotationComponent" type="Node" parent="Buildings/TownHall/Wall09"]
+script = ExtResource("25_fvhx0")
 
 [node name="PoliceStation" parent="Buildings" instance=ExtResource("2_ln3k2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63924, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.18067, 0, -1)
+
+[node name="Wall04" type="Sprite3D" parent="Buildings/PoliceStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702631, 1.07784, 0.001)
+pixel_size = 0.003
+texture = ExtResource("22_nwj4v")
+
+[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall04"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall05" type="Sprite3D" parent="Buildings/PoliceStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53103, 0.621729, 0.001)
+pixel_size = 0.003
+texture = ExtResource("23_4mpda")
+
+[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall05"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall06" type="Sprite3D" parent="Buildings/PoliceStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22543, 0.507829, 0.001)
+pixel_size = 0.003
+texture = ExtResource("24_fopko")
+
+[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall06"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall07" type="Sprite3D" parent="Buildings/PoliceStation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14027, 0.730922, 0.001)
+pixel_size = 0.003
+texture = ExtResource("24_fopko")
+
+[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall07"]
+script = ExtResource("25_fvhx0")
 
 [node name="AntiqueShop" parent="Buildings" instance=ExtResource("3_j47ek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.613, 0, 0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.39633, 0, -1.5)
+
+[node name="Wall01" type="Sprite3D" parent="Buildings/AntiqueShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81236, 1.10339, 0.000999987)
+pixel_size = 0.003
+texture = ExtResource("19_nqbkj")
+
+[node name="RotationComponent" type="Node" parent="Buildings/AntiqueShop/Wall01"]
+script = ExtResource("25_fvhx0")
+
+[node name="Wall02" type="Sprite3D" parent="Buildings/AntiqueShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48778, 1.78713, 0.000999987)
+pixel_size = 0.003
+texture = ExtResource("20_rj13x")
+
+[node name="RotationComponent" type="Node" parent="Buildings/AntiqueShop/Wall02"]
+script = ExtResource("25_fvhx0")
 
 [node name="Well" parent="Buildings" instance=ExtResource("4_jlo6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8021)
 
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="AntiqueDealer" type="Sprite3D" parent="NPCs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 0, 1.28419)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 0, -0.849182)
 offset = Vector2(0, 411)
 flip_h = true
 pixel_size = 0.002
@@ -73,7 +158,7 @@ texture = ExtResource("4_g7syq")
 dialog = ExtResource("6_q0emj")
 
 [node name="Mayor" type="Sprite3D" parent="NPCs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52131, 0, -0.623636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52131, 0, -1.39174)
 offset = Vector2(0, 439)
 flip_h = true
 pixel_size = 0.002
@@ -83,115 +168,67 @@ texture = ExtResource("5_lr7nl")
 dialog = ExtResource("8_u2d1l")
 
 [node name="Guard" type="Sprite3D" parent="NPCs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99159, 0, 0.500733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99159, 0, -0.404108)
 offset = Vector2(0, 437)
 flip_h = true
 pixel_size = 0.002
 texture = ExtResource("6_6fsy7")
-
-[node name="IC" parent="NPCs/Guard" instance=ExtResource("5_wouho")]
-dialog = ExtResource("10_syane")
 
 [node name="Decoration" type="Node3D" parent="."]
 
 [node name="Plants" type="Node3D" parent="Decoration"]
 
 [node name="Plant01" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91563, 0, 0.983601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91563, 0, -1.70551)
 centered = false
 pixel_size = 0.003
+double_sided = false
 texture = ExtResource("12_jny03")
 
 [node name="Plant02" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01486, 0, 1.4496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01486, 0, -1.23951)
 centered = false
 pixel_size = 0.003
+double_sided = false
 texture = ExtResource("13_70tj6")
 
 [node name="Plant03" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92621, 0, 3.70056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92621, 0, 1.01145)
 centered = false
 pixel_size = 0.003
+double_sided = false
 texture = ExtResource("14_evcxr")
 
 [node name="Plant04" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.686424, 0, 3.64987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.686424, 0, 0.96076)
 centered = false
 pixel_size = 0.003
+double_sided = false
 texture = ExtResource("12_pj02o")
 
 [node name="Plant05" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22883, 0, 2.93217)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22883, 0, 0.24306)
 centered = false
 pixel_size = 0.003
+double_sided = false
 texture = ExtResource("16_48pe8")
 
 [node name="Plant06" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61972, -4.76837e-07, 2.81322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61972, -4.76837e-07, 0.12411)
 centered = false
 pixel_size = 0.003
+double_sided = false
 texture = ExtResource("17_070j3")
 
 [node name="Plant07" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0135995, 0, 3.19118)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0135995, 0, 0.50207)
 centered = false
 pixel_size = 0.003
+double_sided = false
 texture = ExtResource("18_hmwpo")
 
-[node name="Walls" type="Node3D" parent="Decoration"]
+[node name="FourthWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="Wall01" type="Sprite3D" parent="Decoration/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42536, 1.10339, 0.801)
-pixel_size = 0.003
-texture = ExtResource("19_nqbkj")
-
-[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall01"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall02" type="Sprite3D" parent="Decoration/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12522, 1.78713, 0.801)
-pixel_size = 0.003
-texture = ExtResource("20_rj13x")
-
-[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall02"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall03" type="Sprite3D" parent="Decoration/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77768, 1.709, -0.999)
-pixel_size = 0.003
-texture = ExtResource("21_c8t6l")
-
-[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall03"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall04" type="Sprite3D" parent="Decoration/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34187, 1.07784, 0.001)
-pixel_size = 0.003
-texture = ExtResource("22_nwj4v")
-
-[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall04"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall05" type="Sprite3D" parent="Decoration/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.10821, 0.621729, 0.001)
-pixel_size = 0.003
-texture = ExtResource("23_4mpda")
-
-[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall05"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall06" type="Sprite3D" parent="Decoration/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.86467, 0.507829, 0.001)
-pixel_size = 0.003
-texture = ExtResource("24_fopko")
-
-[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall06"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall07" type="Sprite3D" parent="Decoration/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77951, 0.730922, 0.001)
-pixel_size = 0.003
-texture = ExtResource("24_fopko")
-
-[node name="RotationComponent" type="Node" parent="Decoration/Walls/Wall07"]
-script = ExtResource("25_fvhx0")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FourthWall"]
+shape = SubResource("WorldBoundaryShape3D_wmw1y")

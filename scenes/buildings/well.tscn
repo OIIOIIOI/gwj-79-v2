@@ -1,17 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0xeoph3lqin2"]
+[gd_scene load_steps=19 format=3 uid="uid://b0xeoph3lqin2"]
 
 [ext_resource type="QuadMesh" uid="uid://cnr3f501rpai4" path="res://assets/sprites/buildings/well/well_mesh.tres" id="1_2xftw"]
 [ext_resource type="Script" path="res://scenes/buildings/well.gd" id="1_mjp7x"]
 [ext_resource type="AudioStream" uid="uid://dv08p2ubl8qur" path="res://assets/sfx/misc/FX_Well_Drop.wav" id="3_beakr"]
+[ext_resource type="Texture2D" uid="uid://dtlvw8vc64kxb" path="res://assets/sprites/buildings/well/TREE-s1.png" id="3_tqw3a"]
 [ext_resource type="AudioStream" uid="uid://bir25o1dit1rf" path="res://assets/sfx/misc/FX_TreeGrow_1.wav" id="4_bmrdi"]
+[ext_resource type="Texture2D" uid="uid://biyedc7hsqbdx" path="res://assets/sprites/buildings/well/TREE-s2.png" id="4_mgpuo"]
+[ext_resource type="Texture2D" uid="uid://3sahyxyh3a2i" path="res://assets/sprites/buildings/well/TREE-s3.png" id="5_fknfe"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="5_pmqeo"]
 [ext_resource type="Script" path="res://resources/conditions/is_current_step_condition.gd" id="6_l477j"]
 [ext_resource type="Resource" uid="uid://d1ugk00rgh6xk" path="res://resources/dialogs/well_start.tres" id="6_u0gb7"]
 [ext_resource type="Resource" uid="uid://dourfem07sd83" path="res://resources/dialogs/well_seed.tres" id="7_hu758"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_r0n0e"]
-height = 1.0
-radius = 0.6
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wtfu2"]
+radius = 0.25
+height = 1.25
 
 [sub_resource type="Resource" id="Resource_o5prt"]
 script = ExtResource("6_l477j")
@@ -23,16 +26,119 @@ script = ExtResource("6_l477j")
 step = 2
 invert = false
 
+[sub_resource type="Animation" id="Animation_hukod"]
+resource_name = "appear"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"wave", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_u2h3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nl1xe"]
+resource_name = "wave"
+length = 3.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeSprite:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0174533), Vector3(0, 0, -0.0174533)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.98, 1.02, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fj664"]
+_data = {
+"RESET": SubResource("Animation_u2h3m"),
+"appear": SubResource("Animation_hukod"),
+"wave": SubResource("Animation_nl1xe")
+}
+
 [node name="Well" type="StaticBody3D"]
 script = ExtResource("1_mjp7x")
+tree_small = ExtResource("3_tqw3a")
+tree_medium = ExtResource("4_mgpuo")
+tree_big = ExtResource("5_fknfe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CylinderShape3D_r0n0e")
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_wtfu2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshBase" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = ExtResource("1_2xftw")
+
+[node name="TreeSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.922122, 0.001)
+centered = false
+pixel_size = 0.001
 
 [node name="ObjectDropSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_beakr")
@@ -49,3 +155,8 @@ dialog = ExtResource("6_u0gb7")
 [node name="ICSeed" parent="." instance=ExtResource("5_pmqeo")]
 condition = SubResource("Resource_xe50f")
 dialog = ExtResource("7_hu758")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fj664")
+}

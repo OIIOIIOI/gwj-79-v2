@@ -3,10 +3,12 @@ extends Node
 
 enum SCENES {
 	Scene_Title,
+	Scene_Intro,
 	Scene_Main,
 	Scene_WeightLifting,
 	Scene_HammerTime,
 	Scene_Memory,
+	Scene_Outro,
 }
 
 enum STEPS {

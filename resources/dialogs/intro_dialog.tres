@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=9 format=3 uid="uid://d3cikge67rmma"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_o1wd1"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_yf6gn"]
+[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="3_50bq6"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="3_seleq"]
+
+[sub_resource type="Resource" id="Resource_efrtc"]
+script = ExtResource("1_o1wd1")
+text = "Once upon a time there was a village..."
+style = 2
+actions = Array[ExtResource("2_yf6gn")]([])
+
+[sub_resource type="Resource" id="Resource_mqvq4"]
+script = ExtResource("1_o1wd1")
+text = "But now let's play!"
+style = 2
+actions = Array[ExtResource("2_yf6gn")]([])
+
+[sub_resource type="Resource" id="Resource_1t4a7"]
+script = ExtResource("3_50bq6")
+scene = 2
+
+[sub_resource type="Resource" id="Resource_fym0n"]
+script = ExtResource("1_o1wd1")
+text = ""
+style = 0
+actions = Array[ExtResource("2_yf6gn")]([SubResource("Resource_1t4a7")])
+
+[resource]
+script = ExtResource("3_seleq")
+chunks = Array[ExtResource("1_o1wd1")]([SubResource("Resource_efrtc"), SubResource("Resource_mqvq4"), SubResource("Resource_fym0n")])

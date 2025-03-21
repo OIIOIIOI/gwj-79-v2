@@ -86,10 +86,10 @@ func display_current_chunk() -> void:
 		# Set text style and content
 		text_label.clear()
 		match chunk.style:
-			#DialogChunk.DIALOG_CHUNK_STYLE.Comment:
-				#text_label.push_italics()
-				#text_label.append_text(chunk.text)
-				#text_label.pop()
+			DialogChunk.DIALOG_CHUNK_STYLE.Bold:
+				text_label.append_text("[b]%s[/b]" % [chunk.text])
+			DialogChunk.DIALOG_CHUNK_STYLE.Italic:
+				text_label.append_text("[i]%s[/i]" % [chunk.text])
 			DialogChunk.DIALOG_CHUNK_STYLE.Old:
 				text_label.append_text("[shake rate=10.0 level=3 connected=1]%s[/shake]" % [chunk.text])
 			_:
