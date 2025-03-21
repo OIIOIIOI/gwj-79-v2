@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://32jtbmml0n67"]
+[gd_scene load_steps=13 format=3 uid="uid://32jtbmml0n67"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/memory/memory.gd" id="1_gecvb"]
 [ext_resource type="Resource" uid="uid://24huqm6j6v0p" path="res://resources/memory/all_items.tres" id="2_qtop4"]
+[ext_resource type="Texture2D" uid="uid://wxkse1f1f74i" path="res://assets/sprites/backgrounds/ANTIQUE-BG.png" id="3_l07eu"]
+[ext_resource type="Texture2D" uid="uid://cxo4jw2dl2fma" path="res://assets/sprites/mini_games/memory/Meuble.png" id="4_7ux23"]
 [ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="5_uhb58"]
-[ext_resource type="AudioStream" uid="uid://twna6df0tp2e" path="res://assets/sfx/mini_games/FX_GAME_Win.wav" id="6_i2g02"]
+[ext_resource type="PackedScene" uid="uid://b5sykdukwfa8h" path="res://scenes/mini_games/memory/final_drawer.tscn" id="5_xipkr"]
+[ext_resource type="AudioStream" uid="uid://ixrtvtw24f8h" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.wav" id="6_kuwcf"]
 [ext_resource type="AudioStream" uid="uid://c07ewi8ix5g4m" path="res://assets/sfx/mini_games/FX_GAME_Lose.wav" id="7_nup8n"]
 [ext_resource type="PackedScene" uid="uid://u8tdxwhl1u6q" path="res://scenes/mini_games/memory/drawer.tscn" id="8_d2pkd"]
 [ext_resource type="PackedScene" uid="uid://b1fertlpkhf3p" path="res://scenes/mini_games/memory/hand.tscn" id="9_abgmd"]
@@ -23,11 +26,13 @@ items = ExtResource("2_qtop4")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(1, 8.5)
-texture = SubResource("GradientTexture2D_m3ib0")
+texture = ExtResource("3_l07eu")
+
+[node name="Buffet" type="Sprite2D" parent="."]
+texture = ExtResource("4_7ux23")
 
 [node name="BottomRow" type="Node2D" parent="."]
-position = Vector2(-32, 320)
+position = Vector2(-32, 256)
 
 [node name="Drawer1" parent="BottomRow" node_paths=PackedStringArray("up_drawer", "right_drawer", "down_drawer", "left_drawer") instance=ExtResource("8_d2pkd")]
 position = Vector2(-640, 0)
@@ -58,6 +63,7 @@ down_drawer = NodePath("../../TopRow/Drawer10")
 left_drawer = NodePath("../Drawer3")
 
 [node name="OverlayBottom" type="Node2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, 192)
 
@@ -66,7 +72,7 @@ texture = SubResource("GradientTexture2D_m3ib0")
 
 [node name="MiddleRow" type="Node2D" parent="."]
 z_index = 2
-position = Vector2(-32, 64)
+position = Vector2(-32, 0)
 
 [node name="Drawer5" parent="MiddleRow" node_paths=PackedStringArray("up_drawer", "right_drawer", "down_drawer", "left_drawer") instance=ExtResource("8_d2pkd")]
 position = Vector2(-640, 0)
@@ -74,6 +80,9 @@ up_drawer = NodePath("../../TopRow/Drawer7")
 right_drawer = NodePath("../Drawer6")
 down_drawer = NodePath("../../BottomRow/Drawer1")
 left_drawer = NodePath("../Drawer6")
+
+[node name="Drawer" parent="MiddleRow" instance=ExtResource("5_xipkr")]
+position = Vector2(32, 0)
 
 [node name="Drawer6" parent="MiddleRow" node_paths=PackedStringArray("up_drawer", "right_drawer", "down_drawer", "left_drawer") instance=ExtResource("8_d2pkd")]
 position = Vector2(704, 0)
@@ -83,6 +92,7 @@ down_drawer = NodePath("../../BottomRow/Drawer4")
 left_drawer = NodePath("../Drawer5")
 
 [node name="OverlayMiddle" type="Node2D" parent="."]
+visible = false
 z_index = 3
 position = Vector2(0, -64)
 
@@ -91,7 +101,7 @@ texture = SubResource("GradientTexture2D_m3ib0")
 
 [node name="TopRow" type="Node2D" parent="."]
 z_index = 4
-position = Vector2(-32, -192)
+position = Vector2(-32, -256)
 
 [node name="Drawer7" parent="TopRow" node_paths=PackedStringArray("up_drawer", "right_drawer", "down_drawer", "left_drawer") instance=ExtResource("8_d2pkd")]
 position = Vector2(-640, 0)
@@ -122,6 +132,7 @@ down_drawer = NodePath("../../MiddleRow/Drawer6")
 left_drawer = NodePath("../Drawer9")
 
 [node name="OverlayTop" type="Node2D" parent="."]
+visible = false
 z_index = 5
 position = Vector2(0, -384)
 
@@ -142,7 +153,7 @@ position = Vector2(0, 640)
 visible = false
 
 [node name="WinSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_i2g02")
+stream = ExtResource("6_kuwcf")
 bus = &"SFX"
 
 [node name="LoseSFX" type="AudioStreamPlayer" parent="."]

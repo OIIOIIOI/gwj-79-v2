@@ -19,8 +19,6 @@ var arm_target_position := Vector2.ZERO
 var held_time := 0.0
 
 
-@onready var goal_line: Sprite2D = $GoalLine
-
 @onready var arm: Node2D = $Arm
 @onready var start_marker: Marker2D = $StartMarker
 @onready var end_marker: Marker2D = $EndMarker
@@ -30,6 +28,7 @@ var held_time := 0.0
 @onready var mayor_end_marker: Marker2D = $MayorEndMarker
 @onready var mayor_win_marker: Marker2D = $MayorWinMarker
 
+@onready var star: Sprite2D = $Star
 @onready var win_sfx: AudioStreamPlayer = $WinSFX
 
 
@@ -99,11 +98,12 @@ func get_hold_progress() -> float:
 
 
 func reset_visuals() -> void:
+	#star.visible = false
+	star.scale = Vector2.ZERO
+
 	mayor_arm.global_position = mayor_start_marker.global_position
 	mayor_arm.rotation = mayor_start_marker.rotation
 	mayor_arm.scale = mayor_start_marker.scale
-
-	goal_line.global_position.y = lerpf(start_marker.global_position.y, end_marker.global_position.y, WIN_HOLD_THRESHOLD)
 
 
 func sync_mayor_position(progress: float) -> void:
@@ -130,11 +130,11 @@ func end_game() -> void:
 	tween.tween_property(mayor_arm, ^"global_position", mayor_win_marker.global_position, tween_duration)
 	tween.tween_property(mayor_arm, ^"rotation", mayor_win_marker.rotation, tween_duration)
 	tween.tween_property(mayor_arm, ^"scale", mayor_win_marker.scale, tween_duration)
+	tween.tween_property(star, ^"scale", Vector2.ONE * 2.0, tween_duration)
 
 	await tween.finished
-	#if win_sfx.playing:
-		#await win_sfx.finished
-	await get_tree().create_timer(0.75).timeout
+	if win_sfx.playing:
+		await win_sfx.finished
 
 	# Trigger end action
 	var end_action = AddStepAction.new()

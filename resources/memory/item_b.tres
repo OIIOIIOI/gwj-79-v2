@@ -1,13 +1,8 @@
-[gd_resource type="Resource" script_class="MemoryItem" load_steps=4 format=3 uid="uid://c5amv5ht4uoyj"]
+[gd_resource type="Resource" script_class="MemoryItem" load_steps=3 format=3 uid="uid://c5amv5ht4uoyj"]
 
 [ext_resource type="Script" path="res://resources/memory/memory_item.gd" id="1_4d1fo"]
-
-[sub_resource type="Gradient" id="Gradient_jnmfb"]
-colors = PackedColorArray(1, 0.501961, 0, 1, 1, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xxbqe"]
-gradient = SubResource("Gradient_jnmfb")
+[ext_resource type="Texture2D" uid="uid://d2t7xcscl1212" path="res://assets/sprites/mini_games/memory/ITEM2.png" id="2_s5lof"]
 
 [resource]
 script = ExtResource("1_4d1fo")
-sprite = SubResource("GradientTexture2D_xxbqe")
+sprite = ExtResource("2_s5lof")

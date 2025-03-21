@@ -14,7 +14,6 @@ var is_gone := false
 
 
 @onready var item_sprite: Sprite2D = $Visuals/Item
-@onready var front_sprite: Sprite2D = $Visuals/Front
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hand_target: Marker2D = %HandTarget
 
@@ -24,10 +23,6 @@ func assign_item(memory_item: MemoryItem) -> void:
 	item_sprite.texture = item.sprite
 
 
-func highlight(active: bool = true) -> void:
-	front_sprite.modulate = Color.PINK if active else Color.WHITE
-
-
 func open() -> void:
 	animation_player.play(&"open")
 	await animation_player.animation_finished
@@ -35,7 +30,7 @@ func open() -> void:
 
 
 func close() -> void:
-	animation_player.play_backwards(&"open")
+	animation_player.play(&"close")
 	await animation_player.animation_finished
 	is_open = false
 

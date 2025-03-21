@@ -1,38 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bclvvd40stsfw"]
+[gd_scene load_steps=9 format=3 uid="uid://bclvvd40stsfw"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/weight_lifting/weight_lifting.gd" id="1_up734"]
+[ext_resource type="Texture2D" uid="uid://vbbd4tvh6y6v" path="res://assets/sprites/backgrounds/SPORT_BG.png" id="2_ag8qd"]
 [ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="2_ro1h3"]
-[ext_resource type="AudioStream" uid="uid://twna6df0tp2e" path="res://assets/sfx/mini_games/FX_GAME_Win.wav" id="3_gdle3"]
-
-[sub_resource type="Gradient" id="Gradient_0tiu4"]
-colors = PackedColorArray(0.4, 0.4, 0.4, 1, 0.6, 0.6, 0.6, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_khhvv"]
-gradient = SubResource("Gradient_0tiu4")
-width = 1920
-height = 1080
-fill_to = Vector2(0, 1)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6wwfw"]
-size = Vector2(1920, 8)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2088r"]
-size = Vector2(800, 128)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_48xc4"]
-size = Vector2(256, 512)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m50n5"]
-size = Vector2(128, 1024)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_47cs1"]
-size = Vector2(384, 256)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dd7i0"]
-size = Vector2(384, 320)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_34n8j"]
-size = Vector2(64, 128)
+[ext_resource type="Texture2D" uid="uid://b3aa8vq01qm5t" path="res://assets/sprites/mini_games/weight_lifting/DumbBellHand.png" id="3_sc3fx"]
+[ext_resource type="AudioStream" uid="uid://ixrtvtw24f8h" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.wav" id="3_tnmdq"]
+[ext_resource type="Texture2D" uid="uid://2anae5v05lk" path="res://assets/sprites/mini_games/weight_lifting/ThumbUp.png" id="4_cyya0"]
+[ext_resource type="Texture2D" uid="uid://rfadpghyphdd" path="res://assets/sprites/mini_games/hammer_time/SplashFail.png" id="4_t4sug"]
+[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="5_ladbj"]
 
 [node name="WeightLifting" type="Node2D"]
 script = ExtResource("1_up734")
@@ -40,38 +15,14 @@ script = ExtResource("1_up734")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_khhvv")
-
-[node name="GoalLine" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.25098)
-texture = SubResource("PlaceholderTexture2D_6wwfw")
-offset = Vector2(0, 50)
+texture = ExtResource("2_ag8qd")
 
 [node name="Arm" type="Node2D" parent="."]
 position = Vector2(0, 832)
 
-[node name="Weight" type="Node2D" parent="Arm"]
-
-[node name="Bar" type="Sprite2D" parent="Arm/Weight"]
-modulate = Color(0.449303, 1, 0, 1)
-texture = SubResource("PlaceholderTexture2D_2088r")
-
-[node name="Left" type="Sprite2D" parent="Arm/Weight"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-512, 0)
-texture = SubResource("PlaceholderTexture2D_48xc4")
-
-[node name="Right" type="Sprite2D" parent="Arm/Weight"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(512, 0)
-texture = SubResource("PlaceholderTexture2D_48xc4")
-
-[node name="Arm" type="Sprite2D" parent="Arm"]
-position = Vector2(0, 544)
-texture = SubResource("PlaceholderTexture2D_m50n5")
-
-[node name="Hand" type="Sprite2D" parent="Arm"]
-texture = SubResource("PlaceholderTexture2D_47cs1")
+[node name="Sprite2D" type="Sprite2D" parent="Arm"]
+position = Vector2(0, 406)
+texture = ExtResource("3_sc3fx")
 
 [node name="StartMarker" type="Marker2D" parent="."]
 position = Vector2(0, 256)
@@ -79,23 +30,21 @@ position = Vector2(0, 256)
 [node name="EndMarker" type="Marker2D" parent="."]
 position = Vector2(0, -256)
 
+[node name="Star" type="Sprite2D" parent="."]
+position = Vector2(0, 44)
+texture = ExtResource("4_t4sug")
+
+[node name="RotationComponent" type="Node" parent="Star"]
+script = ExtResource("5_ladbj")
+amount = 30.0
+mode = "Continuous"
+
 [node name="MayorArm" type="Node2D" parent="."]
 modulate = Color(0.747786, 0.747786, 0.747786, 1)
 
-[node name="Arm" type="Sprite2D" parent="MayorArm"]
-position = Vector2(-448, 0)
-rotation = -1.57079
-texture = SubResource("PlaceholderTexture2D_m50n5")
-
-[node name="Hand" type="Sprite2D" parent="MayorArm"]
-position = Vector2(-896, 0)
-scale = Vector2(0.833333, 0.8)
-texture = SubResource("PlaceholderTexture2D_dd7i0")
-
-[node name="Thumb" type="Sprite2D" parent="MayorArm"]
-position = Vector2(-784, -175)
-rotation = -0.261799
-texture = SubResource("PlaceholderTexture2D_34n8j")
+[node name="Sprite2D" type="Sprite2D" parent="MayorArm"]
+position = Vector2(-464, 43)
+texture = ExtResource("4_cyya0")
 
 [node name="MayorStartMarker" type="Marker2D" parent="."]
 position = Vector2(1507, 305)
@@ -114,5 +63,5 @@ scale = Vector2(1.35, 1.35)
 visible = false
 
 [node name="WinSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_gdle3")
+stream = ExtResource("3_tnmdq")
 bus = &"SFX"

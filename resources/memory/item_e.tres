@@ -1,15 +1,8 @@
-[gd_resource type="Resource" script_class="MemoryItem" load_steps=4 format=3 uid="uid://o1wj7sani4k1"]
+[gd_resource type="Resource" script_class="MemoryItem" load_steps=3 format=3 uid="uid://o1wj7sani4k1"]
 
 [ext_resource type="Script" path="res://resources/memory/memory_item.gd" id="1_xv002"]
-
-[sub_resource type="Gradient" id="Gradient_metkq"]
-offsets = PackedFloat32Array(0, 0.996219)
-colors = PackedColorArray(0, 0.501961, 1, 1, 1, 0, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g1pgp"]
-gradient = SubResource("Gradient_metkq")
-fill_to = Vector2(0, 1)
+[ext_resource type="Texture2D" uid="uid://bbo3q4n4odrsk" path="res://assets/sprites/mini_games/memory/ITEM5.png" id="2_2bw0g"]
 
 [resource]
 script = ExtResource("1_xv002")
-sprite = SubResource("GradientTexture2D_g1pgp")
+sprite = ExtResource("2_2bw0g")
