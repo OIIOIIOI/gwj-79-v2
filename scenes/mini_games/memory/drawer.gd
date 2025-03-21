@@ -13,7 +13,7 @@ var is_open := false
 var is_gone := false
 
 
-@onready var item_sprite: Sprite2D = $Visuals/Item
+@onready var item_sprite: Sprite2D = %Item
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hand_target: Marker2D = %HandTarget
 

@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5sykdukwfa8h"]
+[gd_scene load_steps=9 format=3 uid="uid://b5sykdukwfa8h"]
 
 [ext_resource type="Texture2D" uid="uid://b7ruw8yyyr5lk" path="res://assets/sprites/mini_games/memory/TIRROIR-LARGE.png" id="2_m8yfx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dsyop"]
+size = Vector2(845, 384)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_36oli"]
 size = Vector2(128, 128)
@@ -10,14 +13,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals:position")
+tracks/0/path = NodePath("Mask/Visuals:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -192)]
+"values": [Vector2(0, -320)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -34,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals:modulate")
+tracks/2/path = NodePath("Mask/Visuals:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -46,7 +49,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals:visible")
+tracks/3/path = NodePath("Mask/Visuals:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -63,14 +66,26 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals:position")
+tracks/0/path = NodePath("Mask/Visuals:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(0, -64), Vector2(0, -192)]
+"values": [Vector2(0, -192), Vector2(0, -320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HandTarget:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 128), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_qf3fw"]
@@ -80,7 +95,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals:modulate")
+tracks/0/path = NodePath("Mask/Visuals:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -92,7 +107,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals:visible")
+tracks/1/path = NodePath("Mask/Visuals:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -121,14 +136,14 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals:position")
+tracks/0/path = NodePath("Mask/Visuals:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.6),
 "transitions": PackedFloat32Array(0.5, 2, 1),
 "update": 0,
-"values": [Vector2(0, -192), Vector2(0, 54), Vector2(0, -64)]
+"values": [Vector2(0, -320), Vector2(0, -74), Vector2(0, -192)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -153,14 +168,19 @@ _data = {
 
 [node name="Drawer" type="Node2D"]
 
-[node name="Visuals" type="Node2D" parent="."]
-position = Vector2(0, -192)
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(0, 128)
+texture = SubResource("PlaceholderTexture2D_dsyop")
 
-[node name="Drawer" type="Sprite2D" parent="Visuals"]
+[node name="Visuals" type="Node2D" parent="Mask"]
+position = Vector2(0, -320)
+
+[node name="Drawer" type="Sprite2D" parent="Mask/Visuals"]
 position = Vector2(0, 64)
 texture = ExtResource("2_m8yfx")
 
-[node name="Item" type="Sprite2D" parent="Visuals"]
+[node name="Item" type="Sprite2D" parent="Mask/Visuals"]
 position = Vector2(0, 32)
 texture = SubResource("PlaceholderTexture2D_36oli")
 

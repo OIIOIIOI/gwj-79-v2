@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/mini_games/memory/memory.gd" id="1_gecvb"]
 [ext_resource type="Resource" uid="uid://24huqm6j6v0p" path="res://resources/memory/all_items.tres" id="2_qtop4"]
 [ext_resource type="Texture2D" uid="uid://wxkse1f1f74i" path="res://assets/sprites/backgrounds/ANTIQUE-BG.png" id="3_l07eu"]
-[ext_resource type="Texture2D" uid="uid://cxo4jw2dl2fma" path="res://assets/sprites/mini_games/memory/Meuble.png" id="4_7ux23"]
+[ext_resource type="Texture2D" uid="uid://dal5jnrsudjvf" path="res://assets/sprites/mini_games/memory/Meuble_holes.png" id="4_62ao0"]
 [ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="5_uhb58"]
 [ext_resource type="PackedScene" uid="uid://b5sykdukwfa8h" path="res://scenes/mini_games/memory/final_drawer.tscn" id="5_xipkr"]
 [ext_resource type="AudioStream" uid="uid://ixrtvtw24f8h" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.wav" id="6_kuwcf"]
@@ -29,7 +29,7 @@ items = ExtResource("2_qtop4")
 texture = ExtResource("3_l07eu")
 
 [node name="Buffet" type="Sprite2D" parent="."]
-texture = ExtResource("4_7ux23")
+texture = ExtResource("4_62ao0")
 
 [node name="BottomRow" type="Node2D" parent="."]
 position = Vector2(-32, 256)
