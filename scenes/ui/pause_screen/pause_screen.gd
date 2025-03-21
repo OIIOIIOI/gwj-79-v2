@@ -11,11 +11,13 @@ enum STATE {
 var state: STATE = STATE.Initializing
 
 @onready var resume_button: Button = %ResumeButton
+@onready var test_button: Button = %TestButton
 @onready var quit_button: Button = %QuitButton
 
 
 func _ready() -> void:
 	resume_button.pressed.connect(on_resume_button_pressed)
+	test_button.pressed.connect(on_test_button_pressed)
 	quit_button.pressed.connect(on_quit_button_pressed)
 
 	visible = false
@@ -51,3 +53,7 @@ func on_resume_button_pressed() -> void:
 
 func on_quit_button_pressed() -> void:
 	SceneTransition.transition_to(GameEnums.SCENES.Scene_Title)
+
+
+func on_test_button_pressed() -> void:
+	SceneTransition.transition_to(GameEnums.SCENES.Scene_Music)

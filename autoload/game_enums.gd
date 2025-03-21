@@ -9,6 +9,7 @@ enum SCENES {
 	Scene_HammerTime,
 	Scene_Memory,
 	Scene_Outro,
+	Scene_Music,
 }
 
 enum STEPS {
