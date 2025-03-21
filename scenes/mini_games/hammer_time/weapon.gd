@@ -2,8 +2,8 @@ extends Node2D
 class_name Weapon
 
 
-const WEAPON_IDLE_ROTATION = -70.0
-const WEAPON_MAX_ROTATION = 17.5
+const WEAPON_IDLE_ROTATION := -70.0
+const WEAPON_MAX_ROTATION := 25.0
 
 
 func intro() -> Tween:

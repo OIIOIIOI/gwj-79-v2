@@ -9,17 +9,24 @@ var nail_height := 472.0
 
 @onready var nail_mask: Sprite2D = $NailMask
 @onready var nail_sprite: Sprite2D = $NailMask/NailSprite
+@onready var go_down_timer: Timer = $GoDownTimer
 
 
 func _ready() -> void:
 	nail_sprite.position.y = 0.0
 
+	go_down_timer.timeout.connect(on_go_down_timer_timeout)
 
-func hit() -> bool:
+
+func hit() -> float:
 	hits_received = min(hits_received + 1, required_hits)
-	nail_sprite.position.y = nail_height / float(required_hits) * float(hits_received)
+	go_down_timer.start(0.2)
 
-	return hits_received == required_hits
+	return float(hits_received) / float(required_hits)
+
+
+func on_go_down_timer_timeout() -> void:
+	nail_sprite.position.y = nail_height / float(required_hits) * float(hits_received)
 
 
 func fall() -> void:

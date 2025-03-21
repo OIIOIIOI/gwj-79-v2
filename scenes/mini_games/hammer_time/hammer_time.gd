@@ -156,9 +156,6 @@ func stop_everything() -> void:
 
 
 func hit() -> void:
-	weapon.global_position.x = reset_weapon_position.x + nail_hand.global_position.x
-	weapon.hit()
-
 	# Fail
 	if game_state == GAME_STATE.HandMoving || game_state == GAME_STATE.NailReleased:
 		hit_fail()
@@ -171,6 +168,10 @@ func hit_fail() -> void:
 	# Stop timers and tweens
 	stop_everything()
 	can_hit = false
+
+	# Anim weapon
+	weapon.global_position.x = reset_weapon_position.x + nail_hand.global_position.x
+	weapon.hit()
 
 	# Play SFX
 	hit_fail_sfx.play()
@@ -202,17 +203,25 @@ func hit_fail() -> void:
 
 func hit_success() -> void:
 	nail_fall_timer.stop()
+	can_hit = false
 
-	var nailed: bool = current_nail_instance.hit()
+	var nailed: float = current_nail_instance.hit()
+
+	# Anim weapon
+	weapon.global_position.x = reset_weapon_position.x + current_nail_instance.global_position.x
+	weapon.hit(nailed)
+
 	hit_success_sfx.play()
 	await hit_success_sfx.finished
 
-	if nailed:
+	if nailed == 1.0:
 		current_nail += 1
 		if current_nail < MAX_NAILS:
 			set_target_and_move()
 		else:
 			end_game()
+	else:
+		can_hit = true
 
 
 func end_game() -> void:

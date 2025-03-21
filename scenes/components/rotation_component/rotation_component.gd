@@ -2,7 +2,7 @@ extends Node
 class_name RotationComponent
 
 
-@export_range(0.0, 180.0) var amount := 15.0
+@export_range(0.0, 360.0) var amount := 15.0
 @export_enum("Once", "Continuous") var mode: String = "Once"
 
 
