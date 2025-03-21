@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://32jtbmml0n67"]
+[gd_scene load_steps=12 format=3 uid="uid://32jtbmml0n67"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/memory/memory.gd" id="1_gecvb"]
 [ext_resource type="Resource" uid="uid://24huqm6j6v0p" path="res://resources/memory/all_items.tres" id="2_qtop4"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="5_uhb58"]
 [ext_resource type="PackedScene" uid="uid://b5sykdukwfa8h" path="res://scenes/mini_games/memory/final_drawer.tscn" id="5_xipkr"]
 [ext_resource type="AudioStream" uid="uid://ixrtvtw24f8h" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.wav" id="6_kuwcf"]
-[ext_resource type="AudioStream" uid="uid://c07ewi8ix5g4m" path="res://assets/sfx/mini_games/FX_GAME_Lose.wav" id="7_nup8n"]
 [ext_resource type="PackedScene" uid="uid://u8tdxwhl1u6q" path="res://scenes/mini_games/memory/drawer.tscn" id="8_d2pkd"]
 [ext_resource type="PackedScene" uid="uid://b1fertlpkhf3p" path="res://scenes/mini_games/memory/hand.tscn" id="9_abgmd"]
 
@@ -154,8 +153,4 @@ visible = false
 
 [node name="WinSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kuwcf")
-bus = &"SFX"
-
-[node name="LoseSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_nup8n")
 bus = &"SFX"

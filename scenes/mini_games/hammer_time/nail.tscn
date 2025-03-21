@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctijgtvlhhrly"]
+
+[ext_resource type="Texture2D" uid="uid://co58xcw53n2dy" path="res://assets/sprites/mini_games/hammer_time/Clou.png" id="1_cw575"]
+[ext_resource type="Script" path="res://scenes/mini_games/hammer_time/nail.gd" id="1_v4fwy"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pewrt"]
+size = Vector2(80, 500)
+
+[node name="Nail" type="Sprite2D"]
+clip_children = 1
+texture = SubResource("PlaceholderTexture2D_pewrt")
+centered = false
+offset = Vector2(-40, -10)
+script = ExtResource("1_v4fwy")
+
+[node name="NailSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_cw575")
+centered = false
+offset = Vector2(-36, 0)

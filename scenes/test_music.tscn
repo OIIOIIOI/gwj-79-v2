@@ -1,35 +1,35 @@
 [gd_scene load_steps=9 format=3 uid="uid://6onpvaxc61ct"]
 
 [ext_resource type="Script" path="res://scenes/test_music.gd" id="1_gpc58"]
-[ext_resource type="AudioStream" uid="uid://cq83fo23pktft" path="res://assets/music/Trans1.ogg" id="2_48wnq"]
-[ext_resource type="AudioStream" uid="uid://dgqcvajy1754j" path="res://assets/music/Main1.ogg" id="3_3clga"]
-[ext_resource type="AudioStream" uid="uid://b63cwbwfjl2l" path="res://assets/music/Trans2.ogg" id="4_s4jpt"]
-[ext_resource type="AudioStream" uid="uid://brvlbs5cuk82a" path="res://assets/music/Main2.ogg" id="5_wj5om"]
-[ext_resource type="AudioStream" uid="uid://iy6e7devo822" path="res://assets/music/Trans3.ogg" id="6_lnh1j"]
-[ext_resource type="AudioStream" uid="uid://dp7pb2c4y7iy6" path="res://assets/music/Main3.ogg" id="7_4qcwx"]
+[ext_resource type="AudioStream" uid="uid://d1ywpgtqy2wy8" path="res://assets/music/Transition_1.ogg" id="2_el2tb"]
+[ext_resource type="AudioStream" uid="uid://b6oqqapta8j7o" path="res://assets/music/Main_1.ogg" id="3_hy4qq"]
+[ext_resource type="AudioStream" uid="uid://neqfrnyan6sb" path="res://assets/music/Transition_2.ogg" id="4_6amfu"]
+[ext_resource type="AudioStream" uid="uid://di61k76y1o7pg" path="res://assets/music/Main_2.ogg" id="5_gl7ql"]
+[ext_resource type="AudioStream" uid="uid://dk2mk4nf0ydcr" path="res://assets/music/Transition_3.ogg" id="6_j7mu5"]
+[ext_resource type="AudioStream" uid="uid://cn1daepblj351" path="res://assets/music/Main_3.ogg" id="7_ndifa"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ovuqv"]
 clip_count = 6
 clip_0/name = &"Trans 1"
-clip_0/stream = ExtResource("2_48wnq")
+clip_0/stream = ExtResource("2_el2tb")
 clip_0/auto_advance = 1
 clip_0/next_clip = 1
 clip_1/name = &"Main 1"
-clip_1/stream = ExtResource("3_3clga")
+clip_1/stream = ExtResource("3_hy4qq")
 clip_1/auto_advance = 0
 clip_2/name = &"Trans 2"
-clip_2/stream = ExtResource("4_s4jpt")
+clip_2/stream = ExtResource("4_6amfu")
 clip_2/auto_advance = 1
 clip_2/next_clip = 3
 clip_3/name = &"Main 2"
-clip_3/stream = ExtResource("5_wj5om")
+clip_3/stream = ExtResource("5_gl7ql")
 clip_3/auto_advance = 0
 clip_4/name = &"Trans 3"
-clip_4/stream = ExtResource("6_lnh1j")
+clip_4/stream = ExtResource("6_j7mu5")
 clip_4/auto_advance = 1
 clip_4/next_clip = 5
 clip_5/name = &"Main 3"
-clip_5/stream = ExtResource("7_4qcwx")
+clip_5/stream = ExtResource("7_ndifa")
 clip_5/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
@@ -127,6 +127,10 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "v2"
 
 [node name="Button1" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -25,7 +25,6 @@ var game_state: GAME_STATE = GAME_STATE.Initializing
 
 @onready var hand: Hand = $Hand
 @onready var win_sfx: AudioStreamPlayer = $WinSFX
-@onready var lose_sfx: AudioStreamPlayer = $LoseSFX
 
 
 func _ready() -> void:
@@ -197,7 +196,6 @@ func check_results() -> void:
 		await get_tree().create_timer(0.1).timeout
 		second_drawer.fade()
 	else:
-		lose_sfx.play()
 		first_drawer.close()
 		await get_tree().create_timer(0.1).timeout
 		second_drawer.close()
