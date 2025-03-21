@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cronjuvewke5r"]
+
+[ext_resource type="Script" path="res://scenes/mini_games/hammer_time/nail_hand.gd" id="1_358vb"]
+[ext_resource type="Texture2D" uid="uid://co58xcw53n2dy" path="res://assets/sprites/mini_games/hammer_time/Clou.png" id="2_pwylk"]
+[ext_resource type="Texture2D" uid="uid://bfvsjkibyt5b3" path="res://assets/sprites/mini_games/hammer_time/MAIN-4.png" id="3_vt5kf"]
+
+[node name="NailHand" type="Node2D"]
+script = ExtResource("1_358vb")
+
+[node name="NailSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_pwylk")
+centered = false
+offset = Vector2(-38, 0)
+
+[node name="HandSprite" type="Sprite2D" parent="."]
+rotation = -0.349066
+scale = Vector2(2, 2)
+texture = ExtResource("3_vt5kf")
+centered = false
+offset = Vector2(-75, -78)

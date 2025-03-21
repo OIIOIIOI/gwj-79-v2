@@ -112,9 +112,9 @@ func sync_mayor_position(progress: float) -> void:
 	var target_scale = mayor_start_marker.scale.lerp(mayor_end_marker.scale, progress)
 
 	var ratio = 0.5
-	mayor_arm.global_position.lerp(target_position, ratio)
+	mayor_arm.global_position = mayor_arm.global_position.lerp(target_position, ratio)
 	mayor_arm.rotation = lerp(mayor_arm.rotation, target_rotation, ratio)
-	mayor_arm.scale.lerp(target_scale, ratio)
+	mayor_arm.scale = mayor_arm.scale.lerp(target_scale, ratio)
 
 
 func end_game() -> void:

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://rv4bwyy31ntc"]
+
+[ext_resource type="Script" path="res://scenes/mini_games/hammer_time/weapon.gd" id="1_7y7ec"]
+[ext_resource type="Texture2D" uid="uid://82o6xblwu15a" path="res://assets/sprites/mini_games/hammer_time/HandGuard.png" id="1_gumx3"]
+
+[node name="Weapon" type="Node2D"]
+position = Vector2(-1280, -600)
+script = ExtResource("1_7y7ec")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1019, 187)
+texture = ExtResource("1_gumx3")

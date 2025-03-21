@@ -1,46 +1,59 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwyq2cqf6ldqj"]
+[gd_scene load_steps=11 format=3 uid="uid://dwyq2cqf6ldqj"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/hammer_time/hammer_time.gd" id="1_2tw1a"]
 [ext_resource type="Texture2D" uid="uid://cicijltqiaf0v" path="res://assets/sprites/backgrounds/GUARD-BG.png" id="2_cvrx2"]
 [ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="2_ueuri"]
 [ext_resource type="Texture2D" uid="uid://c1ies26xda3dj" path="res://assets/sprites/mini_games/hammer_time/BOISBARQUE.png" id="3_7h38u"]
-[ext_resource type="Texture2D" uid="uid://82o6xblwu15a" path="res://assets/sprites/mini_games/hammer_time/HandGuard.png" id="4_unqkw"]
-[ext_resource type="PackedScene" uid="uid://ctijgtvlhhrly" path="res://scenes/mini_games/hammer_time/nail.tscn" id="5_ho1jm"]
-[ext_resource type="Texture2D" uid="uid://bfvsjkibyt5b3" path="res://assets/sprites/mini_games/hammer_time/MAIN-4.png" id="5_rnrix"]
+[ext_resource type="PackedScene" uid="uid://cronjuvewke5r" path="res://scenes/mini_games/hammer_time/nail_hand.tscn" id="4_2n148"]
+[ext_resource type="PackedScene" uid="uid://rv4bwyy31ntc" path="res://scenes/mini_games/hammer_time/weapon.tscn" id="5_xyxah"]
+[ext_resource type="AudioStream" uid="uid://ixrtvtw24f8h" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.wav" id="7_jtbdu"]
+[ext_resource type="AudioStream" uid="uid://d1fmhjs8mgonf" path="res://assets/sfx/mini_games/FX_HammerMetal.wav" id="8_1g141"]
+[ext_resource type="AudioStream" uid="uid://bri7pgyih3kqk" path="res://assets/sfx/mini_games/FX_HammerWood.wav" id="9_1ivgh"]
+[ext_resource type="AudioStream" uid="uid://bcd5sgvfo72u" path="res://assets/sfx/mini_games/FX_Douleur1.wav" id="10_nwpe7"]
 
 [node name="HammerTime" type="Node2D"]
 script = ExtResource("1_2tw1a")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Environment"]
 texture = ExtResource("2_cvrx2")
 
-[node name="Wood" type="Sprite2D" parent="."]
+[node name="Wood" type="Sprite2D" parent="Environment"]
 position = Vector2(-960, 140)
 texture = ExtResource("3_7h38u")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1920, 400)
 
-[node name="WeaponHand" type="Node2D" parent="."]
-position = Vector2(-1235, -596)
+[node name="Nails" type="Node2D" parent="."]
+position = Vector2(0, -150)
 
-[node name="Sprite2D" type="Sprite2D" parent="WeaponHand"]
-position = Vector2(1019, 187)
-texture = ExtResource("4_unqkw")
+[node name="NailHand" parent="." instance=ExtResource("4_2n148")]
+position = Vector2(0, -150)
 
-[node name="Nail" parent="." instance=ExtResource("5_ho1jm")]
-
-[node name="NailHand" type="Node2D" parent="."]
-visible = false
-position = Vector2(0, -130)
-
-[node name="Hand" type="Sprite2D" parent="NailHand"]
-position = Vector2(221, 523.749)
-rotation = -0.174533
-scale = Vector2(2, 2)
-texture = ExtResource("5_rnrix")
+[node name="Weapon" parent="." instance=ExtResource("5_xyxah")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PauseScreen" parent="." instance=ExtResource("2_ueuri")]
 visible = false
+
+[node name="NailFallTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HandSafeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitSuccessSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1g141")
+
+[node name="HitFailSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_1ivgh")
+
+[node name="HitHandSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nwpe7")
+
+[node name="WinSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jtbdu")
+bus = &"SFX"
