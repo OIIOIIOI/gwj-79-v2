@@ -23,6 +23,7 @@ enum STEPS {
 	Step_DroppedEmerald,
 	Step_DroppedBook,
 	Step_GameStarted,
+	Step_BookChecked,
 }
 
 enum OBJECTS {

@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=16 format=3 uid="uid://b50j7bic8wgdn"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_xfyet"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_8bs8w"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_ymaky"]
+[ext_resource type="Texture2D" uid="uid://cn7r6spwgqypy" path="res://assets/sprites/backgrounds/MAYOR-BG.png" id="3_selwb"]
+[ext_resource type="Texture2D" uid="uid://c5b6dxppxls4v" path="res://assets/ui/dialogs/MayorEd.png" id="4_ccjoa"]
+[ext_resource type="Texture2D" uid="uid://dg2eqc6i48pfr" path="res://assets/sprites/characters/mayor/MAYOR_dialog.png" id="5_iecmm"]
+[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="6_f5tyy"]
+
+[sub_resource type="Resource" id="Resource_42hwg"]
+script = ExtResource("1_xfyet")
+text = "You enter the City Hall, once the heart of the town, now a hollow shell. Here you find the newly elected mayor, Ed, surrounded by the gym equipment that now fills the once-bustling halls."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_8bs8w")]([])
+
+[sub_resource type="Resource" id="Resource_klfdg"]
+script = ExtResource("1_xfyet")
+speaker_name = ExtResource("4_ccjoa")
+speaker_sprite = ExtResource("5_iecmm")
+text = "Hey champ!
+What can I do for you?"
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_8bs8w")]([])
+
+[sub_resource type="Resource" id="Resource_pquyf"]
+script = ExtResource("1_xfyet")
+text = "You explain, without too many details, that you need the City Seal to save the town."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_8bs8w")]([])
+
+[sub_resource type="Resource" id="Resource_qdfoi"]
+script = ExtResource("1_xfyet")
+speaker_name = ExtResource("4_ccjoa")
+speaker_sprite = ExtResource("5_iecmm")
+text = "How the hell could you care about the end of the world when you're built like a god? Physique is all that matters! Strength is everything, that’s why I got elected. People love it!"
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_8bs8w")]([])
+
+[sub_resource type="Resource" id="Resource_yierx"]
+script = ExtResource("1_xfyet")
+speaker_name = ExtResource("4_ccjoa")
+speaker_sprite = ExtResource("5_iecmm")
+text = "You know what champ? Show me you can lift some decent weight, and the City Seal is yours!"
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_8bs8w")]([])
+
+[sub_resource type="Resource" id="Resource_kj8jd"]
+script = ExtResource("1_xfyet")
+text = "The mayor points to a dumbbell lost among the complex machines."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_8bs8w")]([])
+
+[sub_resource type="Resource" id="Resource_o7l6c"]
+script = ExtResource("6_f5tyy")
+scene = 3
+
+[sub_resource type="Resource" id="Resource_0glvk"]
+script = ExtResource("1_xfyet")
+text = ""
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_8bs8w")]([SubResource("Resource_o7l6c")])
+
+[resource]
+script = ExtResource("2_ymaky")
+background = ExtResource("3_selwb")
+chunks = Array[ExtResource("1_xfyet")]([SubResource("Resource_42hwg"), SubResource("Resource_klfdg"), SubResource("Resource_pquyf"), SubResource("Resource_qdfoi"), SubResource("Resource_yierx"), SubResource("Resource_kj8jd"), SubResource("Resource_0glvk")])

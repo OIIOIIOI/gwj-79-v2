@@ -113,6 +113,7 @@ Vector2i(5, 4): {
 }
 
 [node name="SoundManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_xprvp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

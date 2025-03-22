@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://wfbmxhb1fxis"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_ykp1i"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_0r53i"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_8uadi"]
+
+[sub_resource type="Resource" id="Resource_5n0er"]
+script = ExtResource("1_ykp1i")
+text = "There is nothing more to do in here.
+And Mayor Ed is out in the town square now."
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_8uadi")]([])
+
+[resource]
+script = ExtResource("2_0r53i")
+chunks = Array[ExtResource("1_ykp1i")]([SubResource("Resource_5n0er")])

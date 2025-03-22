@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://do5x56a1ql3ul"]
+[gd_scene load_steps=11 format=3 uid="uid://do5x56a1ql3ul"]
 
 [ext_resource type="PackedScene" uid="uid://nje8qvt00yvc" path="res://scenes/locations/village/village.tscn" id="1_88grx"]
 [ext_resource type="PackedScene" uid="uid://bm7lmhrturpas" path="res://scenes/player/player.tscn" id="2_5wouh"]
 [ext_resource type="PackedScene" uid="uid://bdxgb2cbruj11" path="res://scenes/components/interaction_manager/interaction_manager.tscn" id="3_sfjks"]
 [ext_resource type="PackedScene" uid="uid://cghqe17ct1qg6" path="res://scenes/ui/dialog_ui/dialog_ui.tscn" id="4_v0f87"]
 [ext_resource type="PackedScene" uid="uid://46h2t80i4xnl" path="res://scenes/ui/pause_screen/pause_screen.tscn" id="5_bvmd1"]
+[ext_resource type="PackedScene" uid="uid://dn8lncd01qa8f" path="res://scenes/ui/help_ui/help_ui.tscn" id="6_g5r1g"]
+[ext_resource type="PackedScene" uid="uid://d0av3lgye5gb3" path="res://scenes/ui/book_ui/book_ui.tscn" id="7_0xrg6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s7ki5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,3 +42,7 @@ dialog_ui = NodePath("../DialogUI")
 
 [node name="PauseScreen" parent="." instance=ExtResource("5_bvmd1")]
 visible = false
+
+[node name="HelpUI" parent="." instance=ExtResource("6_g5r1g")]
+
+[node name="BookUI" parent="." instance=ExtResource("7_0xrg6")]
