@@ -20,6 +20,10 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 		GameEnums.STEPS.Step_DroppedSeed:
 			await get_tree().create_timer(3.0).timeout
 			add_notification("Something happened to the book!")
+		GameEnums.STEPS.Step_ObtainedWeapon:
+			add_notification("Weapon obtained!")
+		GameEnums.STEPS.Step_ObtainedEmerald:
+			add_notification("Emerald obtained!")
 
 
 func add_notification(text: String) -> void:

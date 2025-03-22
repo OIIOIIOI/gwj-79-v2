@@ -220,6 +220,9 @@ func end_game() -> void:
 	win_sfx.play()
 	await win_sfx.finished
 
-	#await get_tree().create_timer(0.5).timeout
+	# Trigger end action
+	var end_action = AddStepAction.new()
+	end_action.step = GameEnums.STEPS.Step_ObtainedEmerald
+	GameEvents.execute_action(end_action)
 
 	SceneTransition.transition_to(GameEnums.SCENES.Scene_Main)

@@ -1,0 +1,54 @@
+[gd_scene load_steps=12 format=3 uid="uid://bf0l2uy0ys03p"]
+
+[ext_resource type="QuadMesh" uid="uid://ccrh3grykcxv2" path="res://assets/sprites/buildings/boat/boat_mesh.tres" id="1_smcm8"]
+[ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="2_poyum"]
+[ext_resource type="Script" path="res://resources/conditions/is_current_step_condition.gd" id="3_ojxh2"]
+[ext_resource type="Script" path="res://resources/conditions/has_step_condition.gd" id="4_orktn"]
+[ext_resource type="Resource" uid="uid://b2gtcv7s5omp4" path="res://resources/dialogs/boat/boat_available.tres" id="4_pnggr"]
+[ext_resource type="Resource" uid="uid://cnxbywuyhrxkn" path="res://resources/dialogs/boat/boat_used.tres" id="5_7mq5g"]
+[ext_resource type="Resource" uid="uid://bqdj0hb75vmg4" path="res://resources/dialogs/boat/boat_travel.tres" id="5_dcr78"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ko7x4"]
+radius = 0.506402
+height = 4.17176
+
+[sub_resource type="Resource" id="Resource_iwfgk"]
+script = ExtResource("3_ojxh2")
+step = 4
+invert = false
+
+[sub_resource type="Resource" id="Resource_0146p"]
+script = ExtResource("3_ojxh2")
+step = 5
+invert = true
+
+[sub_resource type="Resource" id="Resource_vb0ti"]
+script = ExtResource("4_orktn")
+step = 6
+invert = false
+
+[node name="Boat" type="StaticBody3D"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_ko7x4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = ExtResource("1_smcm8")
+
+[node name="ICAvailable" parent="." instance=ExtResource("2_poyum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00612, 0, 0)
+condition = SubResource("Resource_iwfgk")
+dialog = ExtResource("4_pnggr")
+
+[node name="ICTravel" parent="." instance=ExtResource("2_poyum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00612, 0, 0)
+condition = SubResource("Resource_0146p")
+dialog = ExtResource("5_dcr78")
+
+[node name="ICUsed" parent="." instance=ExtResource("2_poyum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00612, 0, 0)
+condition = SubResource("Resource_vb0ti")
+dialog = ExtResource("5_7mq5g")
