@@ -61,6 +61,7 @@ size_flags_vertical = 8
 texture = ExtResource("2_x8hni")
 
 [node name="TextPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 205)
 layout_mode = 2
 
@@ -100,3 +101,6 @@ mouse_filter = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[node name="AutoAdvanceTimer" type="Timer" parent="."]
+one_shot = true

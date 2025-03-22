@@ -11,6 +11,7 @@ speaker_name = ExtResource("3_e7lsd")
 text = "This well seems pretty old!
 It's very dark too..."
 style = 0
+duration = 0.0
 actions = Array[ExtResource("2_e11vn")]([])
 
 [resource]

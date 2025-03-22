@@ -173,8 +173,12 @@ func move_hand(direction: Vector2) -> void:
 func open_drawer(drawer: Drawer) -> void:
 	game_state = GAME_STATE.Opening
 
+	hand.switch_hand(false)
+
 	drawer.open()
 	await drawer.animation_player.animation_finished
+
+	hand.switch_hand(true)
 
 	opened_drawers.append(drawer)
 	check_results()

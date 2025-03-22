@@ -1,32 +1,92 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=9 format=3 uid="uid://d3cikge67rmma"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=21 format=3 uid="uid://d3cikge67rmma"]
 
 [ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_o1wd1"]
 [ext_resource type="Script" path="res://resources/actions/action.gd" id="2_yf6gn"]
 [ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="3_50bq6"]
 [ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="3_seleq"]
+[ext_resource type="Texture2D" uid="uid://cbd8uu340cib2" path="res://assets/sprites/intro/INTRO-FRAME1.png" id="3_wv8h4"]
+[ext_resource type="Texture2D" uid="uid://hd72mwsx2x6a" path="res://assets/sprites/intro/INTRO-FRAME2.png" id="4_n0gc1"]
+[ext_resource type="Script" path="res://resources/actions/add_step_action.gd" id="5_51n7b"]
+[ext_resource type="Texture2D" uid="uid://bb24v4w8p6rc" path="res://assets/sprites/intro/INTRO-FRAME3.png" id="6_8vret"]
+[ext_resource type="Texture2D" uid="uid://bf4bpky7sx0js" path="res://assets/sprites/intro/INTRO-FRAME4.png" id="7_i6v7a"]
 
 [sub_resource type="Resource" id="Resource_efrtc"]
 script = ExtResource("1_o1wd1")
-text = "Once upon a time there was a village..."
+background = ExtResource("3_wv8h4")
+text = "The sea rises a little more each day. The land disappears, cities vanish.
+Soon, nothing will be left… and your town is next."
 style = 2
+duration = 12.0
 actions = Array[ExtResource("2_yf6gn")]([])
 
 [sub_resource type="Resource" id="Resource_mqvq4"]
 script = ExtResource("1_o1wd1")
-text = "But now let's play!"
+background = ExtResource("4_n0gc1")
+text = "Your library won’t hold much longer. Water seeps in, shelves collapse, books float away.
+You search desperately for something to save."
 style = 2
+duration = 12.0
 actions = Array[ExtResource("2_yf6gn")]([])
 
-[sub_resource type="Resource" id="Resource_1t4a7"]
-script = ExtResource("3_50bq6")
-scene = 2
+[sub_resource type="Resource" id="Resource_7o6f5"]
+script = ExtResource("1_o1wd1")
+background = ExtResource("4_n0gc1")
+text = "Your fingers land on an ancient tome, untouched by the water.
+It seems like it has been waiting for you."
+style = 2
+duration = 10.0
+actions = Array[ExtResource("2_yf6gn")]([])
 
-[sub_resource type="Resource" id="Resource_fym0n"]
+[sub_resource type="Resource" id="Resource_3mvsf"]
+script = ExtResource("5_51n7b")
+step = 1
+
+[sub_resource type="Resource" id="Resource_6jm5a"]
 script = ExtResource("1_o1wd1")
 text = ""
 style = 0
-actions = Array[ExtResource("2_yf6gn")]([SubResource("Resource_1t4a7")])
+duration = 0.0
+actions = Array[ExtResource("2_yf6gn")]([SubResource("Resource_3mvsf")])
+
+[sub_resource type="Resource" id="Resource_fym0n"]
+script = ExtResource("1_o1wd1")
+background = ExtResource("6_8vret")
+text = "As the library sinks before your eyes, you open the book. Inside, a forgotten prophecy. A village on the brink of ruin… but a glimmer of hope."
+style = 2
+duration = 12.0
+actions = Array[ExtResource("2_yf6gn")]([])
+
+[sub_resource type="Resource" id="Resource_oopdt"]
+script = ExtResource("1_o1wd1")
+background = ExtResource("6_8vret")
+text = "A great tree, capable of saving them all. If the legend is true, you must find a way to make it grow. It is your only chance."
+style = 2
+duration = 10.0
+actions = Array[ExtResource("2_yf6gn")]([])
+
+[sub_resource type="Resource" id="Resource_tiqhp"]
+script = ExtResource("1_o1wd1")
+background = ExtResource("7_i6v7a")
+text = ""
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_yf6gn")]([])
+
+[sub_resource type="Resource" id="Resource_cek61"]
+script = ExtResource("5_51n7b")
+step = 9
+
+[sub_resource type="Resource" id="Resource_ns0om"]
+script = ExtResource("3_50bq6")
+scene = 2
+
+[sub_resource type="Resource" id="Resource_acsf2"]
+script = ExtResource("1_o1wd1")
+text = ""
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_yf6gn")]([SubResource("Resource_cek61"), SubResource("Resource_ns0om")])
 
 [resource]
 script = ExtResource("3_seleq")
-chunks = Array[ExtResource("1_o1wd1")]([SubResource("Resource_efrtc"), SubResource("Resource_mqvq4"), SubResource("Resource_fym0n")])
+chunks = Array[ExtResource("1_o1wd1")]([SubResource("Resource_efrtc"), SubResource("Resource_mqvq4"), SubResource("Resource_7o6f5"), SubResource("Resource_6jm5a"), SubResource("Resource_fym0n"), SubResource("Resource_oopdt"), SubResource("Resource_tiqhp"), SubResource("Resource_acsf2")])

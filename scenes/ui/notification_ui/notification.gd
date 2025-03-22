@@ -15,9 +15,9 @@ func set_text(text: String) -> void:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_method(tween_show, 0.0, 1.0, 0.8)
+	tween.tween_method(tween_show, 0.0, 1.0, 1.0)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_method(tween_hide, 1.0, 0.0, 0.5).set_delay(5.8)
+	tween.tween_method(tween_hide, 1.0, 0.0, 0.5).set_delay(5.0)
 
 	await tween.finished
 	queue_free()

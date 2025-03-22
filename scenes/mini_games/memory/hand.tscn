@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1fertlpkhf3p"]
+[gd_scene load_steps=4 format=3 uid="uid://b1fertlpkhf3p"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/memory/hand.gd" id="1_pkl4v"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xlgev"]
-size = Vector2(128, 2048)
+[ext_resource type="Texture2D" uid="uid://yk70hmqbgnfn" path="res://assets/sprites/mini_games/memory/MAIN-1.png" id="2_wj8ak"]
+[ext_resource type="Texture2D" uid="uid://c5qfojc44k2in" path="res://assets/sprites/mini_games/memory/MAIN-2.png" id="3_qah1q"]
 
 [node name="Hand" type="Node2D"]
 script = ExtResource("1_pkl4v")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 992)
-texture = SubResource("PlaceholderTexture2D_xlgev")
+[node name="HandMove" type="Sprite2D" parent="."]
+position = Vector2(20, 450)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_wj8ak")
+
+[node name="HandPull" type="Sprite2D" parent="."]
+position = Vector2(20, 450)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_qah1q")

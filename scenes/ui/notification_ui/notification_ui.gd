@@ -13,8 +13,8 @@ func _ready() -> void:
 
 func on_step_added(step: GameEnums.STEPS) -> void:
 	match step:
-		#GameEnums.STEPS.Step_ObtainedBook:
-			#add_notification("Book obtained!")
+		GameEnums.STEPS.Step_ObtainedBook:
+			add_notification("Mysterious Book obtained!")
 		GameEnums.STEPS.Step_ObtainedSeed:
 			add_notification("Seed obtained!")
 		GameEnums.STEPS.Step_DroppedSeed:
