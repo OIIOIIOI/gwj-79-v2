@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf0l2uy0ys03p"]
+[gd_scene load_steps=15 format=3 uid="uid://bf0l2uy0ys03p"]
 
 [ext_resource type="QuadMesh" uid="uid://ccrh3grykcxv2" path="res://assets/sprites/buildings/boat/boat_mesh.tres" id="1_smcm8"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="2_poyum"]
@@ -17,7 +17,7 @@ script = ExtResource("3_ojxh2")
 step = 4
 invert = false
 
-[sub_resource type="Resource" id="Resource_0146p"]
+[sub_resource type="Resource" id="Resource_q3il6"]
 script = ExtResource("3_ojxh2")
 step = 5
 invert = false
@@ -26,6 +26,69 @@ invert = false
 script = ExtResource("4_orktn")
 step = 6
 invert = false
+
+[sub_resource type="Animation" id="Animation_idnh4"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+step = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0.45, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.75, 2.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0174533), Vector3(0, 0, -0.0174533)]
+}
+
+[sub_resource type="Animation" id="Animation_6pyy7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x56ef"]
+_data = {
+"RESET": SubResource("Animation_6pyy7"),
+"idle": SubResource("Animation_idnh4")
+}
 
 [node name="Boat" type="StaticBody3D"]
 collision_mask = 0
@@ -45,10 +108,16 @@ dialog = ExtResource("4_pnggr")
 
 [node name="ICTravel" parent="." instance=ExtResource("2_poyum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00612, 0, 0)
-condition = SubResource("Resource_0146p")
+condition = SubResource("Resource_q3il6")
 dialog = ExtResource("5_dcr78")
 
 [node name="ICUsed" parent="." instance=ExtResource("2_poyum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00612, 0, 0)
 condition = SubResource("Resource_vb0ti")
 dialog = ExtResource("5_7mq5g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x56ef")
+}
+autoplay = "idle"

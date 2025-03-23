@@ -9,21 +9,35 @@
 [ext_resource type="PackedScene" uid="uid://d0av3lgye5gb3" path="res://scenes/ui/book_ui/book_ui.tscn" id="7_0xrg6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s7ki5"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.835294, 0.921569, 0.960784, 1)
+sky_horizon_color = Color(0.447059, 0.533333, 0.72549, 1)
+sky_curve = 0.344609
+ground_bottom_color = Color(0.121569, 0.172549, 0.164706, 1)
+ground_horizon_color = Color(0.447059, 0.533333, 0.72549, 1)
 
 [sub_resource type="Sky" id="Sky_kx02m"]
 sky_material = SubResource("ProceduralSkyMaterial_s7ki5")
 
 [sub_resource type="Environment" id="Environment_0oh05"]
 background_mode = 2
+background_color = Color(0.121569, 0.172549, 0.164706, 1)
 sky = SubResource("Sky_kx02m")
+ambient_light_source = 3
 tonemap_mode = 2
-glow_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.447059, 0.533333, 0.72549, 1)
+fog_density = 1.0
+fog_sky_affect = 0.5
+fog_depth_end = 40.0
+volumetric_fog_density = 0.2066
+volumetric_fog_length = 32.0
 
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0oh05")
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0oh05")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -33,7 +47,7 @@ light_energy = 0.5
 [node name="Village" parent="." instance=ExtResource("1_88grx")]
 
 [node name="Player" parent="." instance=ExtResource("2_5wouh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42062, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5724, 0, -0.389694)
 
 [node name="InteractionManager" parent="." node_paths=PackedStringArray("dialog_ui") instance=ExtResource("3_sfjks")]
 dialog_ui = NodePath("../DialogUI")

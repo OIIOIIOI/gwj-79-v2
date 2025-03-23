@@ -24,9 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://dk4a7d70q0qcb" path="res://assets/sprites/characters/hero/HERO-WALK-2_no_book.png" id="22_pd08q"]
 [ext_resource type="Texture2D" uid="uid://cljp2he28mwrn" path="res://assets/sprites/characters/hero/HERO-WALK-3_no_book.png" id="23_w3t3a"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_8p5n0"]
-height = 1.8
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oomda"]
 radius = 0.4
+height = 1.8
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hdsop"]
 random_pitch = 1.5
@@ -164,7 +164,7 @@ texture = ExtResource("2_lefuw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-shape = SubResource("CylinderShape3D_8p5n0")
+shape = SubResource("CapsuleShape3D_oomda")
 
 [node name="CameraController" type="Node3D" parent="."]
 top_level = true

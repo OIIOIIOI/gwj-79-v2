@@ -26,6 +26,8 @@ func _ready() -> void:
 	footsteps_timer.timeout.connect(on_footsteps_timer_timeout)
 	footsteps_sfx.volume_db = linear_to_db(0.5)
 
+	camera_controller.position = position
+
 	GameEvents.dialog_started.connect(on_dialog_started)
 	GameEvents.dialog_ended.connect(on_dialog_ended)
 	GameEvents.step_added.connect(on_step_added)

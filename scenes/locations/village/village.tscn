@@ -1,13 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=25 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
 [ext_resource type="Texture2D" uid="uid://co3nwe30owhyo" path="res://assets/sprites/GROUND-Dif.png" id="1_y2kcc"]
+[ext_resource type="Script" path="res://scenes/locations/village/sea.gd" id="2_70wvc"]
 [ext_resource type="Texture2D" uid="uid://6nrv0ick3yjk" path="res://assets/sprites/SEA-PATTERN.png" id="2_j31wj"]
 [ext_resource type="PackedScene" uid="uid://d4m2cb7ojb5uq" path="res://scenes/buildings/police_station.tscn" id="2_ln3k2"]
 [ext_resource type="PackedScene" uid="uid://bcoblg3cfor8u" path="res://scenes/buildings/generic_e.tscn" id="3_j47ek"]
 [ext_resource type="PackedScene" uid="uid://b0xeoph3lqin2" path="res://scenes/buildings/well.tscn" id="4_jlo6p"]
 [ext_resource type="PackedScene" uid="uid://bukh7y4g8i8fa" path="res://scenes/buildings/generic_a.tscn" id="7_po1ad"]
 [ext_resource type="PackedScene" uid="uid://dkyw3ki8phb44" path="res://scenes/buildings/generic_b.tscn" id="8_xwvhp"]
+[ext_resource type="PackedScene" uid="uid://c8mjpatq2hme3" path="res://scenes/buildings/generic_d.tscn" id="10_4v31d"]
 [ext_resource type="Texture2D" uid="uid://0iopkfxnnkqp" path="res://assets/sprites/decoration/ENV-herbe1.png" id="12_jny03"]
 [ext_resource type="Texture2D" uid="uid://dp751or4ktdeb" path="res://assets/sprites/decoration/ENV-plante3 1.png" id="12_pj02o"]
 [ext_resource type="PackedScene" uid="uid://bf0l2uy0ys03p" path="res://scenes/buildings/boat.tscn" id="13_3hc65"]
@@ -17,13 +19,16 @@
 [ext_resource type="Texture2D" uid="uid://bhf6xar23dite" path="res://assets/sprites/decoration/ENV-plante4.png" id="17_070j3"]
 [ext_resource type="Texture2D" uid="uid://buys2c8njc3jp" path="res://assets/sprites/decoration/ENV-plante.png" id="18_hmwpo"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8abgi"]
+size = Vector3(5, 1, 20)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8txpr"]
+plane = Plane(1, 0, 0, 0)
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2yk6u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5qtg"]
 size = Vector3(50, 1, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8abgi"]
-size = Vector3(5, 1, 20)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_72hrl"]
 plane = Plane(-1, 0, 0, 0)
@@ -33,7 +38,47 @@ plane = Plane(0, 0, -1, 0)
 
 [node name="Village" type="Node3D"]
 
+[node name="SeaLeft" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.5, -5)
+
+[node name="Sea" type="Sprite3D" parent="SeaLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, 10)
+cast_shadow = 0
+centered = false
+axis = 1
+transparent = false
+double_sided = false
+texture = ExtResource("2_j31wj")
+region_enabled = true
+region_rect = Rect2(0, 0, 20000, 6000)
+script = ExtResource("2_70wvc")
+
+[node name="Slope" type="StaticBody3D" parent="SeaLeft"]
+transform = Transform3D(-0.990268, -0.139173, -8.74228e-08, -0.139173, 0.990268, 0, 8.6572e-08, 1.21669e-08, -1, 0, 0.5, 0)
+
+[node name="SlopeCollision" type="CollisionShape3D" parent="SeaLeft/Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 0)
+shape = SubResource("BoxShape3D_8abgi")
+
+[node name="GroundSlope" type="Sprite3D" parent="SeaLeft/Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+cast_shadow = 0
+centered = false
+axis = 1
+transparent = false
+double_sided = false
+texture = ExtResource("1_y2kcc")
+region_enabled = true
+region_rect = Rect2(0, 0, 500, 2000)
+
+[node name="LeftWall" type="StaticBody3D" parent="SeaLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.23375, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeaLeft/LeftWall"]
+shape = SubResource("WorldBoundaryShape3D_8txpr")
+
 [node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 collision_mask = 0
 
 [node name="WorldPlane" type="CollisionShape3D" parent="Ground"]
@@ -53,31 +98,20 @@ region_rect = Rect2(0, 0, 5000, 2000)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_d5qtg")
 
-[node name="Sea" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9481, -0.5, 0)
+[node name="SeaRight" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.948, -0.5, -5)
 
-[node name="Sea" type="Sprite3D" parent="Sea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-cast_shadow = 0
-centered = false
-axis = 1
-transparent = false
-double_sided = false
-texture = ExtResource("2_j31wj")
-region_enabled = true
-region_rect = Rect2(0, 0, 2686.81, 2000)
+[node name="Boat" parent="SeaRight" instance=ExtResource("13_3hc65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.593, 0, 4.5)
 
-[node name="Boat" parent="Sea" instance=ExtResource("13_3hc65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59315, 0, 0)
-
-[node name="Slope" type="StaticBody3D" parent="Sea"]
+[node name="Slope" type="StaticBody3D" parent="SeaRight"]
 transform = Transform3D(0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="SlopeCollision" type="CollisionShape3D" parent="Sea/Slope"]
+[node name="SlopeCollision" type="CollisionShape3D" parent="SeaRight/Slope"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 0)
 shape = SubResource("BoxShape3D_8abgi")
 
-[node name="GroundSlope" type="Sprite3D" parent="Sea/Slope"]
+[node name="GroundSlope" type="Sprite3D" parent="SeaRight/Slope"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 cast_shadow = 0
 centered = false
@@ -88,30 +122,71 @@ texture = ExtResource("1_y2kcc")
 region_enabled = true
 region_rect = Rect2(0, 0, 500, 2000)
 
-[node name="RightWall" type="StaticBody3D" parent="Sea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8075, 0, 0)
+[node name="RightWall" type="StaticBody3D" parent="SeaRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98925, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/RightWall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeaRight/RightWall"]
 shape = SubResource("WorldBoundaryShape3D_72hrl")
 
 [node name="Buildings" type="Node3D" parent="."]
 
-[node name="TownHall" parent="Buildings" instance=ExtResource("1_jguh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+[node name="Generics" type="Node3D" parent="Buildings"]
 
-[node name="PoliceStation" parent="Buildings" instance=ExtResource("2_ln3k2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.18067, 0, -1)
+[node name="GenericA2" parent="Buildings/Generics" instance=ExtResource("7_po1ad")]
+transform = Transform3D(0.997426, -0.0717063, 0, 0.0717063, 0.997426, 0, 0, 0, 1, -38.6235, -9.61722, -5.38098)
+collision_mask = 0
+
+[node name="GenericD3" parent="Buildings/Generics" instance=ExtResource("10_4v31d")]
+transform = Transform3D(0.989704, -0.14313, 0, 0.14313, 0.989704, 0, 0, 0, 1, -27.5561, -7.26667, -9.87044)
+collision_mask = 0
+
+[node name="GenericE3" parent="Buildings/Generics" instance=ExtResource("3_j47ek")]
+transform = Transform3D(0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0, 1, -24.9241, -2.47996, -4.65415)
+collision_mask = 0
+
+[node name="GenericB3" parent="Buildings/Generics" instance=ExtResource("8_xwvhp")]
+transform = Transform3D(0.997573, 0.0696346, 0, -0.0696346, 0.997573, 0, 0, 0, 1, -19.5995, -8.8895, -12.7842)
+collision_mask = 0
+
+[node name="GenericD" parent="Buildings/Generics" instance=ExtResource("10_4v31d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9558, 0, -2.31586)
+collision_mask = 0
+
+[node name="GenericA" parent="Buildings/Generics" instance=ExtResource("7_po1ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35705, 0, -4.96648)
+collision_mask = 0
+
+[node name="GenericE" parent="Buildings/Generics" instance=ExtResource("3_j47ek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32215, 0, -4.65415)
+collision_mask = 0
+
+[node name="GenericB" parent="Buildings/Generics" instance=ExtResource("8_xwvhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5163, 0, -2.28594)
+collision_mask = 0
+
+[node name="GenericD2" parent="Buildings/Generics" instance=ExtResource("10_4v31d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7167, -2.81962, -4.69871)
+collision_mask = 0
+
+[node name="GenericB2" parent="Buildings/Generics" instance=ExtResource("8_xwvhp")]
+transform = Transform3D(0.99863, 0.052336, 0, -0.052336, 0.99863, 0, 0, 0, 1, 30.9207, -5.44412, -6.08349)
+collision_mask = 0
+
+[node name="GenericE2" parent="Buildings/Generics" instance=ExtResource("3_j47ek")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 43.3098, -9.9751, -10.5509)
+collision_mask = 0
 
 [node name="Well" parent="Buildings" instance=ExtResource("4_jlo6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+collision_mask = 0
 
-[node name="GenericA" parent="Buildings" instance=ExtResource("7_po1ad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4628, 0, -2.28723)
+[node name="PoliceStation" parent="Buildings" instance=ExtResource("2_ln3k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1794, 0, -3.01697)
+collision_mask = 0
 
-[node name="GenericE" parent="Buildings" instance=ExtResource("3_j47ek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.39633, 0, -1.5)
-
-[node name="GenericB" parent="Buildings" instance=ExtResource("8_xwvhp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9642, 0, -2.46641)
+[node name="TownHall" parent="Buildings" instance=ExtResource("1_jguh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+collision_mask = 0
 
 [node name="NPCs" type="Node3D" parent="."]
 
@@ -169,7 +244,7 @@ double_sided = false
 texture = ExtResource("18_hmwpo")
 
 [node name="FourthWall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FourthWall"]
 shape = SubResource("WorldBoundaryShape3D_wmw1y")

@@ -1,21 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0av3lgye5gb3"]
+[gd_scene load_steps=10 format=3 uid="uid://d0av3lgye5gb3"]
 
 [ext_resource type="Script" path="res://scenes/ui/book_ui/book_ui.gd" id="1_x3hpw"]
+[ext_resource type="Texture2D" uid="uid://0y453bbsg2uu" path="res://assets/sprites/book/BOOK-STEP1-HINTS.png" id="2_72qhq"]
 [ext_resource type="Texture2D" uid="uid://c6itoqr7gl2vg" path="res://assets/sprites/book/BOOK-STEP1.png" id="2_k0lgd"]
 [ext_resource type="AudioStream" uid="uid://d4gpefu80bbnc" path="res://assets/sfx/book/FX_BOOK_Open.wav" id="3_au8rr"]
-[ext_resource type="Texture2D" uid="uid://b01oo720oiv58" path="res://assets/sprites/book/BOOK-STEP2.png" id="3_oe7g2"]
+[ext_resource type="Texture2D" uid="uid://d4b78n4cqnmic" path="res://assets/sprites/book/BOOK-STEP2-HINTS.png" id="3_rjv6l"]
+[ext_resource type="Texture2D" uid="uid://csmcjkvrf4igp" path="res://assets/sprites/book/BOOK-STEP3-HINTS.png" id="4_esnpt"]
 [ext_resource type="AudioStream" uid="uid://mqu5kuj23yma" path="res://assets/sfx/book/FX_BOOK_Close.wav" id="4_gcx33"]
-[ext_resource type="Texture2D" uid="uid://cgpiu5eoiewa2" path="res://assets/sprites/book/BOOK-STEP3.png" id="4_lysam"]
-[ext_resource type="Texture2D" uid="uid://dkr3lgyglag2s" path="res://assets/sprites/book/BOOK-STEP4.png" id="5_rqk3b"]
+[ext_resource type="Texture2D" uid="uid://8aijwx27fjpt" path="res://assets/sprites/book/BOOK-STEP4-HINTS.png" id="5_te88e"]
 [ext_resource type="AudioStream" uid="uid://ccc0yp67eernh" path="res://assets/sfx/book/FX_Book_Combo.ogg" id="8_2mqkq"]
 
 [node name="BookUI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_x3hpw")
-step_1_texture = ExtResource("2_k0lgd")
-step_2_texture = ExtResource("3_oe7g2")
-step_3_texture = ExtResource("4_lysam")
-step_4_texture = ExtResource("5_rqk3b")
+step_1_texture = ExtResource("2_72qhq")
+step_2_texture = ExtResource("3_rjv6l")
+step_3_texture = ExtResource("4_esnpt")
+step_4_texture = ExtResource("5_te88e")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qom704lshjrr"]
+
+[ext_resource type="Material" uid="uid://cp5c2ypb10r2q" path="res://assets/sprites/buildings/side/side_mat.tres" id="1_bx8wx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jo6be"]
+size = Vector3(3.85, 11, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_nx8mg"]
+material = ExtResource("1_bx8wx")
+size = Vector2(3.85, 11)
+
+[node name="Wall" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35841, 0, -7.4688)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -0.5)
+shape = SubResource("BoxShape3D_jo6be")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = SubResource("QuadMesh_nx8mg")

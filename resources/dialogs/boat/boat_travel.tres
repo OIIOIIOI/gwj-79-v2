@@ -4,17 +4,11 @@
 [ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_6my2g"]
 [ext_resource type="Script" path="res://resources/actions/action.gd" id="2_lksnl"]
 [ext_resource type="Texture2D" uid="uid://cbd8uu340cib2" path="res://assets/sprites/intro/INTRO-FRAME1.png" id="4_7j0eu"]
+[ext_resource type="AudioStream" uid="uid://60wmbc4exlcs" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.wav" id="5_0m07l"]
 [ext_resource type="Texture2D" uid="uid://wxkse1f1f74i" path="res://assets/sprites/backgrounds/ANTIQUE-BG.png" id="5_ld1tu"]
 [ext_resource type="Texture2D" uid="uid://e6lj8omuc0fk" path="res://assets/sprites/characters/antique_dealer/OLD-ONE_dialog.png" id="6_c8m5e"]
 [ext_resource type="Texture2D" uid="uid://c1pehpg8l6pa3" path="res://assets/ui/dialogs/OldOne.png" id="7_vvqay"]
 [ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="8_u6wrn"]
-
-[sub_resource type="Resource" id="Resource_3ptr7"]
-script = ExtResource("1_uieiv")
-text = "All right, time to go find this old man!"
-style = 0
-duration = 0.0
-actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_h3ipn"]
 script = ExtResource("1_uieiv")
@@ -39,6 +33,7 @@ text = "Inside, you find the old man, comfortably settled in a large armchair.
 He turns to you, a smile that hasn't lost its warmth on his face."
 style = 2
 duration = 0.0
+sfx = ExtResource("5_0m07l")
 actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_ool6x"]
@@ -123,4 +118,4 @@ actions = Array[ExtResource("2_lksnl")]([SubResource("Resource_83wuq")])
 
 [resource]
 script = ExtResource("2_6my2g")
-chunks = Array[ExtResource("1_uieiv")]([SubResource("Resource_3ptr7"), SubResource("Resource_h3ipn"), SubResource("Resource_nhwx4"), SubResource("Resource_mhxux"), SubResource("Resource_ool6x"), SubResource("Resource_5xjni"), SubResource("Resource_0kbd8"), SubResource("Resource_umfik"), SubResource("Resource_aijvp"), SubResource("Resource_f3e8a"), SubResource("Resource_0fce7"), SubResource("Resource_u7ytb")])
+chunks = Array[ExtResource("1_uieiv")]([SubResource("Resource_h3ipn"), SubResource("Resource_nhwx4"), SubResource("Resource_mhxux"), SubResource("Resource_ool6x"), SubResource("Resource_5xjni"), SubResource("Resource_0kbd8"), SubResource("Resource_umfik"), SubResource("Resource_aijvp"), SubResource("Resource_f3e8a"), SubResource("Resource_0fce7"), SubResource("Resource_u7ytb")])
