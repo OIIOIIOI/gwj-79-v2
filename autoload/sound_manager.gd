@@ -5,6 +5,7 @@ extends Node
 
 
 func _ready() -> void:
+	(audio_stream_player.stream as AudioStreamInteractive).initial_clip = 6
 	audio_stream_player.play()
 
 	GameEvents.step_added.connect(on_step_added)

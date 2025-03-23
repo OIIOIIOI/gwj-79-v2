@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://u8tdxwhl1u6q"]
+[gd_scene load_steps=12 format=3 uid="uid://u8tdxwhl1u6q"]
 
 [ext_resource type="Script" path="res://scenes/mini_games/memory/drawer.gd" id="1_4p4dw"]
 [ext_resource type="Texture2D" uid="uid://blb5jmlj0d4tl" path="res://assets/sprites/mini_games/memory/TIRROIR-small.png" id="2_gvtnh"]
+[ext_resource type="AudioStream" uid="uid://cb8upwee7lwa2" path="res://assets/sfx/mini_games/FX_TiroirOuvert.wav" id="3_e7idm"]
+[ext_resource type="AudioStream" uid="uid://br1bhigkxyiwb" path="res://assets/sfx/mini_games/FX_TiroirFerme.wav" id="4_hfq43"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3tqmg"]
 size = Vector2(390, 390)
@@ -88,6 +90,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector2(0, 128), Vector2(0, 0)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloseSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_qf3fw"]
 resource_name = "fade"
@@ -158,6 +174,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 246), Vector2(0, 128)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OpenSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_05nu4"]
 _data = {
@@ -194,3 +224,11 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_05nu4")
 }
+
+[node name="OpenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e7idm")
+bus = &"SFX"
+
+[node name="CloseSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hfq43")
+bus = &"SFX"

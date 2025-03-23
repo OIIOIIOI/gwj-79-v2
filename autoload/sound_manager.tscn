@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fiwaffgwclbc"]
+[gd_scene load_steps=10 format=3 uid="uid://fiwaffgwclbc"]
 
 [ext_resource type="Script" path="res://autoload/sound_manager.gd" id="1_xprvp"]
 [ext_resource type="AudioStream" uid="uid://d1ywpgtqy2wy8" path="res://assets/music/Transition_1.ogg" id="2_em5w0"]
@@ -7,9 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://di61k76y1o7pg" path="res://assets/music/Main_2.ogg" id="5_n68tu"]
 [ext_resource type="AudioStream" uid="uid://dk2mk4nf0ydcr" path="res://assets/music/Transition_3.ogg" id="6_0ev73"]
 [ext_resource type="AudioStream" uid="uid://cn1daepblj351" path="res://assets/music/Main_3.ogg" id="7_fcj8n"]
+[ext_resource type="AudioStream" uid="uid://cybk6eamhlao4" path="res://assets/music/Intro.ogg" id="8_elpvi"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_8lana"]
-clip_count = 6
+clip_count = 7
 clip_0/name = &"Trans 1"
 clip_0/stream = ExtResource("2_em5w0")
 clip_0/auto_advance = 1
@@ -31,6 +32,9 @@ clip_4/next_clip = 5
 clip_5/name = &"Main 3"
 clip_5/stream = ExtResource("7_fcj8n")
 clip_5/auto_advance = 0
+clip_6/name = &"Intro"
+clip_6/stream = ExtResource("8_elpvi")
+clip_6/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 3,

@@ -201,7 +201,7 @@ func check_results() -> void:
 		second_drawer.fade()
 	else:
 		first_drawer.close()
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 		second_drawer.close()
 
 	await second_drawer.animation_player.animation_finished
