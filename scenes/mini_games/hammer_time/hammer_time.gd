@@ -232,4 +232,9 @@ func end_game() -> void:
 	win_sfx.play()
 	await win_sfx.finished
 
+	# Trigger end action
+	var end_action = AddStepAction.new()
+	end_action.step = GameEnums.STEPS.Step_ObtainedWeapon
+	GameEvents.execute_action(end_action)
+
 	SceneTransition.transition_to(GameEnums.SCENES.Scene_Main)

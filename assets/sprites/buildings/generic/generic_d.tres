@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cilywihuj5dtm"]
+
+[ext_resource type="Texture2D" uid="uid://cnawa3o7lkvgc" path="res://assets/sprites/buildings/generic/GENERICBUILDING-D.png" id="1_lfkt0"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_lfkt0")
+texture_repeat = false

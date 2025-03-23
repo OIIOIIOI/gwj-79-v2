@@ -1,9 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4m2cb7ojb5uq"]
+[gd_scene load_steps=15 format=3 uid="uid://d4m2cb7ojb5uq"]
 
 [ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_612e5"]
 [ext_resource type="QuadMesh" uid="uid://bu6s7nqubgv1q" path="res://assets/sprites/buildings/police_station/policestation_mesh.tres" id="2_0g41v"]
+[ext_resource type="Texture2D" uid="uid://brd4edgt1r4id" path="res://assets/sprites/decoration/ENV-wall.png" id="3_o0c1c"]
+[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_pceyq"]
+[ext_resource type="Texture2D" uid="uid://doxc2aeomyx7m" path="res://assets/sprites/decoration/ENV-wall 31.png" id="5_chkfh"]
+[ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="6_154on"]
+[ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="7_qjfes"]
+[ext_resource type="Script" path="res://resources/conditions/is_current_step_condition.gd" id="8_hpngc"]
+[ext_resource type="Resource" uid="uid://by546dkcwp5o0" path="res://resources/dialogs/police_station/police_station_enter.tres" id="9_du45r"]
+[ext_resource type="Script" path="res://resources/conditions/has_step_condition.gd" id="9_ktfws"]
+[ext_resource type="Resource" uid="uid://bk2qe0ba7bwae" path="res://resources/dialogs/police_station/police_station_after.tres" id="11_m5ak0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agnyr"]
+
+[sub_resource type="Resource" id="Resource_l8j4q"]
+script = ExtResource("8_hpngc")
+step = 3
+invert = false
+
+[sub_resource type="Resource" id="Resource_ppnvu"]
+script = ExtResource("9_ktfws")
+step = 4
+invert = false
 
 [node name="PoliceStation" type="StaticBody3D"]
 script = ExtResource("1_612e5")
@@ -14,3 +33,46 @@ shape = SubResource("BoxShape3D_agnyr")
 [node name="Front" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.15, 0)
 mesh = ExtResource("2_0g41v")
+
+[node name="Deco" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+
+[node name="Wall04" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34011, 1.38998, 0)
+pixel_size = 0.003
+texture = ExtResource("3_o0c1c")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall04"]
+script = ExtResource("4_pceyq")
+
+[node name="Wall05" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.720663, 1.59598, 0)
+pixel_size = 0.003
+texture = ExtResource("5_chkfh")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall05"]
+script = ExtResource("4_pceyq")
+
+[node name="Wall06" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28001, 1.38148, 0)
+pixel_size = 0.003
+texture = ExtResource("6_154on")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall06"]
+script = ExtResource("4_pceyq")
+
+[node name="Wall07" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21871, 1.72901, 0)
+pixel_size = 0.003
+texture = ExtResource("6_154on")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall07"]
+script = ExtResource("4_pceyq")
+
+[node name="ICEnter" parent="." instance=ExtResource("7_qjfes")]
+condition = SubResource("Resource_l8j4q")
+dialog = ExtResource("9_du45r")
+
+[node name="ICAfter" parent="." instance=ExtResource("7_qjfes")]
+condition = SubResource("Resource_ppnvu")
+dialog = ExtResource("11_m5ak0")

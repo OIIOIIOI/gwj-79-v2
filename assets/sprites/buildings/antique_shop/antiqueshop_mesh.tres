@@ -1,7 +1,0 @@
-[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://cfuxt5xuenxhm"]
-
-[ext_resource type="Material" uid="uid://7663sc16dhis" path="res://assets/sprites/buildings/antique_shop/antiqueshop_mat.tres" id="1_cqii3"]
-
-[resource]
-material = ExtResource("1_cqii3")
-size = Vector2(4.07, 11)

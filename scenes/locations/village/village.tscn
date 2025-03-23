@@ -1,12 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=22 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
 [ext_resource type="Texture2D" uid="uid://co3nwe30owhyo" path="res://assets/sprites/GROUND-Dif.png" id="1_y2kcc"]
+[ext_resource type="Texture2D" uid="uid://6nrv0ick3yjk" path="res://assets/sprites/SEA-PATTERN.png" id="2_j31wj"]
 [ext_resource type="PackedScene" uid="uid://d4m2cb7ojb5uq" path="res://scenes/buildings/police_station.tscn" id="2_ln3k2"]
-[ext_resource type="PackedScene" uid="uid://bcoblg3cfor8u" path="res://scenes/buildings/antique_shop.tscn" id="3_j47ek"]
+[ext_resource type="PackedScene" uid="uid://bcoblg3cfor8u" path="res://scenes/buildings/generic_e.tscn" id="3_j47ek"]
 [ext_resource type="PackedScene" uid="uid://b0xeoph3lqin2" path="res://scenes/buildings/well.tscn" id="4_jlo6p"]
-[ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="5_wouho"]
-[ext_resource type="Texture2D" uid="uid://cbqwcudjdt5c4" path="res://assets/sprites/characters/guard/GUARD.png" id="6_6fsy7"]
+[ext_resource type="PackedScene" uid="uid://bukh7y4g8i8fa" path="res://scenes/buildings/generic_a.tscn" id="7_po1ad"]
+[ext_resource type="PackedScene" uid="uid://dkyw3ki8phb44" path="res://scenes/buildings/generic_b.tscn" id="8_xwvhp"]
 [ext_resource type="Texture2D" uid="uid://0iopkfxnnkqp" path="res://assets/sprites/decoration/ENV-herbe1.png" id="12_jny03"]
 [ext_resource type="Texture2D" uid="uid://dp751or4ktdeb" path="res://assets/sprites/decoration/ENV-plante3 1.png" id="12_pj02o"]
 [ext_resource type="PackedScene" uid="uid://bf0l2uy0ys03p" path="res://scenes/buildings/boat.tscn" id="13_3hc65"]
@@ -15,25 +16,17 @@
 [ext_resource type="Texture2D" uid="uid://cnqblnsx85nb4" path="res://assets/sprites/decoration/ENV-plante3.png" id="16_48pe8"]
 [ext_resource type="Texture2D" uid="uid://bhf6xar23dite" path="res://assets/sprites/decoration/ENV-plante4.png" id="17_070j3"]
 [ext_resource type="Texture2D" uid="uid://buys2c8njc3jp" path="res://assets/sprites/decoration/ENV-plante.png" id="18_hmwpo"]
-[ext_resource type="Resource" uid="uid://c026i8d5w3huc" path="res://resources/dialogs/guard_dialog.tres" id="19_76nm3"]
-[ext_resource type="Texture2D" uid="uid://cdv7ijvb84bys" path="res://assets/sprites/decoration/ENV-plante3 2.png" id="19_nqbkj"]
-[ext_resource type="Texture2D" uid="uid://c4vs4js12e4su" path="res://assets/sprites/decoration/ENV-wall 1.png" id="20_rj13x"]
-[ext_resource type="Texture2D" uid="uid://b5mfdkl07gti5" path="res://assets/sprites/decoration/ENV-wall 3.png" id="22_nwj4v"]
-[ext_resource type="Texture2D" uid="uid://bhsmqenofhybf" path="res://assets/sprites/decoration/ENV-wall 4.png" id="23_4mpda"]
-[ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="24_fopko"]
-[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="25_fvhx0"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2yk6u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f87cp"]
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("1_y2kcc")
-uv1_scale = Vector3(20, 4, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5qtg"]
+size = Vector3(50, 1, 20)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_4ga44"]
-material = SubResource("StandardMaterial3D_f87cp")
-size = Vector2(100, 20)
+[sub_resource type="BoxShape3D" id="BoxShape3D_8abgi"]
+size = Vector3(5, 1, 20)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_72hrl"]
+plane = Plane(-1, 0, 0, 0)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wmw1y"]
 plane = Plane(0, 0, -1, 0)
@@ -41,13 +34,65 @@ plane = Plane(0, 0, -1, 0)
 [node name="Village" type="Node3D"]
 
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+[node name="WorldPlane" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("WorldBoundaryShape3D_2yk6u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("PlaneMesh_4ga44")
+[node name="Ground" type="Sprite3D" parent="Ground"]
+cast_shadow = 0
+axis = 1
+transparent = false
+double_sided = false
+texture = ExtResource("1_y2kcc")
+region_enabled = true
+region_rect = Rect2(0, 0, 5000, 2000)
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_d5qtg")
+
+[node name="Sea" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9481, -0.5, 0)
+
+[node name="Sea" type="Sprite3D" parent="Sea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+cast_shadow = 0
+centered = false
+axis = 1
+transparent = false
+double_sided = false
+texture = ExtResource("2_j31wj")
+region_enabled = true
+region_rect = Rect2(0, 0, 2686.81, 2000)
+
+[node name="Boat" parent="Sea" instance=ExtResource("13_3hc65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59315, 0, 0)
+
+[node name="Slope" type="StaticBody3D" parent="Sea"]
+transform = Transform3D(0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="SlopeCollision" type="CollisionShape3D" parent="Sea/Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -0.5, 0)
+shape = SubResource("BoxShape3D_8abgi")
+
+[node name="GroundSlope" type="Sprite3D" parent="Sea/Slope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+cast_shadow = 0
+centered = false
+axis = 1
+transparent = false
+double_sided = false
+texture = ExtResource("1_y2kcc")
+region_enabled = true
+region_rect = Rect2(0, 0, 500, 2000)
+
+[node name="RightWall" type="StaticBody3D" parent="Sea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8075, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/RightWall"]
+shape = SubResource("WorldBoundaryShape3D_72hrl")
 
 [node name="Buildings" type="Node3D" parent="."]
 
@@ -57,74 +102,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="PoliceStation" parent="Buildings" instance=ExtResource("2_ln3k2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.18067, 0, -1)
 
-[node name="Wall04" type="Sprite3D" parent="Buildings/PoliceStation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702631, 1.07784, 0.001)
-pixel_size = 0.003
-texture = ExtResource("22_nwj4v")
-
-[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall04"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall05" type="Sprite3D" parent="Buildings/PoliceStation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53103, 0.621729, 0.001)
-pixel_size = 0.003
-texture = ExtResource("23_4mpda")
-
-[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall05"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall06" type="Sprite3D" parent="Buildings/PoliceStation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22543, 0.507829, 0.001)
-pixel_size = 0.003
-texture = ExtResource("24_fopko")
-
-[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall06"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall07" type="Sprite3D" parent="Buildings/PoliceStation"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14027, 0.730922, 0.001)
-pixel_size = 0.003
-texture = ExtResource("24_fopko")
-
-[node name="RotationComponent" type="Node" parent="Buildings/PoliceStation/Wall07"]
-script = ExtResource("25_fvhx0")
-
-[node name="AntiqueShop" parent="Buildings" instance=ExtResource("3_j47ek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.39633, 0, -1.5)
-
-[node name="Wall01" type="Sprite3D" parent="Buildings/AntiqueShop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81236, 1.10339, 0.000999987)
-pixel_size = 0.003
-texture = ExtResource("19_nqbkj")
-
-[node name="RotationComponent" type="Node" parent="Buildings/AntiqueShop/Wall01"]
-script = ExtResource("25_fvhx0")
-
-[node name="Wall02" type="Sprite3D" parent="Buildings/AntiqueShop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48778, 1.78713, 0.000999987)
-pixel_size = 0.003
-texture = ExtResource("20_rj13x")
-
-[node name="RotationComponent" type="Node" parent="Buildings/AntiqueShop/Wall02"]
-script = ExtResource("25_fvhx0")
-
 [node name="Well" parent="Buildings" instance=ExtResource("4_jlo6p")]
 
-[node name="Boat" parent="Buildings" instance=ExtResource("13_3hc65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0623, 0, 0)
+[node name="GenericA" parent="Buildings" instance=ExtResource("7_po1ad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4628, 0, -2.28723)
+
+[node name="GenericE" parent="Buildings" instance=ExtResource("3_j47ek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.39633, 0, -1.5)
+
+[node name="GenericB" parent="Buildings" instance=ExtResource("8_xwvhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9642, 0, -2.46641)
 
 [node name="NPCs" type="Node3D" parent="."]
-
-[node name="Guard" type="Sprite3D" parent="NPCs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99159, 0, -0.404108)
-visible = false
-offset = Vector2(0, 437)
-flip_h = true
-pixel_size = 0.002
-texture = ExtResource("6_6fsy7")
-
-[node name="IC" parent="NPCs/Guard" instance=ExtResource("5_wouho")]
-dialog = ExtResource("19_76nm3")
 
 [node name="Decoration" type="Node3D" parent="."]
 

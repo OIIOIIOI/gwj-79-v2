@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8mjpatq2hme3"]
+
+[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_usw51"]
+[ext_resource type="QuadMesh" uid="uid://dir24ll546j4x" path="res://assets/sprites/buildings/generic/generic_d_mesh.tres" id="2_ao36f"]
+[ext_resource type="Texture2D" uid="uid://b5mfdkl07gti5" path="res://assets/sprites/decoration/ENV-wall 3.png" id="3_1cjsv"]
+[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_eheim"]
+[ext_resource type="Texture2D" uid="uid://15nj4pb88f5r" path="res://assets/sprites/decoration/ENV-graffiti.png" id="5_lqjb0"]
+[ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="5_slh3k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ic35i"]
+
+[node name="GenericD" type="StaticBody3D"]
+script = ExtResource("1_usw51")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ic35i")
+
+[node name="Front" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = ExtResource("2_ao36f")
+
+[node name="Deco" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+
+[node name="Wall04" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29113, 1.09549, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("3_1cjsv")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall04"]
+script = ExtResource("4_eheim")
+
+[node name="Wall05" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.595557, 1.82507, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_lqjb0")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall05"]
+script = ExtResource("4_eheim")
+amount = 10.0
+
+[node name="Plank1" type="Sprite3D" parent="Deco"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.35516, 1.05324, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_slh3k")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank1"]
+script = ExtResource("4_eheim")
+
+[node name="Plank2" type="Sprite3D" parent="Deco"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.35516, 1.56295, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_slh3k")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank2"]
+script = ExtResource("4_eheim")

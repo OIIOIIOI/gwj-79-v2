@@ -1,9 +1,9 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dxhyc83ax3rk2"]
 
-[ext_resource type="Texture2D" uid="uid://gf64p0uq70uv" path="res://assets/sprites/buildings/police_station/GUARDBUILDING-door-TEST.png" id="1_g5e0s"]
+[ext_resource type="Texture2D" uid="uid://bsxum3knq0eb6" path="res://assets/sprites/buildings/police_station/GUARDBUILDING-DOOR.png" id="1_coywl"]
 
 [resource]
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("1_g5e0s")
+albedo_texture = ExtResource("1_coywl")
 texture_repeat = false

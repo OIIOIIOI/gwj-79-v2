@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=16 format=3 uid="uid://b50j7bic8wgdn"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=18 format=3 uid="uid://b50j7bic8wgdn"]
 
 [ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_xfyet"]
 [ext_resource type="Script" path="res://resources/actions/action.gd" id="2_8bs8w"]
 [ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_ymaky"]
 [ext_resource type="Texture2D" uid="uid://cn7r6spwgqypy" path="res://assets/sprites/backgrounds/MAYOR-BG.png" id="3_selwb"]
 [ext_resource type="Texture2D" uid="uid://c5b6dxppxls4v" path="res://assets/ui/dialogs/MayorEd.png" id="4_ccjoa"]
-[ext_resource type="Texture2D" uid="uid://dg2eqc6i48pfr" path="res://assets/sprites/characters/mayor/MAYOR_dialog.png" id="5_iecmm"]
+[ext_resource type="Texture2D" uid="uid://dlgsx5x2opcey" path="res://assets/sprites/characters/mayor/MAYOR-3.png" id="5_jtpxj"]
 [ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="6_f5tyy"]
+[ext_resource type="Texture2D" uid="uid://i37xnogf4cqg" path="res://assets/sprites/characters/mayor/MAYOR-1.png" id="6_pxsvh"]
+[ext_resource type="Texture2D" uid="uid://1yl6f8hcln30" path="res://assets/sprites/characters/mayor/MAYOR-2.png" id="7_pqhdu"]
 
 [sub_resource type="Resource" id="Resource_42hwg"]
 script = ExtResource("1_xfyet")
@@ -18,7 +20,7 @@ actions = Array[ExtResource("2_8bs8w")]([])
 [sub_resource type="Resource" id="Resource_klfdg"]
 script = ExtResource("1_xfyet")
 speaker_name = ExtResource("4_ccjoa")
-speaker_sprite = ExtResource("5_iecmm")
+speaker_sprite = ExtResource("5_jtpxj")
 text = "Hey champ!
 What can I do for you?"
 style = 0
@@ -35,7 +37,7 @@ actions = Array[ExtResource("2_8bs8w")]([])
 [sub_resource type="Resource" id="Resource_qdfoi"]
 script = ExtResource("1_xfyet")
 speaker_name = ExtResource("4_ccjoa")
-speaker_sprite = ExtResource("5_iecmm")
+speaker_sprite = ExtResource("6_pxsvh")
 text = "How the hell could you care about the end of the world when you're built like a god? Physique is all that matters! Strength is everything, that’s why I got elected. People love it!"
 style = 0
 duration = 0.0
@@ -44,7 +46,7 @@ actions = Array[ExtResource("2_8bs8w")]([])
 [sub_resource type="Resource" id="Resource_yierx"]
 script = ExtResource("1_xfyet")
 speaker_name = ExtResource("4_ccjoa")
-speaker_sprite = ExtResource("5_iecmm")
+speaker_sprite = ExtResource("7_pqhdu")
 text = "You know what champ? Show me you can lift some decent weight, and the City Seal is yours!"
 style = 0
 duration = 0.0

@@ -6,7 +6,7 @@ class_name Player
 @export var can_move := true
 
 
-const SPEED = 2.0
+const SPEED = 5.0
 
 
 @onready var visuals: Node3D = $Visuals

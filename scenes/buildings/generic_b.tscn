@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkyw3ki8phb44"]
+
+[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_usn7a"]
+[ext_resource type="QuadMesh" uid="uid://ca5yi48anj4pf" path="res://assets/sprites/buildings/generic/generic_b_mesh.tres" id="2_yax4u"]
+[ext_resource type="Texture2D" uid="uid://c4vs4js12e4su" path="res://assets/sprites/decoration/ENV-wall 1.png" id="3_1o7yj"]
+[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_kc5n2"]
+[ext_resource type="Texture2D" uid="uid://bhsmqenofhybf" path="res://assets/sprites/decoration/ENV-wall 4.png" id="5_8sigh"]
+[ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="5_xt6k7"]
+[ext_resource type="Texture2D" uid="uid://15nj4pb88f5r" path="res://assets/sprites/decoration/ENV-graffiti.png" id="6_ibxav"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ic35i"]
+
+[node name="GenericB" type="StaticBody3D"]
+script = ExtResource("1_usn7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ic35i")
+
+[node name="Front" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = ExtResource("2_yax4u")
+
+[node name="Deco" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+
+[node name="Wall04" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.587131, 1.57964, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("3_1o7yj")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall04"]
+script = ExtResource("4_kc5n2")
+
+[node name="Wall05" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80258, 1.49581, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_8sigh")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall05"]
+script = ExtResource("4_kc5n2")
+
+[node name="Wall06" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80258, 1.49581, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_8sigh")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall06"]
+script = ExtResource("4_kc5n2")
+
+[node name="Wall07" type="Sprite3D" parent="Deco"]
+transform = Transform3D(0.760141, 0, 0, 0, 0.760141, 0, 0, 0, 0.760141, -3.46837, 2.15589, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("6_ibxav")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall07"]
+script = ExtResource("4_kc5n2")
+
+[node name="Plank1" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.07098, 1.20893, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_xt6k7")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank1"]
+script = ExtResource("4_kc5n2")
+
+[node name="Plank2" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.07098, 1.63578, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_xt6k7")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank2"]
+script = ExtResource("4_kc5n2")
+
+[node name="Plank3" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.38527, 1.09451, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_xt6k7")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank3"]
+script = ExtResource("4_kc5n2")
+
+[node name="Plank4" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.38527, 1.53338, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_xt6k7")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank4"]
+script = ExtResource("4_kc5n2")
+
+[node name="Plank5" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.38527, 2.02572, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_xt6k7")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank5"]
+script = ExtResource("4_kc5n2")
+
+[node name="Plank6" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 4.21652, 1.3752, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_xt6k7")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank6"]
+script = ExtResource("4_kc5n2")
+
+[node name="Plank7" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 4.21652, 1.83697, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("5_xt6k7")
+
+[node name="RotationComponent" type="Node" parent="Deco/Plank7"]
+script = ExtResource("4_kc5n2")

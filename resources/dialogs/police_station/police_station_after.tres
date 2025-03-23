@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=5 format=3 uid="uid://bk2qe0ba7bwae"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_2y14f"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_rknel"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_yrdt0"]
+
+[sub_resource type="Resource" id="Resource_onjyd"]
+script = ExtResource("1_2y14f")
+text = "There is nothing more to do in here.
+The Keeper must be out around here now anyway."
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_rknel")]([])
+
+[resource]
+script = ExtResource("2_yrdt0")
+chunks = Array[ExtResource("1_2y14f")]([SubResource("Resource_onjyd")])

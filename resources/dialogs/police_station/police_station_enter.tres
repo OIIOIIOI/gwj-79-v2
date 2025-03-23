@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=22 format=3 uid="uid://by546dkcwp5o0"]
+
+[ext_resource type="Texture2D" uid="uid://cicijltqiaf0v" path="res://assets/sprites/backgrounds/GUARD-BG.png" id="1_kb2ev"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_mloc0"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_airru"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="3_3t8kv"]
+[ext_resource type="Texture2D" uid="uid://dca1toabsko5v" path="res://assets/ui/dialogs/Keeper.png" id="4_co8yx"]
+[ext_resource type="Texture2D" uid="uid://djyehjnj4fl8y" path="res://assets/sprites/characters/guard/GUARD-3.png" id="5_mnvyy"]
+[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="6_0qpuk"]
+[ext_resource type="Texture2D" uid="uid://cb8k0lijpcmh7" path="res://assets/sprites/characters/guard/GUARD-2.png" id="6_eghvt"]
+[ext_resource type="Texture2D" uid="uid://i5fp2n4nnxbl" path="res://assets/sprites/characters/guard/GUARD-1.png" id="7_n3vus"]
+
+[sub_resource type="Resource" id="Resource_q7smg"]
+script = ExtResource("1_mloc0")
+text = "You enter the station. It's probably one of the only buildings in the city that will maintain the same level of austerity before, during, and likely after the end of the world."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_7duqd"]
+script = ExtResource("1_mloc0")
+text = "Between the desks, the Keeper is working on a wooden structure.
+They seem very focused on their task, but they turn to face you and say:"
+style = 2
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_ya2tg"]
+script = ExtResource("1_mloc0")
+speaker_name = ExtResource("4_co8yx")
+speaker_sprite = ExtResource("5_mnvyy")
+text = "Hello, citizen Librarian. What can I do for you?"
+style = 0
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_u33fm"]
+script = ExtResource("1_mloc0")
+text = "You explain that you have a possible way to escape the flood and need their help to save the city."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_op27f"]
+script = ExtResource("1_mloc0")
+speaker_name = ExtResource("4_co8yx")
+speaker_sprite = ExtResource("6_eghvt")
+text = "Save the city? That's all I've wanted. I stood strong when the first crisis hit, when despair struck, when the city fell apart. I stood strong for all of us citizens..."
+style = 0
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_u5bmy"]
+script = ExtResource("1_mloc0")
+text = "You sense they're fighting to keep their emotions in check. For a moment, you imagine a massive rock hit by a wave."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_1qdir"]
+script = ExtResource("1_mloc0")
+speaker_name = ExtResource("4_co8yx")
+speaker_sprite = ExtResource("7_n3vus")
+text = "You know, I have a family. Kids. All these years, I never thought about their safety. Citizen, help me fix this damn boat so they at least have a chance if..."
+style = 0
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_tl5lo"]
+script = ExtResource("1_mloc0")
+text = "They close their eyes briefly, then continue."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_rbm54"]
+script = ExtResource("1_mloc0")
+speaker_name = ExtResource("4_co8yx")
+speaker_sprite = ExtResource("5_mnvyy")
+text = "I’ll give you what you need to save the village when we're done."
+style = 0
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_qa4e3"]
+script = ExtResource("1_mloc0")
+text = "You both crouch by the boat’s wreckage, sharing a box of nails and using the Keeper’s club as a hammer."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([])
+
+[sub_resource type="Resource" id="Resource_mqffr"]
+script = ExtResource("6_0qpuk")
+scene = 4
+
+[sub_resource type="Resource" id="Resource_4m7ar"]
+script = ExtResource("1_mloc0")
+text = ""
+style = 0
+duration = 0.0
+actions = Array[ExtResource("3_3t8kv")]([SubResource("Resource_mqffr")])
+
+[resource]
+script = ExtResource("2_airru")
+background = ExtResource("1_kb2ev")
+chunks = Array[ExtResource("1_mloc0")]([SubResource("Resource_q7smg"), SubResource("Resource_7duqd"), SubResource("Resource_ya2tg"), SubResource("Resource_u33fm"), SubResource("Resource_op27f"), SubResource("Resource_u5bmy"), SubResource("Resource_1qdir"), SubResource("Resource_tl5lo"), SubResource("Resource_rbm54"), SubResource("Resource_qa4e3"), SubResource("Resource_4m7ar")])

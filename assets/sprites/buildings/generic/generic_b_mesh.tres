@@ -1,0 +1,7 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://ca5yi48anj4pf"]
+
+[ext_resource type="Material" uid="uid://dqmbh0gncgbwf" path="res://assets/sprites/buildings/generic/generic_b.tres" id="1_ykk3p"]
+
+[resource]
+material = ExtResource("1_ykk3p")
+size = Vector2(12.32, 11)

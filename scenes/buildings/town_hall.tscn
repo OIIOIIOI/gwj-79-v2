@@ -2,7 +2,7 @@
 
 [ext_resource type="QuadMesh" uid="uid://dq2gb8fo0drq0" path="res://assets/sprites/buildings/town_hall/townhall_mesh.tres" id="1_injtj"]
 [ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_xi1sj"]
-[ext_resource type="Texture2D" uid="uid://djtt2sn2gtybs" path="res://assets/sprites/decoration/ENV-wall 2.png" id="3_tibta"]
+[ext_resource type="Texture2D" uid="uid://b1yj3c8vjru4b" path="res://assets/sprites/decoration/ENV-wall 11.png" id="3_ox70c"]
 [ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_d88ue"]
 [ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="5_gw8or"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="6_kl8y8"]
@@ -33,43 +33,52 @@ shape = SubResource("BoxShape3D_agnyr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
 mesh = ExtResource("1_injtj")
 
-[node name="Decorations" type="Node3D" parent="."]
+[node name="Deco" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
 
-[node name="Wall03" type="Sprite3D" parent="Decorations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77768, 1.709, 0)
+[node name="Wall03" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12424, 1.92014, 0)
 pixel_size = 0.003
 double_sided = false
-texture = ExtResource("3_tibta")
+texture = ExtResource("3_ox70c")
 
-[node name="RotationComponent" type="Node" parent="Decorations/Wall03"]
+[node name="RotationComponent" type="Node" parent="Deco/Wall03"]
 script = ExtResource("4_d88ue")
 
-[node name="Wall07" type="Sprite3D" parent="Decorations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385082, 1.10466, 0)
+[node name="Wall04" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81029, 1.40966, 0)
+pixel_size = 0.003
+double_sided = false
+texture = ExtResource("3_ox70c")
+
+[node name="RotationComponent" type="Node" parent="Deco/Wall04"]
+script = ExtResource("4_d88ue")
+
+[node name="Plank1" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10235, 1.10466, 0)
 pixel_size = 0.003
 double_sided = false
 texture = ExtResource("5_gw8or")
 
-[node name="RotationComponent" type="Node" parent="Decorations/Wall07"]
+[node name="RotationComponent" type="Node" parent="Deco/Plank1"]
 script = ExtResource("4_d88ue")
 
-[node name="Wall08" type="Sprite3D" parent="Decorations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385082, 1.50344, 0)
+[node name="Plank2" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10235, 1.50344, 0)
 pixel_size = 0.003
 double_sided = false
 texture = ExtResource("5_gw8or")
 
-[node name="RotationComponent" type="Node" parent="Decorations/Wall08"]
+[node name="RotationComponent" type="Node" parent="Deco/Plank2"]
 script = ExtResource("4_d88ue")
 
-[node name="Wall09" type="Sprite3D" parent="Decorations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0385082, 1.89632, 0)
+[node name="Plank3" type="Sprite3D" parent="Deco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10235, 1.89632, 0)
 pixel_size = 0.003
 double_sided = false
 texture = ExtResource("5_gw8or")
 
-[node name="RotationComponent" type="Node" parent="Decorations/Wall09"]
+[node name="RotationComponent" type="Node" parent="Deco/Plank3"]
 script = ExtResource("4_d88ue")
 
 [node name="ICEnter" parent="." instance=ExtResource("6_kl8y8")]
