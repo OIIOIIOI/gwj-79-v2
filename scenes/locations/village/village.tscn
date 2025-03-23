@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=30 format=3 uid="uid://nje8qvt00yvc"]
 
+[ext_resource type="Script" path="res://scenes/locations/village/village.gd" id="1_4yfa4"]
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
 [ext_resource type="Texture2D" uid="uid://co3nwe30owhyo" path="res://assets/sprites/GROUND-Dif.png" id="1_y2kcc"]
 [ext_resource type="Script" path="res://scenes/locations/village/sea.gd" id="2_70wvc"]
@@ -13,8 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://0iopkfxnnkqp" path="res://assets/sprites/decoration/ENV-herbe1.png" id="12_jny03"]
 [ext_resource type="Texture2D" uid="uid://dp751or4ktdeb" path="res://assets/sprites/decoration/ENV-plante3 1.png" id="12_pj02o"]
 [ext_resource type="PackedScene" uid="uid://bf0l2uy0ys03p" path="res://scenes/buildings/boat.tscn" id="13_3hc65"]
+[ext_resource type="PackedScene" uid="uid://blxy58qrxmst" path="res://scenes/npcs/mayor_ed.tscn" id="13_6p87y"]
 [ext_resource type="Texture2D" uid="uid://g4lf45a6gn01" path="res://assets/sprites/decoration/ENV-herbe2.png" id="13_70tj6"]
+[ext_resource type="PackedScene" uid="uid://c7ipjhiq58b5w" path="res://scenes/npcs/old_one.tscn" id="13_j33cb"]
+[ext_resource type="Script" path="res://scenes/test_subjects.gd" id="13_um33u"]
 [ext_resource type="Texture2D" uid="uid://dbtfquwt6p21" path="res://assets/sprites/decoration/ENV-plante2.png" id="14_evcxr"]
+[ext_resource type="PackedScene" uid="uid://cvqeum5khle0q" path="res://scenes/npcs/keeper.tscn" id="15_g021j"]
 [ext_resource type="Texture2D" uid="uid://cnqblnsx85nb4" path="res://assets/sprites/decoration/ENV-plante3.png" id="16_48pe8"]
 [ext_resource type="Texture2D" uid="uid://bhf6xar23dite" path="res://assets/sprites/decoration/ENV-plante4.png" id="17_070j3"]
 [ext_resource type="Texture2D" uid="uid://buys2c8njc3jp" path="res://assets/sprites/decoration/ENV-plante.png" id="18_hmwpo"]
@@ -36,7 +41,11 @@ plane = Plane(-1, 0, 0, 0)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wmw1y"]
 plane = Plane(0, 0, -1, 0)
 
-[node name="Village" type="Node3D"]
+[node name="Village" type="Node3D" node_paths=PackedStringArray("mayor_position", "keeper_position", "old_one_position")]
+script = ExtResource("1_4yfa4")
+mayor_position = NodePath("NPCs/MayorMarker3D")
+keeper_position = NodePath("NPCs/KeeperMarker3D")
+old_one_position = NodePath("NPCs/OldOneMarker3D")
 
 [node name="SeaLeft" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.5, -5)
@@ -188,7 +197,28 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
 collision_mask = 0
 
+[node name="TestSubjects" type="Node3D" parent="."]
+script = ExtResource("13_um33u")
+
+[node name="OldOne" parent="TestSubjects" instance=ExtResource("13_j33cb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44899, 2.38419e-07, -2.46997)
+
+[node name="MayorEd" parent="TestSubjects" instance=ExtResource("13_6p87y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105387, 0, -1.15737)
+
+[node name="Keeper" parent="TestSubjects" instance=ExtResource("15_g021j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21014, 0, 1.28535)
+
 [node name="NPCs" type="Node3D" parent="."]
+
+[node name="MayorMarker3D" type="Marker3D" parent="NPCs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105387, 0, -1.15737)
+
+[node name="KeeperMarker3D" type="Marker3D" parent="NPCs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21014, 0, 1.28535)
+
+[node name="OldOneMarker3D" type="Marker3D" parent="NPCs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44899, 2.38419e-07, -2.46997)
 
 [node name="Decoration" type="Node3D" parent="."]
 

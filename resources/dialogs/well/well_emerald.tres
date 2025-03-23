@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=8 format=3 uid="uid://chunjf1k62tle"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_glqsw"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_6ugf7"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_wxx5o"]
+[ext_resource type="Script" path="res://resources/actions/add_step_action.gd" id="3_nb5gk"]
+
+[sub_resource type="Resource" id="Resource_feqqc"]
+script = ExtResource("1_glqsw")
+text = "Such a shame to throw this beautiful jewel away...
+But we have no choice, into the depths you go!"
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_wxx5o")]([])
+
+[sub_resource type="Resource" id="Resource_qtex6"]
+script = ExtResource("3_nb5gk")
+step = 7
+
+[sub_resource type="Resource" id="Resource_w4dq4"]
+script = ExtResource("1_glqsw")
+text = ""
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_wxx5o")]([SubResource("Resource_qtex6")])
+
+[resource]
+script = ExtResource("2_6ugf7")
+chunks = Array[ExtResource("1_glqsw")]([SubResource("Resource_feqqc"), SubResource("Resource_w4dq4")])

@@ -4,3 +4,7 @@
 
 [node name="InteractionManager" type="Node"]
 script = ExtResource("1_s38sf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true

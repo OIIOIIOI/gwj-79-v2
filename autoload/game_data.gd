@@ -2,16 +2,15 @@ extends Node
 
 
 var steps: Array[String] = []
-var objects: Array[String] = []
 var latest_player_position: Vector3 = Vector3.ZERO
+var latest_player_facing_left: bool = false
 
 
 func _ready() -> void:
 	on_step_added(GameEnums.STEPS.Step_JustStarted)
 
 	GameEvents.step_added.connect(on_step_added)
-	GameEvents.object_added.connect(on_object_added)
-	GameEvents.object_removed.connect(on_object_removed)
+	GameEvents.scene_transition_requested.connect(on_scene_transition_requested)
 
 
 func has_step(step: GameEnums.STEPS) -> bool:
@@ -24,10 +23,6 @@ func is_current_step(step: GameEnums.STEPS) -> bool:
 	return steps.back() == GameEnums.STEPS.find_key(step)
 
 
-func has_object(object: GameEnums.OBJECTS) -> bool:
-	return objects.has(GameEnums.OBJECTS.find_key(object))
-
-
 func on_step_added(step: GameEnums.STEPS) -> void:
 	var step_name = GameEnums.STEPS.find_key(step)
 	if !steps.has(step_name):
@@ -35,15 +30,8 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 		print("Step added: ", step_name)
 
 
-func on_object_added(object: GameEnums.OBJECTS) -> void:
-	var object_name = GameEnums.OBJECTS.find_key(object)
-	if !objects.has(object_name):
-		objects.append(object_name)
-		print("Object added: ", object_name)
-
-
-func on_object_removed(object: GameEnums.OBJECTS) -> void:
-	var object_name = GameEnums.OBJECTS.find_key(object)
-	if objects.has(object_name):
-		objects.erase(object_name)
-		print("Object removed: ", object_name)
+func on_scene_transition_requested(_scene: GameEnums.SCENES) -> void:
+	var player = get_tree().get_first_node_in_group(&"player")
+	if player is Player:
+		latest_player_position = player.position
+		latest_player_facing_left = player.facing_left

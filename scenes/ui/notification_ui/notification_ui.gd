@@ -20,9 +20,9 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 		GameEnums.STEPS.Step_ObtainedSeed:
 			add_notification("City Seal obtained!")
 		GameEnums.STEPS.Step_ObtainedWeapon:
-			add_notification("Weapon obtained!")
+			add_notification("Keeper's Baton obtained!")
 		GameEnums.STEPS.Step_ObtainedEmerald:
-			add_notification("Emerald obtained!")
+			add_notification("Great Emerald obtained!")
 
 
 func on_book_update_started() -> void:

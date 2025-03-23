@@ -3,24 +3,33 @@ class_name InteractionManager
 
 
 @export var dialog_ui: DialogUI
+@export var help_ui: HelpUI
 @export var can_interact := true
+
+
+@onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
 	GameEvents.dialog_started.connect(on_dialog_started)
 	GameEvents.dialog_ended.connect(on_dialog_ended)
 
+	timer.timeout.connect(on_timer_timeout)
 
 func _process(_delta: float) -> void:
 	if can_interact && Input.is_action_just_pressed(&"action"):
-		#print("InteractionManager Action detected")
 		activate_closest_interactable()
 
 
-func activate_closest_interactable() -> void:
+func get_closest_valid_interactable() -> InteractionComponent:
 	var all_valid := get_valid_interactables()
 	#print("Found ", all_valid.size(), " valid interactables")
 	var closest := get_closest_interactable(all_valid)
+	return closest
+
+
+func activate_closest_interactable() -> void:
+	var closest := get_closest_valid_interactable()
 	if closest:
 		#print("Closest: ", closest.name)
 		activate_interactable(closest)
@@ -76,3 +85,9 @@ func on_dialog_started() -> void:
 
 func on_dialog_ended() -> void:
 	can_interact = true
+
+
+func on_timer_timeout() -> void:
+	if can_interact && help_ui:
+		var closest = get_closest_valid_interactable()
+		help_ui.set_interactable(closest)

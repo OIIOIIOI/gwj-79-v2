@@ -17,6 +17,16 @@ signal drop_sequence_complete
 
 
 func _ready() -> void:
+	if GameData.has_step(GameEnums.STEPS.Step_DroppedEmerald):
+		grow_tree(tree_big)
+		animation_player.play(&"wave")
+	elif GameData.has_step(GameEnums.STEPS.Step_DroppedWeapon):
+		grow_tree(tree_medium)
+		animation_player.play(&"wave")
+	elif GameData.has_step(GameEnums.STEPS.Step_DroppedSeed):
+		grow_tree(tree_small)
+		animation_player.play(&"wave")
+
 	GameEvents.step_added.connect(on_step_added)
 
 
@@ -34,6 +44,7 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			GameEvents.tree_grown.emit()
 
 		GameEnums.STEPS.Step_DroppedWeapon:
+			print("Well Step_DroppedWeapon")
 			drop_sequence()
 			await drop_sequence_complete
 			# Update tree sprite
@@ -70,5 +81,6 @@ func drop_sequence() -> void:
 
 
 func grow_tree(texture: Texture2D) -> void:
+	print("grow_tree: ", texture)
 	tree_sprite.texture = texture
 	tree_sprite.offset.x = -texture.get_size().x * 0.5

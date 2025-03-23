@@ -21,6 +21,10 @@ var is_book_open := false
 
 
 func _ready() -> void:
+	if GameData.latest_player_position !=  Vector3.ZERO:
+		position = GameData.latest_player_position
+		facing_left = GameData.latest_player_facing_left
+
 	visuals.scale.x = -1.0 if facing_left else 1.0
 
 	footsteps_timer.timeout.connect(on_footsteps_timer_timeout)
@@ -54,8 +58,10 @@ func _physics_process(delta: float) -> void:
 
 	if direction.x < -0.05:
 		visuals.scale.x = -1.0
+		facing_left = true
 	elif direction.x > 0.05:
 		visuals.scale.x = 1.0
+		facing_left = false
 
 	move_and_slide()
 	handle_camera()
@@ -106,7 +112,6 @@ func on_book_update_started() -> void:
 func on_book_update_finished() -> void:
 	print("Player on_book_update_finished")
 	is_book_open = false
-	#animation_player.play(&"book")
 
 
 func on_step_added(step: GameEnums.STEPS) -> void:

@@ -86,7 +86,7 @@ actions = Array[ExtResource("3_3t8kv")]([])
 
 [sub_resource type="Resource" id="Resource_qa4e3"]
 script = ExtResource("1_mloc0")
-text = "You both crouch by the boat’s wreckage, sharing a box of nails and using the Keeper’s club as a hammer."
+text = "You both crouch by the boat’s wreckage, sharing a box of nails and using the Keeper’s baton as a hammer."
 style = 2
 duration = 0.0
 actions = Array[ExtResource("3_3t8kv")]([])

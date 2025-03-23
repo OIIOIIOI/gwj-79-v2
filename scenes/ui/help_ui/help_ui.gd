@@ -1,4 +1,8 @@
 extends CanvasLayer
+class_name HelpUI
+
+
+var interactable: InteractionComponent = null
 
 
 @onready var bottom_label: Label = %BottomLabel
@@ -21,4 +25,20 @@ func hide_ui() -> void:
 
 func on_step_added(step: GameEnums.STEPS) -> void:
 	if step == GameEnums.STEPS.Step_BookChecked:
+		if interactable:
+			set_interactable(interactable)
+		else:
+			hide_ui()
+
+
+func set_interactable(ic: InteractionComponent) -> void:
+	interactable = ic
+
+	if !GameData.has_step(GameEnums.STEPS.Step_BookChecked):
+		return
+
+	if interactable:
+		bottom_label.text = "Press E or Space to interact"
+		visible = true
+	else:
 		hide_ui()

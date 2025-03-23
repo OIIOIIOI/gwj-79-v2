@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=8 format=3 uid="uid://c2d2nu0j8umy6"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_fa0nu"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_12yud"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_hadvi"]
+[ext_resource type="Script" path="res://resources/actions/add_step_action.gd" id="3_swbh6"]
+
+[sub_resource type="Resource" id="Resource_huubi"]
+script = ExtResource("1_fa0nu")
+text = "All right, I guess I'll throw this baton into the well too..."
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_hadvi")]([])
+
+[sub_resource type="Resource" id="Resource_0ify5"]
+script = ExtResource("3_swbh6")
+step = 5
+
+[sub_resource type="Resource" id="Resource_jfb3o"]
+script = ExtResource("1_fa0nu")
+text = ""
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_hadvi")]([SubResource("Resource_0ify5")])
+
+[resource]
+script = ExtResource("2_12yud")
+chunks = Array[ExtResource("1_fa0nu")]([SubResource("Resource_huubi"), SubResource("Resource_jfb3o")])

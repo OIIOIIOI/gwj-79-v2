@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://bm7lmhrturpas"]
+[gd_scene load_steps=34 format=3 uid="uid://bm7lmhrturpas"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_35mox"]
 [ext_resource type="Texture2D" uid="uid://bt3v3wn3nmrqb" path="res://assets/sprites/characters/hero/HERO-IDLE-1.png" id="2_lefuw"]
 [ext_resource type="AudioStream" uid="uid://bfy7dst5p3qqa" path="res://assets/sfx/footsteps/FX_Foot1_footsteps.wav" id="3_06m6y"]
+[ext_resource type="Shape3D" uid="uid://bb5edubomhlx2" path="res://resources/character_collision_capsule.tres" id="3_ki2yo"]
 [ext_resource type="AudioStream" uid="uid://drttofiotxt2n" path="res://assets/sfx/footsteps/FX_Foot2_footsteps.wav" id="4_ijbmc"]
 [ext_resource type="AudioStream" uid="uid://b82053bklg43j" path="res://assets/sfx/footsteps/FX_Foot3_footsteps.wav" id="5_tfewm"]
 [ext_resource type="AudioStream" uid="uid://y3suy187lmh5" path="res://assets/sfx/footsteps/FX_Foot4_footsteps.wav" id="6_61b44"]
@@ -24,9 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://dk4a7d70q0qcb" path="res://assets/sprites/characters/hero/HERO-WALK-2_no_book.png" id="22_pd08q"]
 [ext_resource type="Texture2D" uid="uid://cljp2he28mwrn" path="res://assets/sprites/characters/hero/HERO-WALK-3_no_book.png" id="23_w3t3a"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oomda"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_e3g7p"]
 radius = 0.4
-height = 1.8
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hdsop"]
 random_pitch = 1.5
@@ -162,9 +162,13 @@ pixel_size = 0.002
 double_sided = false
 texture = ExtResource("2_lefuw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-shape = SubResource("CapsuleShape3D_oomda")
+[node name="FloorCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("SphereShape3D_e3g7p")
+
+[node name="WorldCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1, 0)
+shape = ExtResource("3_ki2yo")
 
 [node name="CameraController" type="Node3D" parent="."]
 top_level = true
