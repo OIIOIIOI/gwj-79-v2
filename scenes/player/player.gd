@@ -4,6 +4,7 @@ class_name Player
 
 @export var facing_left := false
 @export var can_move := true
+@export var is_book_open := false
 
 
 const SPEED = 3.0
@@ -24,6 +25,7 @@ func _ready() -> void:
 
 	GameEvents.dialog_started.connect(on_dialog_started)
 	GameEvents.dialog_ended.connect(on_dialog_ended)
+	GameEvents.book_updated.connect(on_book_updated)
 
 
 func _physics_process(delta: float) -> void:
@@ -32,7 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get input direction
 	var input_dir := Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
-	if !can_move:
+	if !can_move || is_book_open:
 		input_dir = Vector2.ZERO
 
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -52,12 +54,14 @@ func _physics_process(delta: float) -> void:
 	handle_camera()
 
 	if velocity.length_squared() > 0.0:
-		animation_player.play(&"walk")
+		if !is_book_open:
+			animation_player.play(&"walk")
 		# Start footsteps SFX timer
 		if footsteps_timer.is_stopped():
 			footsteps_timer.start(0.05)
 	else:
-		animation_player.play(&"idle")
+		if !is_book_open:
+			animation_player.play(&"idle")
 		# Stop footsteps SFX timer
 		footsteps_timer.stop()
 
@@ -79,3 +83,8 @@ func on_footsteps_timer_timeout() -> void:
 	if !footsteps_sfx.playing:
 		footsteps_sfx.play()
 	footsteps_timer.start(0.5)
+
+
+func on_book_updated() -> void:
+	is_book_open = true
+	animation_player.play(&"book")

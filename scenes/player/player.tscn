@@ -60,6 +60,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_lefuw")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_book_open")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xw6f1"]
 resource_name = "walk"
@@ -81,7 +93,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yd26n"]
 resource_name = "book"
-loop_mode = 1
+loop_mode = 2
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -94,6 +106,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("13_cpwbm"), ExtResource("14_srpot"), ExtResource("15_ouqix"), ExtResource("16_aa0o5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_book_open")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v16u8"]

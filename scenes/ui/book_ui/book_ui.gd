@@ -37,6 +37,8 @@ func open():
 	visible = true
 	state = STATE.Open
 
+	GameEvents.book_opened.emit()
+
 	# Add step if first time
 	if !GameData.has_step(GameEnums.STEPS.Step_BookChecked):
 		var action = AddStepAction.new()
@@ -44,9 +46,10 @@ func open():
 		GameEvents.execute_action(action)
 
 
-
 func close():
 	close_sfx.play()
 	visible = false
 	get_tree().paused = false
 	state = STATE.Closed
+
+	GameEvents.book_closed.emit()

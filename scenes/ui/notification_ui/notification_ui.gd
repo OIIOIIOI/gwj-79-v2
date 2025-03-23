@@ -13,17 +13,20 @@ func _ready() -> void:
 
 func on_step_added(step: GameEnums.STEPS) -> void:
 	match step:
+		# Object obtained
 		GameEnums.STEPS.Step_ObtainedBook:
 			add_notification("Mysterious Book obtained!")
 		GameEnums.STEPS.Step_ObtainedSeed:
-			add_notification("Seed obtained!")
-		GameEnums.STEPS.Step_DroppedSeed:
-			await get_tree().create_timer(3.0).timeout
-			add_notification("Something happened to the book!")
+			add_notification("City Seal obtained!")
 		GameEnums.STEPS.Step_ObtainedWeapon:
 			add_notification("Weapon obtained!")
 		GameEnums.STEPS.Step_ObtainedEmerald:
 			add_notification("Emerald obtained!")
+		# Object dropped
+		GameEnums.STEPS.Step_DroppedSeed || GameEnums.STEPS.Step_DroppedWeapon || GameEnums.STEPS.Step_DroppedEmerald:
+			await get_tree().create_timer(3.0).timeout
+			GameEvents.book_updated.emit()
+			add_notification("Something happened to the book!")
 
 
 func add_notification(text: String) -> void:
