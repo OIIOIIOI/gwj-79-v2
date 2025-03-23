@@ -191,17 +191,17 @@ func check_results() -> void:
 		game_state = GAME_STATE.Ready
 		return
 
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 
 	var first_drawer = opened_drawers[0]
 	var second_drawer = opened_drawers[1]
 	if first_drawer.item == second_drawer.item:
 		first_drawer.fade()
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.1, false).timeout
 		second_drawer.fade()
 	else:
 		first_drawer.close()
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.2, false).timeout
 		second_drawer.close()
 
 	await second_drawer.animation_player.animation_finished

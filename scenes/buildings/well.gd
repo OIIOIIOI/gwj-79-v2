@@ -14,6 +14,7 @@ signal drop_sequence_complete
 @onready var object_drop_sfx: AudioStreamPlayer = $ObjectDropSFX
 @onready var tree_sfx: AudioStreamPlayer = $TreeSFX
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var cpu_particles_3d: CPUParticles3D = $CPUParticles3D
 
 
 func _ready() -> void:
@@ -75,11 +76,13 @@ func drop_sequence() -> void:
 	# Play drop SFX
 	object_drop_sfx.play()
 	# Wait some time and play tree growing SFX
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
+	cpu_particles_3d.emitting = true
 	tree_sfx.play()
 	# Wait some time into the growing tree SFX
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.0, false).timeout
 	drop_sequence_complete.emit()
+	cpu_particles_3d.emitting = false
 
 
 func grow_tree(texture: Texture2D) -> void:

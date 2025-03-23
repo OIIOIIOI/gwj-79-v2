@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b0xeoph3lqin2"]
+[gd_scene load_steps=29 format=3 uid="uid://b0xeoph3lqin2"]
 
 [ext_resource type="QuadMesh" uid="uid://cnr3f501rpai4" path="res://assets/sprites/buildings/well/well_mesh.tres" id="1_2xftw"]
 [ext_resource type="Script" path="res://scenes/buildings/well.gd" id="1_mjp7x"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://dourfem07sd83" path="res://resources/dialogs/well/well_seed.tres" id="7_hu758"]
 [ext_resource type="Resource" uid="uid://c2d2nu0j8umy6" path="res://resources/dialogs/well/well_weapon.tres" id="13_js3er"]
 [ext_resource type="Resource" uid="uid://c4bql0b08p5u" path="res://resources/dialogs/well/well_book.tres" id="14_qdte1"]
+[ext_resource type="Texture2D" uid="uid://b2gchg7eoag1y" path="res://assets/sprites/circle_particle.png" id="15_oe337"]
 [ext_resource type="Resource" uid="uid://chunjf1k62tle" path="res://resources/dialogs/well/well_emerald.tres" id="15_v0bpr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wtfu2"]
@@ -56,7 +57,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0.001, 0.001, 0.001)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -85,7 +86,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
+"values": [Vector3(0.001, 0.001, 0.001), Vector3(1, 1, 1)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -139,6 +140,26 @@ _data = {
 "wave": SubResource("Animation_nl1xe")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0t0f"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("15_oe337")
+texture_filter = 1
+texture_repeat = false
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_h3hb3"]
+material = SubResource("StandardMaterial3D_b0t0f")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="Curve" id="Curve_kj3hb"]
+_data = [Vector2(0, 0.5), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Well" type="StaticBody3D"]
 script = ExtResource("1_mjp7x")
 tree_small = ExtResource("3_tqw3a")
@@ -150,11 +171,11 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5
 shape = SubResource("CapsuleShape3D_wtfu2")
 
 [node name="MeshBase" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.001)
 mesh = ExtResource("1_2xftw")
 
 [node name="TreeSprite" type="Sprite3D" parent="."]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.92, 0.001)
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0.92, 0.002)
 centered = false
 pixel_size = 0.001
 
@@ -190,3 +211,24 @@ dialog = ExtResource("14_qdte1")
 libraries = {
 "": SubResource("AnimationLibrary_fj664")
 }
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.642352, 0)
+emitting = false
+amount = 200
+fixed_fps = 30
+mesh = SubResource("QuadMesh_h3hb3")
+emission_shape = 1
+emission_sphere_radius = 0.35
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 7.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_kj3hb")

@@ -88,7 +88,7 @@ func on_tree_grown() -> void:
 
 	if !GameData.is_current_step(GameEnums.STEPS.Step_DroppedBook):
 		update_sfx.play()
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(2.0, false).timeout
 		GameEvents.book_update_started.emit()
 		await update_sfx.finished
 		GameEvents.book_update_finished.emit()

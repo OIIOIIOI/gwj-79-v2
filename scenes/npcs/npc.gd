@@ -20,5 +20,5 @@ func pick_random_sprite(force: bool = false) -> void:
 	if force || r == 0:
 		sprite.texture = sprites.pick_random()
 
-	await get_tree().create_timer(randf_range(1.0, 3.0)).timeout
+	await get_tree().create_timer(randf_range(1.0, 3.0), false).timeout
 	pick_random_sprite()

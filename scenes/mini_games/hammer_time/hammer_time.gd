@@ -175,7 +175,7 @@ func hit_fail() -> void:
 
 	# Play SFX
 	hit_fail_sfx.play()
-	await get_tree().create_timer(0.15).timeout
+	await get_tree().create_timer(0.15, false).timeout
 	hit_hand_sfx.play()
 
 	# Make nail fall
@@ -185,7 +185,7 @@ func hit_fail() -> void:
 
 	# Remove hand
 	nail_hand.hit()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1, false).timeout
 
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT)
@@ -196,7 +196,7 @@ func hit_fail() -> void:
 	await tween.finished
 	running_tweens.erase(tween)
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.0, false).timeout
 
 	set_target_and_move()
 
