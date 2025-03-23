@@ -7,10 +7,10 @@ const SPEED = 3.0
 
 @export var facing_left := false
 @export var can_move := true
-@export var is_book_open := false
 
 
 var has_book := true
+var is_book_open := false
 
 
 @onready var visuals: Node3D = $Visuals
@@ -28,8 +28,9 @@ func _ready() -> void:
 
 	GameEvents.dialog_started.connect(on_dialog_started)
 	GameEvents.dialog_ended.connect(on_dialog_ended)
-	GameEvents.book_updated.connect(on_book_updated)
 	GameEvents.step_added.connect(on_step_added)
+	GameEvents.book_update_started.connect(on_book_update_started)
+	GameEvents.book_update_finished.connect(on_book_update_finished)
 
 
 func _physics_process(delta: float) -> void:
@@ -59,13 +60,19 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.length_squared() > 0.0:
 		if !is_book_open:
-			animation_player.play(&"walk") if has_book else animation_player.play(&"walk_no_book")
+			if has_book:
+				animation_player.play(&"walk")
+			else:
+				animation_player.play(&"walk_no_book")
 		# Start footsteps SFX timer
 		if footsteps_timer.is_stopped():
 			footsteps_timer.start(0.05)
 	else:
 		if !is_book_open:
-			animation_player.play(&"idle") if has_book else animation_player.play(&"idle_no_book")
+			if has_book:
+				animation_player.play(&"idle")
+			else:
+				animation_player.play(&"idle_no_book")
 		# Stop footsteps SFX timer
 		footsteps_timer.stop()
 
@@ -88,9 +95,16 @@ func on_footsteps_timer_timeout() -> void:
 	footsteps_timer.start(0.5)
 
 
-func on_book_updated() -> void:
+func on_book_update_started() -> void:
+	print("Player on_book_update_started")
 	is_book_open = true
 	animation_player.play(&"book")
+
+
+func on_book_update_finished() -> void:
+	print("Player on_book_update_finished")
+	is_book_open = false
+	#animation_player.play(&"book")
 
 
 func on_step_added(step: GameEnums.STEPS) -> void:

@@ -1,16 +1,17 @@
 extends Node
 
 
-signal dialog_started()
-signal dialog_ended()
+signal dialog_started
+signal dialog_ended
 signal step_added(step: GameEnums.STEPS)
 signal object_added(object: GameEnums.OBJECTS)
 signal object_removed(object: GameEnums.OBJECTS)
 signal object_dropped_into_well(object: GameEnums.OBJECTS)
-signal book_opened()
-signal book_closed()
-signal book_updated()
-
+signal book_opened
+signal book_closed
+signal tree_grown
+signal book_update_started
+signal book_update_finished
 
 func execute_action(action:Action) -> void:
 	# Load scene

@@ -21,6 +21,7 @@ var state: STATE = STATE.Initializing
 @onready var book_texture: TextureRect = $BookTexture
 @onready var open_sfx: AudioStreamPlayer = $OpenSFX
 @onready var close_sfx: AudioStreamPlayer = $CloseSFX
+@onready var update_sfx: AudioStreamPlayer = $UpdateSFX
 
 
 func _ready() -> void:
@@ -28,7 +29,7 @@ func _ready() -> void:
 	book_texture.texture = step_1_texture
 	state = STATE.Closed
 
-	GameEvents.step_added.connect(on_step_added)
+	GameEvents.tree_grown.connect(on_tree_grown)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -65,10 +66,19 @@ func close():
 	GameEvents.book_closed.emit()
 
 
-func on_step_added(step: GameEnums.STEPS) -> void:
-	if step == GameEnums.STEPS.Step_DroppedSeed:
+func on_tree_grown() -> void:
+	if GameData.is_current_step(GameEnums.STEPS.Step_DroppedSeed):
+		print("Book switched to Step 2")
 		book_texture.texture = step_2_texture
-	elif step == GameEnums.STEPS.Step_DroppedWeapon:
+	elif GameData.is_current_step(GameEnums.STEPS.Step_DroppedWeapon):
+		print("Book switched to Step 3")
 		book_texture.texture = step_3_texture
-	elif step == GameEnums.STEPS.Step_DroppedEmerald:
+	elif GameData.is_current_step(GameEnums.STEPS.Step_DroppedEmerald):
+		print("Book switched to Step 4")
 		book_texture.texture = step_4_texture
+
+	update_sfx.play()
+	await get_tree().create_timer(2.0).timeout
+	GameEvents.book_update_started.emit()
+	await update_sfx.finished
+	GameEvents.book_update_finished.emit()

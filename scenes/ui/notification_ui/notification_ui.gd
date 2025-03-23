@@ -9,6 +9,7 @@ var notification_scene: PackedScene = preload("res://scenes/ui/notification_ui/n
 
 func _ready() -> void:
 	GameEvents.step_added.connect(on_step_added)
+	GameEvents.book_update_started.connect(on_book_update_started)
 
 
 func on_step_added(step: GameEnums.STEPS) -> void:
@@ -22,11 +23,10 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			add_notification("Weapon obtained!")
 		GameEnums.STEPS.Step_ObtainedEmerald:
 			add_notification("Emerald obtained!")
-		# Object dropped
-		GameEnums.STEPS.Step_DroppedSeed, GameEnums.STEPS.Step_DroppedWeapon, GameEnums.STEPS.Step_DroppedEmerald:
-			await get_tree().create_timer(3.0).timeout
-			GameEvents.book_updated.emit()
-			add_notification("Something happened to the book!")
+
+
+func on_book_update_started() -> void:
+	add_notification("Something happened to the book!")
 
 
 func add_notification(text: String) -> void:

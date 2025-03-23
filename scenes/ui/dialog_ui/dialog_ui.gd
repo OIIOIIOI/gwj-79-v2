@@ -45,7 +45,6 @@ func start_dialog(dialog: Dialog) -> void:
 	for chunk in dialog.chunks:
 		if chunk.duration > 0.0:
 			duration += chunk.duration
-	print("Dialog duration: ", duration)
 
 	background.texture = dialog.background
 

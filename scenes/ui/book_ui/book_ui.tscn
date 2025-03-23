@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0av3lgye5gb3"]
+[gd_scene load_steps=9 format=3 uid="uid://d0av3lgye5gb3"]
 
 [ext_resource type="Script" path="res://scenes/ui/book_ui/book_ui.gd" id="1_x3hpw"]
 [ext_resource type="Texture2D" uid="uid://c6itoqr7gl2vg" path="res://assets/sprites/book/BOOK-STEP1.png" id="2_k0lgd"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://mqu5kuj23yma" path="res://assets/sfx/book/FX_BOOK_Close.wav" id="4_gcx33"]
 [ext_resource type="Texture2D" uid="uid://cgpiu5eoiewa2" path="res://assets/sprites/book/BOOK-STEP3.png" id="4_lysam"]
 [ext_resource type="Texture2D" uid="uid://dkr3lgyglag2s" path="res://assets/sprites/book/BOOK-STEP4.png" id="5_rqk3b"]
+[ext_resource type="AudioStream" uid="uid://ccc0yp67eernh" path="res://assets/sfx/book/FX_Book_Combo.ogg" id="8_2mqkq"]
 
 [node name="BookUI" type="CanvasLayer"]
 process_mode = 3
@@ -40,4 +41,8 @@ bus = &"SFX"
 
 [node name="CloseSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gcx33")
+bus = &"SFX"
+
+[node name="UpdateSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2mqkq")
 bus = &"SFX"
