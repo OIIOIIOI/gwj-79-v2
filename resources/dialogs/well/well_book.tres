@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=9 format=3 uid="uid://c4bql0b08p5u"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_uprnf"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_brnr3"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_d53je"]
+[ext_resource type="Script" path="res://resources/actions/add_step_action.gd" id="3_8vol8"]
+
+[sub_resource type="Resource" id="Resource_2ud8b"]
+script = ExtResource("1_uprnf")
+text = "I guess this is it.
+The Book needs to go as well..."
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_brnr3")]([])
+
+[sub_resource type="Resource" id="Resource_v0wxh"]
+script = ExtResource("1_uprnf")
+text = "Under the hopeful gaze of your fellow citizens, you hold the book over the well for a few moments, then let go of it."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_brnr3")]([])
+
+[sub_resource type="Resource" id="Resource_1gxvd"]
+script = ExtResource("3_8vol8")
+step = 8
+
+[sub_resource type="Resource" id="Resource_nri6j"]
+script = ExtResource("1_uprnf")
+text = ""
+style = 0
+duration = 0.0
+actions = Array[ExtResource("2_brnr3")]([SubResource("Resource_1gxvd")])
+
+[resource]
+script = ExtResource("2_d53je")
+chunks = Array[ExtResource("1_uprnf")]([SubResource("Resource_2ud8b"), SubResource("Resource_v0wxh"), SubResource("Resource_nri6j")])

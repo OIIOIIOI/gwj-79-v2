@@ -44,7 +44,6 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			GameEvents.tree_grown.emit()
 
 		GameEnums.STEPS.Step_DroppedWeapon:
-			print("Well Step_DroppedWeapon")
 			drop_sequence()
 			await drop_sequence_complete
 			# Update tree sprite
@@ -66,7 +65,10 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			drop_sequence()
 			# Wait until the end of the tree growing SFX and emit grown signal
 			await tree_sfx.finished
-			GameEvents.tree_grown.emit()
+
+			var end_action = LoadSceneAction.new()
+			end_action.scene = GameEnums.SCENES.Scene_Outro
+			GameEvents.execute_action(end_action)
 
 
 func drop_sequence() -> void:
@@ -81,6 +83,5 @@ func drop_sequence() -> void:
 
 
 func grow_tree(texture: Texture2D) -> void:
-	print("grow_tree: ", texture)
 	tree_sprite.texture = texture
 	tree_sprite.offset.x = -texture.get_size().x * 0.5

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=21 format=3 uid="uid://d3cikge67rmma"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=20 format=3 uid="uid://d3cikge67rmma"]
 
 [ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_o1wd1"]
 [ext_resource type="Script" path="res://resources/actions/action.gd" id="2_yf6gn"]
@@ -16,7 +16,7 @@ background = ExtResource("3_wv8h4")
 text = "The sea rises a little more each day. The land disappears, cities vanish.
 Soon, nothing will be left… and your town is next."
 style = 2
-duration = 12.0
+duration = 0.0
 actions = Array[ExtResource("2_yf6gn")]([])
 
 [sub_resource type="Resource" id="Resource_mqvq4"]
@@ -25,7 +25,7 @@ background = ExtResource("4_n0gc1")
 text = "Your library won’t hold much longer. Water seeps in, shelves collapse, books float away.
 You search desperately for something to save."
 style = 2
-duration = 12.0
+duration = 0.0
 actions = Array[ExtResource("2_yf6gn")]([])
 
 [sub_resource type="Resource" id="Resource_7o6f5"]
@@ -34,34 +34,27 @@ background = ExtResource("4_n0gc1")
 text = "Your fingers land on an ancient tome, untouched by the water.
 It seems like it has been waiting for you."
 style = 2
-duration = 10.0
+duration = 0.0
 actions = Array[ExtResource("2_yf6gn")]([])
 
-[sub_resource type="Resource" id="Resource_3mvsf"]
+[sub_resource type="Resource" id="Resource_f3hp7"]
 script = ExtResource("5_51n7b")
 step = 1
-
-[sub_resource type="Resource" id="Resource_6jm5a"]
-script = ExtResource("1_o1wd1")
-text = ""
-style = 0
-duration = 0.0
-actions = Array[ExtResource("2_yf6gn")]([SubResource("Resource_3mvsf")])
 
 [sub_resource type="Resource" id="Resource_fym0n"]
 script = ExtResource("1_o1wd1")
 background = ExtResource("6_8vret")
 text = "As the library sinks before your eyes, you open the book. Inside, a forgotten prophecy. A village on the brink of ruin… but a glimmer of hope."
 style = 2
-duration = 12.0
-actions = Array[ExtResource("2_yf6gn")]([])
+duration = 0.0
+actions = Array[ExtResource("2_yf6gn")]([SubResource("Resource_f3hp7")])
 
 [sub_resource type="Resource" id="Resource_oopdt"]
 script = ExtResource("1_o1wd1")
 background = ExtResource("6_8vret")
 text = "A great tree, capable of saving them all. If the legend is true, you must find a way to make it grow. It is your only chance."
 style = 2
-duration = 10.0
+duration = 0.0
 actions = Array[ExtResource("2_yf6gn")]([])
 
 [sub_resource type="Resource" id="Resource_tiqhp"]
@@ -89,4 +82,4 @@ actions = Array[ExtResource("2_yf6gn")]([SubResource("Resource_cek61"), SubResou
 
 [resource]
 script = ExtResource("3_seleq")
-chunks = Array[ExtResource("1_o1wd1")]([SubResource("Resource_efrtc"), SubResource("Resource_mqvq4"), SubResource("Resource_7o6f5"), SubResource("Resource_6jm5a"), SubResource("Resource_fym0n"), SubResource("Resource_oopdt"), SubResource("Resource_tiqhp"), SubResource("Resource_acsf2")])
+chunks = Array[ExtResource("1_o1wd1")]([SubResource("Resource_efrtc"), SubResource("Resource_mqvq4"), SubResource("Resource_7o6f5"), SubResource("Resource_fym0n"), SubResource("Resource_oopdt"), SubResource("Resource_tiqhp"), SubResource("Resource_acsf2")])

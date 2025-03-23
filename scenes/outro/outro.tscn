@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://4r1s03n3kpx1"]
+
+[ext_resource type="Script" path="res://scenes/intro/intro_outro.gd" id="1_j7cu7"]
+[ext_resource type="Resource" uid="uid://dxrhxem8l1xc3" path="res://resources/dialogs/outro_dialog.tres" id="2_hfqvu"]
+[ext_resource type="PackedScene" uid="uid://cghqe17ct1qg6" path="res://scenes/ui/dialog_ui/dialog_ui.tscn" id="2_vjqta"]
+
+[node name="Outro" type="Node2D"]
+script = ExtResource("1_j7cu7")
+dialog = ExtResource("2_hfqvu")
+
+[node name="DialogUI" parent="." instance=ExtResource("2_vjqta")]

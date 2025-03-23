@@ -16,6 +16,8 @@ enum STATE {
 
 
 var state: STATE = STATE.Initializing
+var has_book := true
+var can_open := true
 
 
 @onready var book_texture: TextureRect = $BookTexture
@@ -30,11 +32,14 @@ func _ready() -> void:
 	update_book_texture()
 	state = STATE.Closed
 
+	GameEvents.dialog_started.connect(on_dialog_started)
+	GameEvents.dialog_ended.connect(on_dialog_ended)
 	GameEvents.tree_grown.connect(on_tree_grown)
+	GameEvents.step_added.connect(on_step_added)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"open_book"):
+	if has_book && can_open && event.is_action_pressed(&"open_book"):
 		if state == STATE.Closed:
 			open()
 			get_tree().root.set_input_as_handled()
@@ -81,8 +86,22 @@ func update_book_texture() -> void:
 func on_tree_grown() -> void:
 	update_book_texture()
 
-	update_sfx.play()
-	await get_tree().create_timer(2.0).timeout
-	GameEvents.book_update_started.emit()
-	await update_sfx.finished
-	GameEvents.book_update_finished.emit()
+	if !GameData.is_current_step(GameEnums.STEPS.Step_DroppedBook):
+		update_sfx.play()
+		await get_tree().create_timer(2.0).timeout
+		GameEvents.book_update_started.emit()
+		await update_sfx.finished
+		GameEvents.book_update_finished.emit()
+
+
+func on_step_added(step: GameEnums.STEPS) -> void:
+	if step == GameEnums.STEPS.Step_DroppedBook:
+		has_book = false
+
+
+func on_dialog_started() -> void:
+	can_open = false
+
+
+func on_dialog_ended() -> void:
+	can_open = true

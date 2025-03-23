@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 
-const SPEED = 3.0
+const SPEED = 7.0
 
 
 @export var facing_left := false
@@ -104,13 +104,11 @@ func on_footsteps_timer_timeout() -> void:
 
 
 func on_book_update_started() -> void:
-	print("Player on_book_update_started")
 	is_book_open = true
 	animation_player.play(&"book")
 
 
 func on_book_update_finished() -> void:
-	print("Player on_book_update_finished")
 	is_book_open = false
 
 

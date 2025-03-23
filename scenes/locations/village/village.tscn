@@ -41,11 +41,12 @@ plane = Plane(-1, 0, 0, 0)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wmw1y"]
 plane = Plane(0, 0, -1, 0)
 
-[node name="Village" type="Node3D" node_paths=PackedStringArray("mayor_position", "keeper_position", "old_one_position")]
+[node name="Village" type="Node3D" node_paths=PackedStringArray("mayor_position", "keeper_position", "old_one_position", "boat_position")]
 script = ExtResource("1_4yfa4")
 mayor_position = NodePath("NPCs/MayorMarker3D")
 keeper_position = NodePath("NPCs/KeeperMarker3D")
 old_one_position = NodePath("NPCs/OldOneMarker3D")
+boat_position = NodePath("NPCs/BoatMarker3D")
 
 [node name="SeaLeft" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.5, -5)
@@ -108,10 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_d5qtg")
 
 [node name="SeaRight" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.948, -0.5, -5)
-
-[node name="Boat" parent="SeaRight" instance=ExtResource("13_3hc65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.593, 0, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.5, -5)
 
 [node name="Slope" type="StaticBody3D" parent="SeaRight"]
 transform = Transform3D(0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0, 0, 1, 0, 0.5, 0)
@@ -198,6 +196,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
 collision_mask = 0
 
 [node name="TestSubjects" type="Node3D" parent="."]
+visible = false
 script = ExtResource("13_um33u")
 
 [node name="OldOne" parent="TestSubjects" instance=ExtResource("13_j33cb")]
@@ -209,6 +208,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105387, 0, -1.15737)
 [node name="Keeper" parent="TestSubjects" instance=ExtResource("15_g021j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21014, 0, 1.28535)
 
+[node name="Boat" parent="TestSubjects" instance=ExtResource("13_3hc65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, -0.5, -0.5)
+
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="MayorMarker3D" type="Marker3D" parent="NPCs"]
@@ -219,6 +221,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21014, 0, 1.28535)
 
 [node name="OldOneMarker3D" type="Marker3D" parent="NPCs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44899, 2.38419e-07, -2.46997)
+
+[node name="BoatMarker3D" type="Marker3D" parent="NPCs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, -0.5, -0.5)
 
 [node name="Decoration" type="Node3D" parent="."]
 
