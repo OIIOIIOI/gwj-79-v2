@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv2dlt1pfrp3k"
 path.s3tc="res://.godot/imported/MAYORBUILDING-DOOR.png-747e77b16ff357c493b2f5e44830942d.s3tc.ctex"
+path.etc2="res://.godot/imported/MAYORBUILDING-DOOR.png-747e77b16ff357c493b2f5e44830942d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/buildings/town_hall/MAYORBUILDING-DOOR.png"
-dest_files=["res://.godot/imported/MAYORBUILDING-DOOR.png-747e77b16ff357c493b2f5e44830942d.s3tc.ctex"]
+dest_files=["res://.godot/imported/MAYORBUILDING-DOOR.png-747e77b16ff357c493b2f5e44830942d.s3tc.ctex", "res://.godot/imported/MAYORBUILDING-DOOR.png-747e77b16ff357c493b2f5e44830942d.etc2.ctex"]
 
 [params]
 

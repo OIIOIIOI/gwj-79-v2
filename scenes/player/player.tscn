@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bm7lmhrturpas"]
+[gd_scene load_steps=36 format=3 uid="uid://bm7lmhrturpas"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_35mox"]
 [ext_resource type="Texture2D" uid="uid://bt3v3wn3nmrqb" path="res://assets/sprites/characters/hero/HERO-IDLE-1.png" id="2_lefuw"]
@@ -27,6 +27,13 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e3g7p"]
 radius = 0.4
+
+[sub_resource type="QuadMesh" id="QuadMesh_u41qr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8pvd6"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hdsop"]
 random_pitch = 1.5
@@ -177,6 +184,11 @@ top_level = true
 transform = Transform3D(1, 0, 0, 0, 0.99863, 0.052336, 0, -0.052336, 0.99863, 0, 1.7, 2.25)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
+
+[node name="WhiteFlash" type="MeshInstance3D" parent="CameraController/CameraTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0147226, -0.280924)
+mesh = SubResource("QuadMesh_u41qr")
+surface_material_override/0 = SubResource("StandardMaterial3D_8pvd6")
 
 [node name="SFX" type="Node" parent="."]
 

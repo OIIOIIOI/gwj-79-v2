@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk6hnjcq5hmpo"
 path.s3tc="res://.godot/imported/HERO-IDLE-2.png-0132107827c3afee4bcda81f239373e0.s3tc.ctex"
+path.etc2="res://.godot/imported/HERO-IDLE-2.png-0132107827c3afee4bcda81f239373e0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/characters/hero/HERO-IDLE-2.png"
-dest_files=["res://.godot/imported/HERO-IDLE-2.png-0132107827c3afee4bcda81f239373e0.s3tc.ctex"]
+dest_files=["res://.godot/imported/HERO-IDLE-2.png-0132107827c3afee4bcda81f239373e0.s3tc.ctex", "res://.godot/imported/HERO-IDLE-2.png-0132107827c3afee4bcda81f239373e0.etc2.ctex"]
 
 [params]
 

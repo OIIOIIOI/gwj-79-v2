@@ -137,9 +137,9 @@ func on_nail_fall_timer_timeout() -> void:
 func _process(_delta: float) -> void:
 	# TODO Remove this
 	# Handle cheat
-	if game_state != GAME_STATE.Initializing && game_state != GAME_STATE.End:
-		if Input.is_action_just_pressed(&"open_book"):
-			end_game()
+	#if game_state != GAME_STATE.Initializing && game_state != GAME_STATE.End:
+		#if Input.is_action_just_pressed(&"open_book"):
+			#end_game()
 
 	# Handle action
 	if game_state == GAME_STATE.HandMoving || game_state == GAME_STATE.NailReleased || game_state == GAME_STATE.HandSafe:

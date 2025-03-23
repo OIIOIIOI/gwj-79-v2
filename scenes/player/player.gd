@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name Player
 
 
-const SPEED = 7.0
+const SPEED = 3.0
 
 
 @export var facing_left := false
@@ -18,6 +18,7 @@ var is_book_open := false
 @onready var footsteps_sfx: AudioStreamPlayer = $SFX/Footsteps/FootstepsSFX
 @onready var footsteps_timer: Timer = $SFX/Footsteps/FootstepsTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var white_flash: MeshInstance3D = $CameraController/CameraTarget/WhiteFlash
 
 
 func _ready() -> void:
@@ -115,3 +116,23 @@ func on_book_update_finished() -> void:
 func on_step_added(step: GameEnums.STEPS) -> void:
 	if step == GameEnums.STEPS.Step_DroppedBook:
 		has_book = false
+	elif step == GameEnums.STEPS.Step_GameEnded:
+		flash_to_end()
+
+
+func flash_to_end() -> void:
+	var tween := create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_method(change_flash_color, Color.TRANSPARENT, Color.WHITE, 4.0)
+
+	await tween.finished
+
+	var end_action = LoadSceneAction.new()
+	end_action.scene = GameEnums.SCENES.Scene_Outro
+	GameEvents.execute_action(end_action)
+
+
+func change_flash_color(value: Color) -> void:
+	var mat: StandardMaterial3D = white_flash.get_active_material(0) as StandardMaterial3D
+	mat.albedo_color = value

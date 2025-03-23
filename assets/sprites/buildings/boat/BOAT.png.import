@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://jq1tnlgbdva4"
 path.s3tc="res://.godot/imported/BOAT.png-13c8f42336f40d4929921846fef36ae0.s3tc.ctex"
+path.etc2="res://.godot/imported/BOAT.png-13c8f42336f40d4929921846fef36ae0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/buildings/boat/BOAT.png"
-dest_files=["res://.godot/imported/BOAT.png-13c8f42336f40d4929921846fef36ae0.s3tc.ctex"]
+dest_files=["res://.godot/imported/BOAT.png-13c8f42336f40d4929921846fef36ae0.s3tc.ctex", "res://.godot/imported/BOAT.png-13c8f42336f40d4929921846fef36ae0.etc2.ctex"]
 
 [params]
 

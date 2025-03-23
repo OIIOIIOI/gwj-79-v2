@@ -32,7 +32,7 @@ script = ExtResource("1_mloc0")
 speaker_name = ExtResource("4_co8yx")
 speaker_sprite = ExtResource("5_mnvyy")
 text = "Hello, citizen Librarian. What can I do for you?"
-style = 0
+style = 3
 duration = 0.0
 actions = Array[ExtResource("3_3t8kv")]([])
 
@@ -48,7 +48,7 @@ script = ExtResource("1_mloc0")
 speaker_name = ExtResource("4_co8yx")
 speaker_sprite = ExtResource("6_eghvt")
 text = "Save the city? That's all I've wanted. I stood strong when the first crisis hit, when despair struck, when the city fell apart. I stood strong for all of us citizens..."
-style = 0
+style = 3
 duration = 0.0
 actions = Array[ExtResource("3_3t8kv")]([])
 
@@ -64,7 +64,7 @@ script = ExtResource("1_mloc0")
 speaker_name = ExtResource("4_co8yx")
 speaker_sprite = ExtResource("7_n3vus")
 text = "You know, I have a family. Kids. All these years, I never thought about their safety. Citizen, help me fix this damn boat so they at least have a chance if..."
-style = 0
+style = 3
 duration = 0.0
 actions = Array[ExtResource("3_3t8kv")]([])
 
@@ -80,7 +80,7 @@ script = ExtResource("1_mloc0")
 speaker_name = ExtResource("4_co8yx")
 speaker_sprite = ExtResource("5_mnvyy")
 text = "I’ll give you what you need to save the village when we're done."
-style = 0
+style = 3
 duration = 0.0
 actions = Array[ExtResource("3_3t8kv")]([])
 

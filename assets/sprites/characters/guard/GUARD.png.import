@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbqwcudjdt5c4"
 path.s3tc="res://.godot/imported/GUARD.png-b043e03f0b51660717a9ea3486f9e0be.s3tc.ctex"
+path.etc2="res://.godot/imported/GUARD.png-b043e03f0b51660717a9ea3486f9e0be.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/characters/guard/GUARD.png"
-dest_files=["res://.godot/imported/GUARD.png-b043e03f0b51660717a9ea3486f9e0be.s3tc.ctex"]
+dest_files=["res://.godot/imported/GUARD.png-b043e03f0b51660717a9ea3486f9e0be.s3tc.ctex", "res://.godot/imported/GUARD.png-b043e03f0b51660717a9ea3486f9e0be.etc2.ctex"]
 
 [params]
 

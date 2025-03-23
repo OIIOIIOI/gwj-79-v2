@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://6nrv0ick3yjk"
 path.s3tc="res://.godot/imported/SEA-PATTERN.png-56f27f3b86a651ba2fb2ff8ad9a2bc87.s3tc.ctex"
+path.etc2="res://.godot/imported/SEA-PATTERN.png-56f27f3b86a651ba2fb2ff8ad9a2bc87.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/SEA-PATTERN.png"
-dest_files=["res://.godot/imported/SEA-PATTERN.png-56f27f3b86a651ba2fb2ff8ad9a2bc87.s3tc.ctex"]
+dest_files=["res://.godot/imported/SEA-PATTERN.png-56f27f3b86a651ba2fb2ff8ad9a2bc87.s3tc.ctex", "res://.godot/imported/SEA-PATTERN.png-56f27f3b86a651ba2fb2ff8ad9a2bc87.etc2.ctex"]
 
 [params]
 

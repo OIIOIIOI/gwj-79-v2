@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdv7ijvb84bys"
 path.s3tc="res://.godot/imported/ENV-plante3 2.png-45077f4b8e1dc61d72ffd20d16ab89a7.s3tc.ctex"
+path.etc2="res://.godot/imported/ENV-plante3 2.png-45077f4b8e1dc61d72ffd20d16ab89a7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/decoration/ENV-plante3 2.png"
-dest_files=["res://.godot/imported/ENV-plante3 2.png-45077f4b8e1dc61d72ffd20d16ab89a7.s3tc.ctex"]
+dest_files=["res://.godot/imported/ENV-plante3 2.png-45077f4b8e1dc61d72ffd20d16ab89a7.s3tc.ctex", "res://.godot/imported/ENV-plante3 2.png-45077f4b8e1dc61d72ffd20d16ab89a7.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://br4ofwon81k1e"
 path.s3tc="res://.godot/imported/OLD ONE.png-a1edc238f4477dd7722e487c7c16e307.s3tc.ctex"
+path.etc2="res://.godot/imported/OLD ONE.png-a1edc238f4477dd7722e487c7c16e307.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/characters/antique_dealer/OLD ONE.png"
-dest_files=["res://.godot/imported/OLD ONE.png-a1edc238f4477dd7722e487c7c16e307.s3tc.ctex"]
+dest_files=["res://.godot/imported/OLD ONE.png-a1edc238f4477dd7722e487c7c16e307.s3tc.ctex", "res://.godot/imported/OLD ONE.png-a1edc238f4477dd7722e487c7c16e307.etc2.ctex"]
 
 [params]
 

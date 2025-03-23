@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy1g7f8jfwagn"
 path.s3tc="res://.godot/imported/HERO-BOOK-2.png-3bc57d0671654e0f3430d64dd63c2c7f.s3tc.ctex"
+path.etc2="res://.godot/imported/HERO-BOOK-2.png-3bc57d0671654e0f3430d64dd63c2c7f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/characters/hero/HERO-BOOK-2.png"
-dest_files=["res://.godot/imported/HERO-BOOK-2.png-3bc57d0671654e0f3430d64dd63c2c7f.s3tc.ctex"]
+dest_files=["res://.godot/imported/HERO-BOOK-2.png-3bc57d0671654e0f3430d64dd63c2c7f.s3tc.ctex", "res://.godot/imported/HERO-BOOK-2.png-3bc57d0671654e0f3430d64dd63c2c7f.etc2.ctex"]
 
 [params]
 

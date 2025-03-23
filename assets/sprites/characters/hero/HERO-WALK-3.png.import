@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://l1x77847s6fu"
 path.s3tc="res://.godot/imported/HERO-WALK-3.png-a9cfed0d225d6b08907bd0a77b4e6c86.s3tc.ctex"
+path.etc2="res://.godot/imported/HERO-WALK-3.png-a9cfed0d225d6b08907bd0a77b4e6c86.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/characters/hero/HERO-WALK-3.png"
-dest_files=["res://.godot/imported/HERO-WALK-3.png-a9cfed0d225d6b08907bd0a77b4e6c86.s3tc.ctex"]
+dest_files=["res://.godot/imported/HERO-WALK-3.png-a9cfed0d225d6b08907bd0a77b4e6c86.s3tc.ctex", "res://.godot/imported/HERO-WALK-3.png-a9cfed0d225d6b08907bd0a77b4e6c86.etc2.ctex"]
 
 [params]
 

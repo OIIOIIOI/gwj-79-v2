@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://oiwq3wyjpt2o"
 path.s3tc="res://.godot/imported/GUARDBUILDING.png-4ad41223e3335be762724feccb84765d.s3tc.ctex"
+path.etc2="res://.godot/imported/GUARDBUILDING.png-4ad41223e3335be762724feccb84765d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/buildings/police_station/GUARDBUILDING.png"
-dest_files=["res://.godot/imported/GUARDBUILDING.png-4ad41223e3335be762724feccb84765d.s3tc.ctex"]
+dest_files=["res://.godot/imported/GUARDBUILDING.png-4ad41223e3335be762724feccb84765d.s3tc.ctex", "res://.godot/imported/GUARDBUILDING.png-4ad41223e3335be762724feccb84765d.etc2.ctex"]
 
 [params]
 

@@ -25,7 +25,7 @@ speaker_name = ExtResource("4_ccjoa")
 speaker_sprite = ExtResource("5_jtpxj")
 text = "Hey champ!
 What can I do for you?"
-style = 0
+style = 3
 duration = 0.0
 actions = Array[ExtResource("2_8bs8w")]([])
 
@@ -41,7 +41,7 @@ script = ExtResource("1_xfyet")
 speaker_name = ExtResource("4_ccjoa")
 speaker_sprite = ExtResource("6_pxsvh")
 text = "How the hell could you care about the end of the world when you're built like a god? Physique is all that matters! Strength is everything, that’s why I got elected. People love it!"
-style = 0
+style = 3
 duration = 0.0
 actions = Array[ExtResource("2_8bs8w")]([])
 
@@ -50,7 +50,7 @@ script = ExtResource("1_xfyet")
 speaker_name = ExtResource("4_ccjoa")
 speaker_sprite = ExtResource("7_pqhdu")
 text = "You know what champ? Show me you can lift some decent weight, and the City Seal is yours!"
-style = 0
+style = 3
 duration = 0.0
 actions = Array[ExtResource("2_8bs8w")]([])
 

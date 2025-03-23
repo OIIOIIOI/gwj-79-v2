@@ -42,6 +42,7 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			animation_player.play(&"appear")
 			# Wait until the end of the tree growing SFX and emit grown signal
 			await tree_sfx.finished
+			cpu_particles_3d.emitting = false
 			GameEvents.tree_grown.emit()
 
 		GameEnums.STEPS.Step_DroppedWeapon:
@@ -51,6 +52,7 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			grow_tree(tree_medium)
 			# Wait until the end of the tree growing SFX and emit grown signal
 			await tree_sfx.finished
+			cpu_particles_3d.emitting = false
 			GameEvents.tree_grown.emit()
 
 		GameEnums.STEPS.Step_DroppedEmerald:
@@ -60,15 +62,15 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			grow_tree(tree_big)
 			# Wait until the end of the tree growing SFX and emit grown signal
 			await tree_sfx.finished
+			cpu_particles_3d.emitting = false
 			GameEvents.tree_grown.emit()
 
 		GameEnums.STEPS.Step_DroppedBook:
 			drop_sequence()
-			# Wait until the end of the tree growing SFX and emit grown signal
-			await tree_sfx.finished
+			await drop_sequence_complete
 
-			var end_action = LoadSceneAction.new()
-			end_action.scene = GameEnums.SCENES.Scene_Outro
+			var end_action = AddStepAction.new()
+			end_action.step = GameEnums.STEPS.Step_GameEnded
 			GameEvents.execute_action(end_action)
 
 
@@ -82,7 +84,6 @@ func drop_sequence() -> void:
 	# Wait some time into the growing tree SFX
 	await get_tree().create_timer(2.0, false).timeout
 	drop_sequence_complete.emit()
-	cpu_particles_3d.emitting = false
 
 
 func grow_tree(texture: Texture2D) -> void:

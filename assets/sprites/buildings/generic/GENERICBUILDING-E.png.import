@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyg6hu40cedor"
 path.s3tc="res://.godot/imported/GENERICBUILDING-E.png-9470a5ec8ea16ae810038fafdfa53399.s3tc.ctex"
+path.etc2="res://.godot/imported/GENERICBUILDING-E.png-9470a5ec8ea16ae810038fafdfa53399.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/buildings/generic/GENERICBUILDING-E.png"
-dest_files=["res://.godot/imported/GENERICBUILDING-E.png-9470a5ec8ea16ae810038fafdfa53399.s3tc.ctex"]
+dest_files=["res://.godot/imported/GENERICBUILDING-E.png-9470a5ec8ea16ae810038fafdfa53399.s3tc.ctex", "res://.godot/imported/GENERICBUILDING-E.png-9470a5ec8ea16ae810038fafdfa53399.etc2.ctex"]
 
 [params]
 

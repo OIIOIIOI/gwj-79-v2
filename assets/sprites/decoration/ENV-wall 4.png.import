@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhsmqenofhybf"
 path.s3tc="res://.godot/imported/ENV-wall 4.png-ad128290de31ef477c634c7d29b1069a.s3tc.ctex"
+path.etc2="res://.godot/imported/ENV-wall 4.png-ad128290de31ef477c634c7d29b1069a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/decoration/ENV-wall 4.png"
-dest_files=["res://.godot/imported/ENV-wall 4.png-ad128290de31ef477c634c7d29b1069a.s3tc.ctex"]
+dest_files=["res://.godot/imported/ENV-wall 4.png-ad128290de31ef477c634c7d29b1069a.s3tc.ctex", "res://.godot/imported/ENV-wall 4.png-ad128290de31ef477c634c7d29b1069a.etc2.ctex"]
 
 [params]
 

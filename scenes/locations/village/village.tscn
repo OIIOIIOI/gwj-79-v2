@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=31 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="Script" path="res://scenes/locations/village/village.gd" id="1_4yfa4"]
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
@@ -40,6 +40,9 @@ plane = Plane(-1, 0, 0, 0)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wmw1y"]
 plane = Plane(0, 0, -1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_k3jay"]
+plane = Plane(0, 0, 1, 0)
 
 [node name="Village" type="Node3D" node_paths=PackedStringArray("mayor_position", "keeper_position", "old_one_position", "boat_position")]
 script = ExtResource("1_4yfa4")
@@ -196,17 +199,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
 collision_mask = 0
 
 [node name="TestSubjects" type="Node3D" parent="."]
-visible = false
 script = ExtResource("13_um33u")
 
 [node name="OldOne" parent="TestSubjects" instance=ExtResource("13_j33cb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44899, 2.38419e-07, -2.46997)
 
 [node name="MayorEd" parent="TestSubjects" instance=ExtResource("13_6p87y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105387, 0, -1.15737)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50997, 0, -1.15737)
 
 [node name="Keeper" parent="TestSubjects" instance=ExtResource("15_g021j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21014, 0, 1.28535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7922, 0, -1.03605)
 
 [node name="Boat" parent="TestSubjects" instance=ExtResource("13_3hc65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, -0.5, -0.5)
@@ -214,10 +216,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, -0.5, -0.5)
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="MayorMarker3D" type="Marker3D" parent="NPCs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105387, 0, -1.15737)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50997, 0, -1.15737)
 
 [node name="KeeperMarker3D" type="Marker3D" parent="NPCs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21014, 0, 1.28535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7922, 0, -1.03605)
 
 [node name="OldOneMarker3D" type="Marker3D" parent="NPCs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44899, 2.38419e-07, -2.46997)
@@ -283,3 +285,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FourthWall"]
 shape = SubResource("WorldBoundaryShape3D_wmw1y")
+
+[node name="BackWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.92705)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall"]
+shape = SubResource("WorldBoundaryShape3D_k3jay")
