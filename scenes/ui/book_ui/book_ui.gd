@@ -8,6 +8,13 @@ enum STATE {
 	Closed,
 }
 
+
+@export var step_1_texture: Texture2D
+@export var step_2_texture: Texture2D
+@export var step_3_texture: Texture2D
+@export var step_4_texture: Texture2D
+
+
 var state: STATE = STATE.Initializing
 
 
@@ -18,7 +25,10 @@ var state: STATE = STATE.Initializing
 
 func _ready() -> void:
 	visible = false
+	book_texture.texture = step_1_texture
 	state = STATE.Closed
+
+	GameEvents.step_added.connect(on_step_added)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -53,3 +63,12 @@ func close():
 	state = STATE.Closed
 
 	GameEvents.book_closed.emit()
+
+
+func on_step_added(step: GameEnums.STEPS) -> void:
+	if step == GameEnums.STEPS.Step_DroppedSeed:
+		book_texture.texture = step_2_texture
+	elif step == GameEnums.STEPS.Step_DroppedWeapon:
+		book_texture.texture = step_3_texture
+	elif step == GameEnums.STEPS.Step_DroppedEmerald:
+		book_texture.texture = step_4_texture

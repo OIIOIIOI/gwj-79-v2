@@ -23,7 +23,7 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 		GameEnums.STEPS.Step_ObtainedEmerald:
 			add_notification("Emerald obtained!")
 		# Object dropped
-		GameEnums.STEPS.Step_DroppedSeed || GameEnums.STEPS.Step_DroppedWeapon || GameEnums.STEPS.Step_DroppedEmerald:
+		GameEnums.STEPS.Step_DroppedSeed, GameEnums.STEPS.Step_DroppedWeapon, GameEnums.STEPS.Step_DroppedEmerald:
 			await get_tree().create_timer(3.0).timeout
 			GameEvents.book_updated.emit()
 			add_notification("Something happened to the book!")

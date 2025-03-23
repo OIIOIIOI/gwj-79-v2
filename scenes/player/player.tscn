@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bm7lmhrturpas"]
+[gd_scene load_steps=33 format=3 uid="uid://bm7lmhrturpas"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_35mox"]
 [ext_resource type="Texture2D" uid="uid://bt3v3wn3nmrqb" path="res://assets/sprites/characters/hero/HERO-IDLE-1.png" id="2_lefuw"]
@@ -16,6 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://dy1g7f8jfwagn" path="res://assets/sprites/characters/hero/HERO-BOOK-2.png" id="14_srpot"]
 [ext_resource type="Texture2D" uid="uid://c6tyfv1jpa5ig" path="res://assets/sprites/characters/hero/HERO-BOOK-3.png" id="15_ouqix"]
 [ext_resource type="Texture2D" uid="uid://bct2mltc6jqub" path="res://assets/sprites/characters/hero/HERO-BOOK-4.png" id="16_aa0o5"]
+[ext_resource type="Texture2D" uid="uid://dedc0hw0nl2s" path="res://assets/sprites/characters/hero/HERO-IDLE-1_no_book.png" id="17_w5nlp"]
+[ext_resource type="Texture2D" uid="uid://b6uk4lnxarcrg" path="res://assets/sprites/characters/hero/HERO-IDLE-2_no_book.png" id="18_kdfr8"]
+[ext_resource type="Texture2D" uid="uid://bqww0bagrn372" path="res://assets/sprites/characters/hero/HERO-IDLE-3_no_book.png" id="19_r67im"]
+[ext_resource type="Texture2D" uid="uid://c3raw5g38jxl0" path="res://assets/sprites/characters/hero/HERO-IDLE-4_no_book.png" id="20_lia1f"]
+[ext_resource type="Texture2D" uid="uid://cqg6awa8t75bo" path="res://assets/sprites/characters/hero/HERO-WALK-1_no_book.png" id="21_twd7k"]
+[ext_resource type="Texture2D" uid="uid://dk4a7d70q0qcb" path="res://assets/sprites/characters/hero/HERO-WALK-2_no_book.png" id="22_pd08q"]
+[ext_resource type="Texture2D" uid="uid://cljp2he28mwrn" path="res://assets/sprites/characters/hero/HERO-WALK-3_no_book.png" id="23_w3t3a"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8p5n0"]
 height = 1.8
@@ -120,12 +127,49 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_unlu8"]
+resource_name = "idle_no_book"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_w5nlp"), ExtResource("18_kdfr8"), ExtResource("19_r67im"), ExtResource("20_lia1f")]
+}
+
+[sub_resource type="Animation" id="Animation_rkujo"]
+resource_name = "walk_no_book"
+length = 0.75
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_twd7k"), ExtResource("22_pd08q"), ExtResource("23_w3t3a")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v16u8"]
 _data = {
 "RESET": SubResource("Animation_wn4ym"),
 "book": SubResource("Animation_yd26n"),
 "idle": SubResource("Animation_rhmno"),
-"walk": SubResource("Animation_xw6f1")
+"idle_no_book": SubResource("Animation_unlu8"),
+"walk": SubResource("Animation_xw6f1"),
+"walk_no_book": SubResource("Animation_rkujo")
 }
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
