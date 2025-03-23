@@ -1,11 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm7lmhrturpas"]
+[gd_scene load_steps=24 format=3 uid="uid://bm7lmhrturpas"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_35mox"]
-[ext_resource type="Texture2D" uid="uid://drrvypept4dxo" path="res://assets/sprites/characters/hero/HERO.png" id="2_fomcf"]
+[ext_resource type="Texture2D" uid="uid://bt3v3wn3nmrqb" path="res://assets/sprites/characters/hero/HERO-IDLE-1.png" id="2_lefuw"]
 [ext_resource type="AudioStream" uid="uid://bfy7dst5p3qqa" path="res://assets/sfx/footsteps/FX_Foot1_footsteps.wav" id="3_06m6y"]
 [ext_resource type="AudioStream" uid="uid://drttofiotxt2n" path="res://assets/sfx/footsteps/FX_Foot2_footsteps.wav" id="4_ijbmc"]
 [ext_resource type="AudioStream" uid="uid://b82053bklg43j" path="res://assets/sfx/footsteps/FX_Foot3_footsteps.wav" id="5_tfewm"]
 [ext_resource type="AudioStream" uid="uid://y3suy187lmh5" path="res://assets/sfx/footsteps/FX_Foot4_footsteps.wav" id="6_61b44"]
+[ext_resource type="Texture2D" uid="uid://bk6hnjcq5hmpo" path="res://assets/sprites/characters/hero/HERO-IDLE-2.png" id="7_bnuut"]
+[ext_resource type="Texture2D" uid="uid://qo0lvpka5uce" path="res://assets/sprites/characters/hero/HERO-IDLE-3.png" id="8_woa6i"]
+[ext_resource type="Texture2D" uid="uid://dhjpnq10f4iul" path="res://assets/sprites/characters/hero/HERO-IDLE-4.png" id="9_5ps4o"]
+[ext_resource type="Texture2D" uid="uid://x6fjhsyn2yw1" path="res://assets/sprites/characters/hero/HERO-WALK-1.png" id="10_qmirk"]
+[ext_resource type="Texture2D" uid="uid://b1vl5uajf4vyg" path="res://assets/sprites/characters/hero/HERO-WALK-2.png" id="11_xl32p"]
+[ext_resource type="Texture2D" uid="uid://l1x77847s6fu" path="res://assets/sprites/characters/hero/HERO-WALK-3.png" id="12_3qqct"]
+[ext_resource type="Texture2D" uid="uid://chb4h0ynx1u4l" path="res://assets/sprites/characters/hero/HERO-BOOK-1.png" id="13_cpwbm"]
+[ext_resource type="Texture2D" uid="uid://dy1g7f8jfwagn" path="res://assets/sprites/characters/hero/HERO-BOOK-2.png" id="14_srpot"]
+[ext_resource type="Texture2D" uid="uid://c6tyfv1jpa5ig" path="res://assets/sprites/characters/hero/HERO-BOOK-3.png" id="15_ouqix"]
+[ext_resource type="Texture2D" uid="uid://bct2mltc6jqub" path="res://assets/sprites/characters/hero/HERO-BOOK-4.png" id="16_aa0o5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8p5n0"]
 height = 1.8
@@ -19,6 +29,81 @@ stream_1/stream = ExtResource("4_ijbmc")
 stream_2/stream = ExtResource("5_tfewm")
 stream_3/stream = ExtResource("6_61b44")
 
+[sub_resource type="Animation" id="Animation_rhmno"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_lefuw"), ExtResource("7_bnuut"), ExtResource("8_woa6i"), ExtResource("9_5ps4o")]
+}
+
+[sub_resource type="Animation" id="Animation_wn4ym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lefuw")]
+}
+
+[sub_resource type="Animation" id="Animation_xw6f1"]
+resource_name = "walk"
+length = 0.75
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_qmirk"), ExtResource("11_xl32p"), ExtResource("12_3qqct")]
+}
+
+[sub_resource type="Animation" id="Animation_yd26n"]
+resource_name = "book"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_cpwbm"), ExtResource("14_srpot"), ExtResource("15_ouqix"), ExtResource("16_aa0o5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v16u8"]
+_data = {
+"RESET": SubResource("Animation_wn4ym"),
+"book": SubResource("Animation_yd26n"),
+"idle": SubResource("Animation_rhmno"),
+"walk": SubResource("Animation_xw6f1")
+}
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
 collision_mask = 13
@@ -27,12 +112,11 @@ script = ExtResource("1_35mox")
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="Visuals"]
-centered = false
-offset = Vector2(-200, -25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 flip_h = true
 pixel_size = 0.002
 double_sided = false
-texture = ExtResource("2_fomcf")
+texture = ExtResource("2_lefuw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -55,3 +139,9 @@ stream = SubResource("AudioStreamRandomizer_hdsop")
 
 [node name="FootstepsTimer" type="Timer" parent="SFX/Footsteps"]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v16u8")
+}
+autoplay = "idle"

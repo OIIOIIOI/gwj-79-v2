@@ -6,14 +6,14 @@ class_name Player
 @export var can_move := true
 
 
-const SPEED = 5.0
+const SPEED = 3.0
 
 
 @onready var visuals: Node3D = $Visuals
 @onready var camera_controller: Node3D = $CameraController
 @onready var footsteps_sfx: AudioStreamPlayer = $SFX/Footsteps/FootstepsSFX
 @onready var footsteps_timer: Timer = $SFX/Footsteps/FootstepsTimer
-#@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
@@ -37,11 +37,9 @@ func _physics_process(delta: float) -> void:
 
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		#animation_player.play(&"walk")
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
-		#animation_player.play(&"idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
@@ -54,10 +52,12 @@ func _physics_process(delta: float) -> void:
 	handle_camera()
 
 	if velocity.length_squared() > 0.0:
+		animation_player.play(&"walk")
 		# Start footsteps SFX timer
 		if footsteps_timer.is_stopped():
 			footsteps_timer.start(0.05)
 	else:
+		animation_player.play(&"idle")
 		# Stop footsteps SFX timer
 		footsteps_timer.stop()
 
