@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=42 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="Script" path="res://scenes/locations/village/village.gd" id="1_4yfa4"]
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
@@ -17,8 +17,22 @@
 [ext_resource type="Script" path="res://scenes/test_subjects.gd" id="13_um33u"]
 [ext_resource type="PackedScene" uid="uid://cvqeum5khle0q" path="res://scenes/npcs/keeper.tscn" id="15_g021j"]
 [ext_resource type="Script" path="res://scenes/components/random_spawn_area/random_spawn_area.gd" id="17_5kiye"]
-[ext_resource type="PackedScene" uid="uid://xrvucpnfj7d8" path="res://scenes/locations/village/random_plant.tscn" id="17_7j4hr"]
-[ext_resource type="PackedScene" uid="uid://so3u0vq2q1a0" path="res://scenes/locations/village/random_floor_stuff.tscn" id="19_xusj6"]
+[ext_resource type="Script" path="res://resources/weighted_objects/weighted_object.gd" id="18_b57f6"]
+[ext_resource type="Resource" uid="uid://cwasqiimdjf41" path="res://resources/weighted_objects/plant.tres" id="19_hywaf"]
+[ext_resource type="Texture2D" uid="uid://bar7crk3gke40" path="res://assets/sprites/decoration/trash1.png" id="20_hrprv"]
+[ext_resource type="Resource" uid="uid://c2u16trud1xyg" path="res://resources/weighted_objects/floor_stuff.tres" id="20_ul73l"]
+[ext_resource type="Texture2D" uid="uid://gv4aqp2me524" path="res://assets/sprites/decoration/trash2.png" id="21_peaxg"]
+[ext_resource type="Texture2D" uid="uid://2cihy5kkosu5" path="res://assets/sprites/decoration/trash3.png" id="22_6pdqw"]
+[ext_resource type="Texture2D" uid="uid://dtqa63ex6b0hm" path="res://assets/sprites/decoration/trash4.png" id="23_y6fav"]
+[ext_resource type="Texture2D" uid="uid://c5uqmv82x8cba" path="res://assets/sprites/decoration/bouteille.png" id="24_s7vkv"]
+[ext_resource type="Texture2D" uid="uid://b0ijpxqcwwvug" path="res://assets/sprites/decoration/birdie.png" id="25_xinml"]
+[ext_resource type="Texture2D" uid="uid://de1wtq8fns6g7" path="res://assets/sprites/decoration/box1.png" id="26_y7etm"]
+[ext_resource type="Texture2D" uid="uid://3npxq7c0m6sb" path="res://assets/sprites/decoration/box2.png" id="27_hrhdw"]
+[ext_resource type="Script" path="res://scenes/components/wave_component/wave_component.gd" id="27_v8kl2"]
+[ext_resource type="Texture2D" uid="uid://c2ttwc42lgf71" path="res://assets/sprites/decoration/bag1.png" id="28_gu5rd"]
+[ext_resource type="Texture2D" uid="uid://k6ltla5migjl" path="res://assets/sprites/decoration/bag2.png" id="29_mik03"]
+[ext_resource type="Texture2D" uid="uid://bu5hdos48tclo" path="res://assets/sprites/decoration/bag3 copy.png" id="30_ussei"]
+[ext_resource type="Texture2D" uid="uid://cba2dk5dvlyiv" path="res://assets/sprites/decoration/bag3.png" id="31_mnpcw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8abgi"]
 size = Vector3(5, 1, 20)
@@ -237,11 +251,126 @@ monitorable = false
 script = ExtResource("17_5kiye")
 spawn_area = NodePath("CollisionShape3D")
 count = 200
-objects = Array[PackedScene]([ExtResource("17_7j4hr"), ExtResource("19_xusj6")])
+objects = Array[ExtResource("18_b57f6")]([ExtResource("19_hywaf"), ExtResource("20_ul73l")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decoration/Plants"]
 shape = SubResource("BoxShape3D_lnfst")
 disabled = true
+
+[node name="Trash" type="Node3D" parent="Decoration"]
+
+[node name="Trash01" type="Sprite3D" parent="Decoration/Trash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8262, 0, -2.56321)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("20_hrprv")
+
+[node name="Trash02" type="Sprite3D" parent="Decoration/Trash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1729, 4.76837e-07, -4.1294)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("21_peaxg")
+
+[node name="Trash03" type="Sprite3D" parent="Decoration/Trash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.24303, -2.38419e-07, -3.57312)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("22_6pdqw")
+
+[node name="Trash04" type="Sprite3D" parent="Decoration/Trash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.1185, -4.76837e-07, -4.35159)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("23_y6fav")
+
+[node name="Bottles" type="Sprite3D" parent="Decoration/Trash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6845, 0, -3.82937)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("24_s7vkv")
+
+[node name="Bottles2" type="Sprite3D" parent="Decoration/Trash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74166, -2.38419e-07, -4.33798)
+centered = false
+flip_h = true
+pixel_size = 0.002
+texture = ExtResource("24_s7vkv")
+
+[node name="Misc" type="Node3D" parent="Decoration"]
+
+[node name="Seagull" type="Sprite3D" parent="Decoration/Misc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7147, -0.199915, -1.25425)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("25_xinml")
+
+[node name="Seagull2" type="Sprite3D" parent="Decoration/Misc"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -27.6469, -0.314441, 0.255773)
+centered = false
+flip_h = true
+pixel_size = 0.002
+texture = ExtResource("25_xinml")
+
+[node name="Seagull3" type="Sprite3D" parent="Decoration/Misc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0453, -0.36148, -2.81815)
+centered = false
+flip_h = true
+pixel_size = 0.002
+texture = ExtResource("25_xinml")
+
+[node name="Seagull4" type="Sprite3D" parent="Decoration/Misc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6727, -0.73022, 0.169124)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("25_xinml")
+
+[node name="WaveComponent" type="Node" parent="Decoration/Misc/Seagull4" node_paths=PackedStringArray("sprite")]
+script = ExtResource("27_v8kl2")
+sprite = NodePath("..")
+
+[node name="Boxes" type="Node3D" parent="Decoration"]
+
+[node name="Box01" type="Sprite3D" parent="Decoration/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1746, 0, -4.59994)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("26_y7etm")
+
+[node name="Box02" type="Sprite3D" parent="Decoration/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21542, 0, -4.2896)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("27_hrhdw")
+
+[node name="Bag01" type="Sprite3D" parent="Decoration/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5541, 2.38419e-07, -2.1557)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("28_gu5rd")
+
+[node name="Bag02" type="Sprite3D" parent="Decoration/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8418, 2.38419e-07, -2.88811)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("29_mik03")
+
+[node name="Bag03" type="Sprite3D" parent="Decoration/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7028, 0, -2.10019)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("30_ussei")
+
+[node name="Bag05" type="Sprite3D" parent="Decoration/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8055, 4.76837e-07, -2.06752)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("31_mnpcw")
+
+[node name="Box03" type="Sprite3D" parent="Decoration/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.79, 0, -1.81664)
+centered = false
+pixel_size = 0.002
+texture = ExtResource("27_hrhdw")
 
 [node name="FourthWall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
@@ -253,4 +382,5 @@ shape = SubResource("WorldBoundaryShape3D_wmw1y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.92705)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.777828)
 shape = SubResource("WorldBoundaryShape3D_k3jay")

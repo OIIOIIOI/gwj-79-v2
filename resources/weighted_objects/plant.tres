@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeightedObject" load_steps=3 format=3 uid="uid://cwasqiimdjf41"]
+
+[ext_resource type="Script" path="res://resources/weighted_objects/weighted_object.gd" id="1_mt1ln"]
+[ext_resource type="PackedScene" uid="uid://xrvucpnfj7d8" path="res://scenes/locations/village/random_plant.tscn" id="1_n3d4s"]
+
+[resource]
+script = ExtResource("1_mt1ln")
+object = ExtResource("1_n3d4s")
+weight = 4.0

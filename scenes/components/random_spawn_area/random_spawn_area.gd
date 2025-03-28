@@ -5,7 +5,7 @@ class_name RandomSpawnArea
 @export var spawn_area: CollisionShape3D
 @export var count: int = 10
 @export var randomize_y: bool = false
-@export var objects: Array[PackedScene] = []
+@export var objects: Array[WeightedObject] = []
 
 
 func _ready() -> void:
@@ -23,6 +23,11 @@ func _ready() -> void:
 	var min_position: Vector3 = spawn_area.position - spawn_shape.size * 0.5
 	var max_position: Vector3 = spawn_area.position + spawn_shape.size * 0.5
 
+	var rng = RandomNumberGenerator.new()
+	var weights: Array[float] = []
+	for object in objects:
+		weights.append(object.weight)
+
 	var spawn_position := Vector3.ZERO
 	var object: PackedScene
 	var instance: Node3D
@@ -33,7 +38,8 @@ func _ready() -> void:
 		if randomize_y:
 			spawn_position.y = randf_range(min_position.y, max_position.y)
 
-		object = objects.pick_random() as PackedScene
+		#object = objects.pick_random() as PackedScene
+		object = objects[rng.rand_weighted(PackedFloat32Array(weights))].object as PackedScene
 		instance = object.instantiate() as Node3D
 		add_child(instance)
 		instance.position = spawn_position
