@@ -15,7 +15,14 @@ func _ready() -> void:
 	if mode == "Once":
 		var a = randf_range(-amount, amount)
 		if get_parent() is Node3D:
-			get_parent().rotate_object_local(Vector3.FORWARD, deg_to_rad(a))
+			if get_parent() is Sprite3D:
+				match (get_parent() as Sprite3D).axis:
+					Vector3.AXIS_Y:
+						get_parent().rotate_object_local(Vector3.UP, deg_to_rad(a))
+					_: # Default Z-Axis
+						get_parent().rotate_object_local(Vector3.FORWARD, deg_to_rad(a))
+			else:
+				get_parent().rotate_object_local(Vector3.FORWARD, deg_to_rad(a))
 		elif get_parent() is Node2D:
 			get_parent().rotate(deg_to_rad(a))
 

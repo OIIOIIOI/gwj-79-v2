@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://so3u0vq2q1a0"]
+
+[ext_resource type="Texture2D" uid="uid://k5vbvy5maofb" path="res://assets/sprites/decoration/ENV-ground.png" id="1_1rg7d"]
+[ext_resource type="Script" path="res://scenes/components/random_sprite_component/random_sprite_component.gd" id="2_vrlkl"]
+[ext_resource type="Texture2D" uid="uid://b6n4qheualm3w" path="res://assets/sprites/decoration/ENV-ground 1.png" id="3_0qwqo"]
+[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_jqgui"]
+
+[node name="RandomFloorStuff" type="Sprite3D"]
+pixel_size = 0.003
+axis = 1
+double_sided = false
+texture = ExtResource("1_1rg7d")
+script = ExtResource("2_vrlkl")
+sprites = Array[Texture2D]([ExtResource("3_0qwqo"), ExtResource("1_1rg7d")])
+
+[node name="RotationComponent" type="Node" parent="."]
+script = ExtResource("4_jqgui")
+amount = 180.0

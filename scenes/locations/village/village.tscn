@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=28 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="Script" path="res://scenes/locations/village/village.gd" id="1_4yfa4"]
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
@@ -11,18 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bukh7y4g8i8fa" path="res://scenes/buildings/generic_a.tscn" id="7_po1ad"]
 [ext_resource type="PackedScene" uid="uid://dkyw3ki8phb44" path="res://scenes/buildings/generic_b.tscn" id="8_xwvhp"]
 [ext_resource type="PackedScene" uid="uid://c8mjpatq2hme3" path="res://scenes/buildings/generic_d.tscn" id="10_4v31d"]
-[ext_resource type="Texture2D" uid="uid://0iopkfxnnkqp" path="res://assets/sprites/decoration/ENV-herbe1.png" id="12_jny03"]
-[ext_resource type="Texture2D" uid="uid://dp751or4ktdeb" path="res://assets/sprites/decoration/ENV-plante3 1.png" id="12_pj02o"]
 [ext_resource type="PackedScene" uid="uid://bf0l2uy0ys03p" path="res://scenes/buildings/boat.tscn" id="13_3hc65"]
 [ext_resource type="PackedScene" uid="uid://blxy58qrxmst" path="res://scenes/npcs/mayor_ed.tscn" id="13_6p87y"]
-[ext_resource type="Texture2D" uid="uid://g4lf45a6gn01" path="res://assets/sprites/decoration/ENV-herbe2.png" id="13_70tj6"]
 [ext_resource type="PackedScene" uid="uid://c7ipjhiq58b5w" path="res://scenes/npcs/old_one.tscn" id="13_j33cb"]
 [ext_resource type="Script" path="res://scenes/test_subjects.gd" id="13_um33u"]
-[ext_resource type="Texture2D" uid="uid://dbtfquwt6p21" path="res://assets/sprites/decoration/ENV-plante2.png" id="14_evcxr"]
 [ext_resource type="PackedScene" uid="uid://cvqeum5khle0q" path="res://scenes/npcs/keeper.tscn" id="15_g021j"]
-[ext_resource type="Texture2D" uid="uid://cnqblnsx85nb4" path="res://assets/sprites/decoration/ENV-plante3.png" id="16_48pe8"]
-[ext_resource type="Texture2D" uid="uid://bhf6xar23dite" path="res://assets/sprites/decoration/ENV-plante4.png" id="17_070j3"]
-[ext_resource type="Texture2D" uid="uid://buys2c8njc3jp" path="res://assets/sprites/decoration/ENV-plante.png" id="18_hmwpo"]
+[ext_resource type="Script" path="res://scenes/components/random_spawn_area/random_spawn_area.gd" id="17_5kiye"]
+[ext_resource type="PackedScene" uid="uid://xrvucpnfj7d8" path="res://scenes/locations/village/random_plant.tscn" id="17_7j4hr"]
+[ext_resource type="PackedScene" uid="uid://so3u0vq2q1a0" path="res://scenes/locations/village/random_floor_stuff.tscn" id="19_xusj6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8abgi"]
 size = Vector3(5, 1, 20)
@@ -37,6 +33,9 @@ size = Vector3(50, 1, 20)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_72hrl"]
 plane = Plane(-1, 0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnfst"]
+size = Vector3(50, 1, 7)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wmw1y"]
 plane = Plane(0, 0, -1, 0)
@@ -229,56 +228,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, -0.5, -0.5)
 
 [node name="Decoration" type="Node3D" parent="."]
 
-[node name="Plants" type="Node3D" parent="Decoration"]
+[node name="Plants" type="Area3D" parent="Decoration" node_paths=PackedStringArray("spawn_area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("17_5kiye")
+spawn_area = NodePath("CollisionShape3D")
+count = 200
+objects = Array[PackedScene]([ExtResource("17_7j4hr"), ExtResource("19_xusj6")])
 
-[node name="Plant01" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91563, 0, -1.70551)
-centered = false
-pixel_size = 0.003
-double_sided = false
-texture = ExtResource("12_jny03")
-
-[node name="Plant02" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01486, 0, -1.23951)
-centered = false
-pixel_size = 0.003
-double_sided = false
-texture = ExtResource("13_70tj6")
-
-[node name="Plant03" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92621, 0, 1.01145)
-centered = false
-pixel_size = 0.003
-double_sided = false
-texture = ExtResource("14_evcxr")
-
-[node name="Plant04" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.686424, 0, 0.96076)
-centered = false
-pixel_size = 0.003
-double_sided = false
-texture = ExtResource("12_pj02o")
-
-[node name="Plant05" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22883, 0, 0.24306)
-centered = false
-pixel_size = 0.003
-double_sided = false
-texture = ExtResource("16_48pe8")
-
-[node name="Plant06" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61972, -4.76837e-07, 0.12411)
-centered = false
-pixel_size = 0.003
-double_sided = false
-texture = ExtResource("17_070j3")
-
-[node name="Plant07" type="Sprite3D" parent="Decoration/Plants"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0135995, 0, 0.50207)
-centered = false
-pixel_size = 0.003
-double_sided = false
-texture = ExtResource("18_hmwpo")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoration/Plants"]
+shape = SubResource("BoxShape3D_lnfst")
+disabled = true
 
 [node name="FourthWall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
