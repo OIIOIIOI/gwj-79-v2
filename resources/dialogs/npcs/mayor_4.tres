@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://iwciqbwf60wi"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_l515j"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_ibhi0"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="3_qadxs"]
+
+[sub_resource type="Resource" id="Resource_htse3"]
+script = ExtResource("1_l515j")
+text = "Hmm, this is a bit silly, but I’m gonna tell you something champ…"
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_ibhi0")]([])
+
+[sub_resource type="Resource" id="Resource_1xhd8"]
+script = ExtResource("1_l515j")
+text = "Mayor Ed starts whispering:"
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_ibhi0")]([])
+
+[sub_resource type="Resource" id="Resource_romh1"]
+script = ExtResource("1_l515j")
+text = "I’m afraid of heights, how am I gonna climb that tree?"
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_ibhi0")]([])
+
+[resource]
+script = ExtResource("3_qadxs")
+chunks = Array[ExtResource("1_l515j")]([SubResource("Resource_htse3"), SubResource("Resource_1xhd8"), SubResource("Resource_romh1")])

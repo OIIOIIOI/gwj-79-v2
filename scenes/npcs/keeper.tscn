@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvqeum5khle0q"]
+[gd_scene load_steps=15 format=3 uid="uid://cvqeum5khle0q"]
 
 [ext_resource type="Script" path="res://scenes/npcs/npc.gd" id="1_4s07c"]
 [ext_resource type="Texture2D" uid="uid://i5fp2n4nnxbl" path="res://assets/sprites/characters/guard/GUARD-1.png" id="2_x2ods"]
 [ext_resource type="Texture2D" uid="uid://cb8k0lijpcmh7" path="res://assets/sprites/characters/guard/GUARD-2.png" id="3_dq6hl"]
 [ext_resource type="Texture2D" uid="uid://djyehjnj4fl8y" path="res://assets/sprites/characters/guard/GUARD-3.png" id="4_s8nti"]
 [ext_resource type="Shape3D" uid="uid://bb5edubomhlx2" path="res://resources/character_collision_capsule.tres" id="5_phk1m"]
+[ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="6_0b71x"]
+[ext_resource type="Script" path="res://resources/conditions/is_current_step_condition.gd" id="7_cpv00"]
+[ext_resource type="Resource" uid="uid://7khi0kqw1ybn" path="res://resources/dialogs/npcs/keeper_1.tres" id="8_f70vo"]
+[ext_resource type="Resource" uid="uid://8mam33xpicoq" path="res://resources/dialogs/npcs/keeper_2.tres" id="9_1p58a"]
+[ext_resource type="Script" path="res://resources/conditions/has_step_condition.gd" id="10_6pwoh"]
+[ext_resource type="Resource" uid="uid://c0yxetwk31ecn" path="res://resources/dialogs/npcs/keeper_3.tres" id="10_bjcyv"]
+
+[sub_resource type="Resource" id="Resource_koa51"]
+script = ExtResource("7_cpv00")
+step = 4
+invert = false
+
+[sub_resource type="Resource" id="Resource_n85ab"]
+script = ExtResource("7_cpv00")
+step = 5
+invert = false
+
+[sub_resource type="Resource" id="Resource_d4hxt"]
+script = ExtResource("10_6pwoh")
+step = 7
+invert = false
 
 [node name="Keeper" type="StaticBody3D"]
 script = ExtResource("1_4s07c")
@@ -19,3 +40,15 @@ centered = false
 offset = Vector2(-297, 0)
 pixel_size = 0.002
 texture = ExtResource("2_x2ods")
+
+[node name="IC1" parent="." instance=ExtResource("6_0b71x")]
+condition = SubResource("Resource_koa51")
+dialog = ExtResource("8_f70vo")
+
+[node name="IC2" parent="." instance=ExtResource("6_0b71x")]
+condition = SubResource("Resource_n85ab")
+dialog = ExtResource("9_1p58a")
+
+[node name="IC3" parent="." instance=ExtResource("6_0b71x")]
+condition = SubResource("Resource_d4hxt")
+dialog = ExtResource("10_bjcyv")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh5tp8jkngtvo"]
+
+[ext_resource type="Texture2D" uid="uid://c7danmligr5c1" path="res://assets/sprites/decoration/lampadaire.png" id="1_x4mmj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2ou2r"]
+radius = 0.15
+
+[node name="LampPost" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 2.6)
+collision_mask = 0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+centered = false
+offset = Vector2(-83, 0)
+pixel_size = 0.002
+texture = ExtResource("1_x4mmj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_2ou2r")

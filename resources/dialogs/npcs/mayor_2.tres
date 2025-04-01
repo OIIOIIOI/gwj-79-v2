@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://dj4rox0omsu23"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_p5a65"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_3lu7i"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_owpd2"]
+
+[sub_resource type="Resource" id="Resource_v5ark"]
+script = ExtResource("1_p5a65")
+text = "Hey, nice tree, champ! I wish I had something to grow my muscles like that too, haha! You think I could… Nevermind!"
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_3lu7i")]([])
+
+[sub_resource type="Resource" id="Resource_0ijn1"]
+script = ExtResource("1_p5a65")
+text = "Mayor Ed shakes his head from side to side, seemingly lost in a detailed comparison of his two biceps."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_3lu7i")]([])
+
+[resource]
+script = ExtResource("2_owpd2")
+chunks = Array[ExtResource("1_p5a65")]([SubResource("Resource_v5ark"), SubResource("Resource_0ijn1")])

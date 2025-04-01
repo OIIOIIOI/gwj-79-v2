@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://y6wovfv1ombm"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_nvq6j"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_crl5d"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_qbdu0"]
+
+[sub_resource type="Resource" id="Resource_xqtph"]
+script = ExtResource("1_nvq6j")
+text = "This is my cat, Ringo. He’s like me...
+...scared of water!"
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_crl5d")]([])
+
+[sub_resource type="Resource" id="Resource_r0sb4"]
+script = ExtResource("1_nvq6j")
+text = "Have you noticed? You don’t see pets around anymore. That’s why I keep him close."
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_crl5d")]([])
+
+[sub_resource type="Resource" id="Resource_8p0ll"]
+script = ExtResource("1_nvq6j")
+text = "She holds the cat, purring peacefully at the end of the world."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_crl5d")]([])
+
+[resource]
+script = ExtResource("2_qbdu0")
+chunks = Array[ExtResource("1_nvq6j")]([SubResource("Resource_xqtph"), SubResource("Resource_r0sb4"), SubResource("Resource_8p0ll")])

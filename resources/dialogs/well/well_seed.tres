@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=8 format=3 uid="uid://dourfem07sd83"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=10 format=3 uid="uid://dourfem07sd83"]
 
 [ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_1hno2"]
 [ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_d1vj4"]
@@ -7,8 +7,22 @@
 
 [sub_resource type="Resource" id="Resource_8vmoe"]
 script = ExtResource("1_1hno2")
-text = "If I understand this book correctly, I should throw the City Seal into the well... Let's go!"
-style = 0
+text = "It's time to test this prophecy and your sanity. You force open the seal of the city..."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_fuh5t")]([])
+
+[sub_resource type="Resource" id="Resource_a5ytj"]
+script = ExtResource("1_1hno2")
+text = "The ancient object splits between your fingers, and you're surprised to discover inside what appears to be a core or a seed."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_fuh5t")]([])
+
+[sub_resource type="Resource" id="Resource_w8lhp"]
+script = ExtResource("1_1hno2")
+text = "You throw it into the well, hoping for... anything?"
+style = 2
 duration = 0.0
 actions = Array[ExtResource("2_fuh5t")]([])
 
@@ -25,4 +39,4 @@ actions = Array[ExtResource("2_fuh5t")]([SubResource("Resource_bmp4d")])
 
 [resource]
 script = ExtResource("2_d1vj4")
-chunks = Array[ExtResource("1_1hno2")]([SubResource("Resource_8vmoe"), SubResource("Resource_r6lf0")])
+chunks = Array[ExtResource("1_1hno2")]([SubResource("Resource_8vmoe"), SubResource("Resource_a5ytj"), SubResource("Resource_w8lhp"), SubResource("Resource_r6lf0")])

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://bfmdrdb1r0klq"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_655ii"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_kahs0"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_uouhh"]
+
+[sub_resource type="Resource" id="Resource_ickil"]
+script = ExtResource("1_655ii")
+text = "The water took my house in a blink, and you know what I grabbed in the panic? Bingo! This stupid TV!"
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_kahs0")]([])
+
+[sub_resource type="Resource" id="Resource_vjifx"]
+script = ExtResource("1_655ii")
+text = "The dumbest part? Ain’t even had power in ages… Swear to god, my brain’s a mess."
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_kahs0")]([])
+
+[sub_resource type="Resource" id="Resource_3j1s2"]
+script = ExtResource("1_655ii")
+text = "He stares at his reflection in the dead screen."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_kahs0")]([])
+
+[resource]
+script = ExtResource("2_uouhh")
+chunks = Array[ExtResource("1_655ii")]([SubResource("Resource_ickil"), SubResource("Resource_vjifx"), SubResource("Resource_3j1s2")])

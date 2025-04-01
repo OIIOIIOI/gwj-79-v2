@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://dhau4x00y76iq"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_4lrvd"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_5pvpx"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_7x2y5"]
+
+[sub_resource type="Resource" id="Resource_p8yxd"]
+script = ExtResource("1_4lrvd")
+text = "They stare out at the horizon, like a castaway scanning the sea, either for a miracle or the wave that’ll take them under."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_7x2y5")]([])
+
+[sub_resource type="Resource" id="Resource_56bsn"]
+script = ExtResource("1_4lrvd")
+text = "You think there’s something out there?
+My friends set sail months ago..."
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_7x2y5")]([])
+
+[sub_resource type="Resource" id="Resource_r61ht"]
+script = ExtResource("1_4lrvd")
+text = "Their gaze is lost in the ebb and flow of the waves."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_7x2y5")]([])
+
+[resource]
+script = ExtResource("2_5pvpx")
+chunks = Array[ExtResource("1_4lrvd")]([SubResource("Resource_p8yxd"), SubResource("Resource_56bsn"), SubResource("Resource_r61ht")])

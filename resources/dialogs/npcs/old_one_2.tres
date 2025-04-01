@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://bj6d3htt0jeyg"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_tj31e"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_vxgiv"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="3_37qxf"]
+
+[sub_resource type="Resource" id="Resource_whrpj"]
+script = ExtResource("1_tj31e")
+text = "I don’t think I’ve ever seen something like this... not that my memory’s much to rely on these days, hahah."
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_vxgiv")]([])
+
+[sub_resource type="Resource" id="Resource_48vbd"]
+script = ExtResource("1_tj31e")
+text = "The Old One seems happy to be here."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_vxgiv")]([])
+
+[resource]
+script = ExtResource("3_37qxf")
+chunks = Array[ExtResource("1_tj31e")]([SubResource("Resource_whrpj"), SubResource("Resource_48vbd")])

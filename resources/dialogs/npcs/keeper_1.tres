@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://7khi0kqw1ybn"]
+
+[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_uwd68"]
+[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_573gm"]
+[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_j5yqg"]
+
+[sub_resource type="Resource" id="Resource_a34wj"]
+script = ExtResource("1_uwd68")
+text = "Thank you for your help, citizen. I wouldn't have made it without you. I'm relieved, you can use the boat as long as..."
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_j5yqg")]([])
+
+[sub_resource type="Resource" id="Resource_5xqvc"]
+script = ExtResource("1_uwd68")
+text = "They shrug."
+style = 2
+duration = 0.0
+actions = Array[ExtResource("2_j5yqg")]([])
+
+[sub_resource type="Resource" id="Resource_0eklq"]
+script = ExtResource("1_uwd68")
+text = "Thanks again."
+style = 3
+duration = 0.0
+actions = Array[ExtResource("2_j5yqg")]([])
+
+[resource]
+script = ExtResource("2_573gm")
+chunks = Array[ExtResource("1_uwd68")]([SubResource("Resource_a34wj"), SubResource("Resource_5xqvc"), SubResource("Resource_0eklq")])

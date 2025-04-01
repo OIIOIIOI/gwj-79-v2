@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7danmligr5c1"
-path.s3tc="res://.godot/imported/lampadaire.png-ca5484769f22997cce18d732ced11904.s3tc.ctex"
-path.etc2="res://.godot/imported/lampadaire.png-ca5484769f22997cce18d732ced11904.etc2.ctex"
+uid="uid://bo5ak01nsd3wr"
+path.s3tc="res://.godot/imported/VILL3.png-65188927564cf63919e33888fe8a98ed.s3tc.ctex"
+path.etc2="res://.godot/imported/VILL3.png-65188927564cf63919e33888fe8a98ed.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/decoration/lampadaire.png"
-dest_files=["res://.godot/imported/lampadaire.png-ca5484769f22997cce18d732ced11904.s3tc.ctex", "res://.godot/imported/lampadaire.png-ca5484769f22997cce18d732ced11904.etc2.ctex"]
+source_file="res://assets/sprites/characters/villagers/VILL3.png"
+dest_files=["res://.godot/imported/VILL3.png-65188927564cf63919e33888fe8a98ed.s3tc.ctex", "res://.godot/imported/VILL3.png-65188927564cf63919e33888fe8a98ed.etc2.ctex"]
 
 [params]
 
