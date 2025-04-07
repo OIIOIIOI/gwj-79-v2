@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://nje8qvt00yvc"]
+[gd_scene load_steps=60 format=3 uid="uid://nje8qvt00yvc"]
 
 [ext_resource type="Script" path="res://scenes/locations/village/village.gd" id="1_4yfa4"]
 [ext_resource type="PackedScene" uid="uid://cv6ritmb82tm0" path="res://scenes/buildings/town_hall.tscn" id="1_jguh8"]
@@ -41,6 +41,10 @@
 [ext_resource type="Texture2D" uid="uid://bu5hdos48tclo" path="res://assets/sprites/decoration/bag3 copy.png" id="30_ussei"]
 [ext_resource type="Texture2D" uid="uid://cba2dk5dvlyiv" path="res://assets/sprites/decoration/bag3.png" id="31_mnpcw"]
 [ext_resource type="PackedScene" uid="uid://dh5tp8jkngtvo" path="res://scenes/locations/village/lamp_post.tscn" id="34_otbkj"]
+[ext_resource type="AudioStream" uid="uid://bpvk5rt6j0lgk" path="res://assets/sfx/soundscape/FX_Ocean.wav" id="42_lw8mh"]
+[ext_resource type="AudioStream" uid="uid://b0edfx4rilxa6" path="res://assets/sfx/soundscape/FX_Seagull.wav" id="43_3nf2n"]
+[ext_resource type="AudioStream" uid="uid://r3211a7k1akq" path="res://assets/sfx/soundscape/FX_Wind.wav" id="43_twel7"]
+[ext_resource type="Script" path="res://scenes/components/random_audio_pause_component/random_audio_pause_component.gd" id="44_i1dgs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8abgi"]
 size = Vector3(5, 1, 20)
@@ -480,3 +484,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.92705)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.777828)
 shape = SubResource("WorldBoundaryShape3D_k3jay")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="OceanLeft" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 0)
+stream = ExtResource("42_lw8mh")
+max_db = 1.0
+autoplay = true
+max_distance = 20.0
+bus = &"SFX"
+
+[node name="OceanRight" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1, 0)
+stream = ExtResource("42_lw8mh")
+max_db = 1.0
+autoplay = true
+max_distance = 20.0
+bus = &"SFX"
+
+[node name="SeagullsLeft" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 1, 0)
+stream = ExtResource("43_3nf2n")
+max_db = 1.0
+max_distance = 15.0
+bus = &"SFX"
+
+[node name="RandomAudioPauseComponent2" type="Node" parent="Sounds/SeagullsLeft"]
+script = ExtResource("44_i1dgs")
+
+[node name="SeagullsRight" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, 0)
+stream = ExtResource("43_3nf2n")
+max_db = 1.0
+max_distance = 15.0
+bus = &"SFX"
+
+[node name="RandomAudioPauseComponent" type="Node" parent="Sounds/SeagullsRight"]
+script = ExtResource("44_i1dgs")
+
+[node name="Wind" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("43_twel7")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
