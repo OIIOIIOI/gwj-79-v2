@@ -43,8 +43,8 @@
 [ext_resource type="PackedScene" uid="uid://dh5tp8jkngtvo" path="res://scenes/locations/village/lamp_post.tscn" id="34_otbkj"]
 [ext_resource type="AudioStream" uid="uid://bpvk5rt6j0lgk" path="res://assets/sfx/soundscape/FX_Ocean.wav" id="42_lw8mh"]
 [ext_resource type="AudioStream" uid="uid://b0edfx4rilxa6" path="res://assets/sfx/soundscape/FX_Seagull.wav" id="43_3nf2n"]
-[ext_resource type="AudioStream" uid="uid://r3211a7k1akq" path="res://assets/sfx/soundscape/FX_Wind.wav" id="43_twel7"]
 [ext_resource type="Script" path="res://scenes/components/random_audio_pause_component/random_audio_pause_component.gd" id="44_i1dgs"]
+[ext_resource type="AudioStream" uid="uid://cml68ypc317ug" path="res://assets/sfx/soundscape/FX_Wind.ogg" id="45_nxvp7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8abgi"]
 size = Vector3(5, 1, 20)
@@ -524,7 +524,7 @@ bus = &"SFX"
 script = ExtResource("44_i1dgs")
 
 [node name="Wind" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("43_twel7")
+stream = ExtResource("45_nxvp7")
 volume_db = -10.0
 autoplay = true
 bus = &"SFX"
