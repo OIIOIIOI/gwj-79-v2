@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://cv6ritmb82tm0"]
 
 [ext_resource type="QuadMesh" uid="uid://dq2gb8fo0drq0" path="res://assets/sprites/buildings/town_hall/townhall_mesh.tres" id="1_injtj"]
-[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_xi1sj"]
+[ext_resource type="Script" uid="uid://berhnbbbw8gce" path="res://scenes/buildings/building.gd" id="1_xi1sj"]
 [ext_resource type="Texture2D" uid="uid://b1yj3c8vjru4b" path="res://assets/sprites/decoration/ENV-wall 11.png" id="3_ox70c"]
-[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_d88ue"]
+[ext_resource type="Script" uid="uid://qgeq2li0a5tv" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_d88ue"]
 [ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="5_gw8or"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="6_kl8y8"]
-[ext_resource type="Script" path="res://resources/conditions/has_step_condition.gd" id="7_p4qer"]
-[ext_resource type="Script" path="res://resources/conditions/is_current_step_condition.gd" id="7_si7je"]
+[ext_resource type="Script" uid="uid://iqegnxq8fk4a" path="res://resources/conditions/has_step_condition.gd" id="7_p4qer"]
+[ext_resource type="Script" uid="uid://6sms6k4nf04j" path="res://resources/conditions/is_current_step_condition.gd" id="7_si7je"]
 [ext_resource type="Resource" uid="uid://b50j7bic8wgdn" path="res://resources/dialogs/town_hall/town_hall_enter.tres" id="8_l8o0w"]
 [ext_resource type="Resource" uid="uid://wfbmxhb1fxis" path="res://resources/dialogs/town_hall/town_hall_after.tres" id="8_xno43"]
 

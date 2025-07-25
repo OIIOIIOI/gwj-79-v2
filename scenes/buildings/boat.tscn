@@ -2,8 +2,8 @@
 
 [ext_resource type="QuadMesh" uid="uid://ccrh3grykcxv2" path="res://assets/sprites/buildings/boat/boat_mesh.tres" id="1_smcm8"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="2_poyum"]
-[ext_resource type="Script" path="res://resources/conditions/is_current_step_condition.gd" id="3_ojxh2"]
-[ext_resource type="Script" path="res://resources/conditions/has_step_condition.gd" id="4_orktn"]
+[ext_resource type="Script" uid="uid://6sms6k4nf04j" path="res://resources/conditions/is_current_step_condition.gd" id="3_ojxh2"]
+[ext_resource type="Script" uid="uid://iqegnxq8fk4a" path="res://resources/conditions/has_step_condition.gd" id="4_orktn"]
 [ext_resource type="Resource" uid="uid://b2gtcv7s5omp4" path="res://resources/dialogs/boat/boat_available.tres" id="4_pnggr"]
 [ext_resource type="Resource" uid="uid://cnxbywuyhrxkn" path="res://resources/dialogs/boat/boat_used.tres" id="5_7mq5g"]
 [ext_resource type="Resource" uid="uid://bqdj0hb75vmg4" path="res://resources/dialogs/boat/boat_travel.tres" id="5_dcr78"]
@@ -86,8 +86,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x56ef"]
 _data = {
-"RESET": SubResource("Animation_6pyy7"),
-"idle": SubResource("Animation_idnh4")
+&"RESET": SubResource("Animation_6pyy7"),
+&"idle": SubResource("Animation_idnh4")
 }
 
 [node name="Boat" type="StaticBody3D"]

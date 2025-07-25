@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MemoryItem" load_steps=3 format=3 uid="uid://blicbk761dur6"]
 
-[ext_resource type="Script" path="res://resources/memory/memory_item.gd" id="1_ot0ew"]
+[ext_resource type="Script" uid="uid://dnyww13n1ddo1" path="res://resources/memory/memory_item.gd" id="1_ot0ew"]
 [ext_resource type="Texture2D" uid="uid://wdofu41ijryt" path="res://assets/sprites/mini_games/memory/ITEM3.png" id="2_urkfp"]
 
 [resource]

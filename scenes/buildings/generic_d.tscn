@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8mjpatq2hme3"]
 
-[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_usw51"]
+[ext_resource type="Script" uid="uid://berhnbbbw8gce" path="res://scenes/buildings/building.gd" id="1_usw51"]
 [ext_resource type="QuadMesh" uid="uid://dir24ll546j4x" path="res://assets/sprites/buildings/generic/generic_d_mesh.tres" id="2_ao36f"]
 [ext_resource type="Texture2D" uid="uid://b5mfdkl07gti5" path="res://assets/sprites/decoration/ENV-wall 3.png" id="3_1cjsv"]
-[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_eheim"]
+[ext_resource type="Script" uid="uid://qgeq2li0a5tv" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_eheim"]
 [ext_resource type="Texture2D" uid="uid://15nj4pb88f5r" path="res://assets/sprites/decoration/ENV-graffiti.png" id="5_lqjb0"]
 [ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="5_slh3k"]
 

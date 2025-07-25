@@ -160,10 +160,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_05nu4"]
 _data = {
-"RESET": SubResource("Animation_rgqt1"),
-"close": SubResource("Animation_gq0vf"),
-"fade": SubResource("Animation_qf3fw"),
-"open": SubResource("Animation_svs12")
+&"RESET": SubResource("Animation_rgqt1"),
+&"close": SubResource("Animation_gq0vf"),
+&"fade": SubResource("Animation_qf3fw"),
+&"open": SubResource("Animation_svs12")
 }
 
 [node name="Drawer" type="Node2D"]

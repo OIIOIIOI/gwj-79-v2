@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dx4l644g14qus"]
 
-[ext_resource type="Script" path="res://scenes/ui/notification_ui/notification_ui.gd" id="1_1jpwv"]
+[ext_resource type="Script" uid="uid://p0qju1pgn8a" path="res://scenes/ui/notification_ui/notification_ui.gd" id="1_1jpwv"]
 
 [node name="NotificationUI" type="CanvasLayer"]
 layer = 95

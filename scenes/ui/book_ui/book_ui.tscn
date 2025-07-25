@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://d0av3lgye5gb3"]
 
-[ext_resource type="Script" path="res://scenes/ui/book_ui/book_ui.gd" id="1_x3hpw"]
+[ext_resource type="Script" uid="uid://cnoq7jdegxh2w" path="res://scenes/ui/book_ui/book_ui.gd" id="1_x3hpw"]
 [ext_resource type="Texture2D" uid="uid://0y453bbsg2uu" path="res://assets/sprites/book/BOOK-STEP1-HINTS.png" id="2_72qhq"]
 [ext_resource type="Texture2D" uid="uid://c6itoqr7gl2vg" path="res://assets/sprites/book/BOOK-STEP1.png" id="2_k0lgd"]
 [ext_resource type="AudioStream" uid="uid://d4gpefu80bbnc" path="res://assets/sfx/book/FX_BOOK_Open.wav" id="3_au8rr"]

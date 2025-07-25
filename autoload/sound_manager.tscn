@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://fiwaffgwclbc"]
 
-[ext_resource type="Script" path="res://autoload/sound_manager.gd" id="1_xprvp"]
+[ext_resource type="Script" uid="uid://s3y4tugtb4fm" path="res://autoload/sound_manager.gd" id="1_xprvp"]
 [ext_resource type="AudioStream" uid="uid://d1ywpgtqy2wy8" path="res://assets/music/Transition_1.ogg" id="2_em5w0"]
 [ext_resource type="AudioStream" uid="uid://b6oqqapta8j7o" path="res://assets/music/Main_1.ogg" id="3_q5it0"]
 [ext_resource type="AudioStream" uid="uid://neqfrnyan6sb" path="res://assets/music/Transition_2.ogg" id="4_3hqq8"]
@@ -37,79 +37,79 @@ clip_6/stream = ExtResource("8_elpvi")
 clip_6/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(0, 1): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 3,
 "to_time": 1
 },
 Vector2i(1, 0): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(1, 2): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(1, 4): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(2, 3): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 3,
 "to_time": 1
 },
 Vector2i(3, 0): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(3, 2): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(3, 4): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(4, 5): {
-"fade_beats": 0,
+"fade_beats": 0.0,
 "fade_mode": 0,
 "from_time": 3,
 "to_time": 1
 },
 Vector2i(5, 0): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(5, 2): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1
 },
 Vector2i(5, 4): {
-"fade_beats": 3,
+"fade_beats": 3.0,
 "fade_mode": 2,
 "from_time": 2,
 "to_time": 1

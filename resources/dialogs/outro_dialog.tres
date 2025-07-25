@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=11 format=3 uid="uid://dxrhxem8l1xc3"]
 
-[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_i45xp"]
-[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_cqxpk"]
+[ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_i45xp"]
+[ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="2_cqxpk"]
 [ext_resource type="Texture2D" uid="uid://ddky3oeao0msq" path="res://assets/sprites/outro/OUTRO-FRAME1.png" id="3_c8lcw"]
 [ext_resource type="Texture2D" uid="uid://c5tjc8q8cl7v8" path="res://assets/sprites/outro/OUTRO-FRAME2.png" id="4_bdsv4"]
 [ext_resource type="Texture2D" uid="uid://c81dad50455fp" path="res://assets/sprites/outro/OUTRO-FRAME3.png" id="5_xb0im"]
-[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="9_bdvg8"]
+[ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="9_bdvg8"]
 
 [sub_resource type="Resource" id="Resource_cefex"]
 script = ExtResource("1_i45xp")

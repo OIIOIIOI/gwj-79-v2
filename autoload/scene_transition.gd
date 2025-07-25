@@ -5,7 +5,7 @@ signal transition_halfway
 
 
 const scenes: Dictionary = {
-	GameEnums.SCENES.Scene_Title: preload("res://scenes/ui/title_screen/title_screen.tscn"),
+	GameEnums.SCENES.Outdated_Index: null,
 	GameEnums.SCENES.Scene_Main: preload("res://scenes/main/main.tscn"),
 	GameEnums.SCENES.Scene_WeightLifting: preload("res://scenes/mini_games/weight_lifting/weight_lifting.tscn"),
 	GameEnums.SCENES.Scene_HammerTime: preload("res://scenes/mini_games/hammer_time/hammer_time.tscn"),

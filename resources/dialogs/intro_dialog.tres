@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=20 format=3 uid="uid://d3cikge67rmma"]
 
-[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_o1wd1"]
-[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_yf6gn"]
-[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="3_50bq6"]
-[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="3_seleq"]
+[ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_o1wd1"]
+[ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="2_yf6gn"]
+[ext_resource type="Script" uid="uid://bvsxqu2v5u1u2" path="res://resources/actions/load_scene_action.gd" id="3_50bq6"]
+[ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="3_seleq"]
 [ext_resource type="Texture2D" uid="uid://cbd8uu340cib2" path="res://assets/sprites/intro/INTRO-FRAME1.png" id="3_wv8h4"]
 [ext_resource type="Texture2D" uid="uid://hd72mwsx2x6a" path="res://assets/sprites/intro/INTRO-FRAME2.png" id="4_n0gc1"]
-[ext_resource type="Script" path="res://resources/actions/add_step_action.gd" id="5_51n7b"]
+[ext_resource type="Script" uid="uid://b5h3mg1g3jme" path="res://resources/actions/add_step_action.gd" id="5_51n7b"]
 [ext_resource type="Texture2D" uid="uid://bb24v4w8p6rc" path="res://assets/sprites/intro/INTRO-FRAME3.png" id="6_8vret"]
 [ext_resource type="Texture2D" uid="uid://bf4bpky7sx0js" path="res://assets/sprites/intro/INTRO-FRAME4.png" id="7_i6v7a"]
 

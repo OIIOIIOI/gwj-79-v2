@@ -2,7 +2,7 @@ extends Node
 
 
 enum SCENES {
-	Scene_Title,
+	Outdated_Index,
 	Scene_Intro,
 	Scene_Main,
 	Scene_WeightLifting,

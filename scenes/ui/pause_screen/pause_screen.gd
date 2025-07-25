@@ -1,5 +1,4 @@
 extends CanvasLayer
-class_name PauseScreen
 
 
 enum STATE {
@@ -10,13 +9,18 @@ enum STATE {
 
 var state: STATE = STATE.Initializing
 
+
 @onready var resume_button: Button = %ResumeButton
 @onready var quit_button: Button = %QuitButton
 
 
 func _ready() -> void:
 	resume_button.pressed.connect(on_resume_button_pressed)
-	quit_button.pressed.connect(on_quit_button_pressed)
+
+	if OS.get_name() != "Web":
+		quit_button.pressed.connect(on_quit_button_pressed)
+	else:
+		quit_button.visible = false
 
 	visible = false
 	state = STATE.Closed

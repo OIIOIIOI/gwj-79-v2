@@ -1,13 +1,13 @@
 [gd_scene load_steps=29 format=3 uid="uid://b0xeoph3lqin2"]
 
 [ext_resource type="QuadMesh" uid="uid://cnr3f501rpai4" path="res://assets/sprites/buildings/well/well_mesh.tres" id="1_2xftw"]
-[ext_resource type="Script" path="res://scenes/buildings/well.gd" id="1_mjp7x"]
+[ext_resource type="Script" uid="uid://lknee8w6wr54" path="res://scenes/buildings/well.gd" id="1_mjp7x"]
 [ext_resource type="AudioStream" uid="uid://dv08p2ubl8qur" path="res://assets/sfx/misc/FX_Well_Drop.wav" id="3_beakr"]
 [ext_resource type="Texture2D" uid="uid://dtlvw8vc64kxb" path="res://assets/sprites/buildings/well/TREE-s1.png" id="3_tqw3a"]
 [ext_resource type="Texture2D" uid="uid://biyedc7hsqbdx" path="res://assets/sprites/buildings/well/TREE-s2.png" id="4_mgpuo"]
 [ext_resource type="Texture2D" uid="uid://3sahyxyh3a2i" path="res://assets/sprites/buildings/well/TREE-s3.png" id="5_fknfe"]
 [ext_resource type="PackedScene" uid="uid://b1ld03ghdjeed" path="res://scenes/components/interaction_component/interaction_component.tscn" id="5_pmqeo"]
-[ext_resource type="Script" path="res://resources/conditions/is_current_step_condition.gd" id="6_l477j"]
+[ext_resource type="Script" uid="uid://6sms6k4nf04j" path="res://resources/conditions/is_current_step_condition.gd" id="6_l477j"]
 [ext_resource type="Resource" uid="uid://d1ugk00rgh6xk" path="res://resources/dialogs/well/well_start.tres" id="6_u0gb7"]
 [ext_resource type="AudioStream" uid="uid://n5x6snix6m8a" path="res://assets/sfx/misc/FX_TreeGrow_1.1.ogg" id="7_gm8x4"]
 [ext_resource type="Resource" uid="uid://dourfem07sd83" path="res://resources/dialogs/well/well_seed.tres" id="7_hu758"]
@@ -135,9 +135,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fj664"]
 _data = {
-"RESET": SubResource("Animation_u2h3m"),
-"appear": SubResource("Animation_hukod"),
-"wave": SubResource("Animation_nl1xe")
+&"RESET": SubResource("Animation_u2h3m"),
+&"appear": SubResource("Animation_hukod"),
+&"wave": SubResource("Animation_nl1xe")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0t0f"]

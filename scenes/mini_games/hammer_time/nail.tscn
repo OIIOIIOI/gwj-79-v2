@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctijgtvlhhrly"]
 
 [ext_resource type="Texture2D" uid="uid://co58xcw53n2dy" path="res://assets/sprites/mini_games/hammer_time/Clou.png" id="1_cw575"]
-[ext_resource type="Script" path="res://scenes/mini_games/hammer_time/nail.gd" id="1_v4fwy"]
+[ext_resource type="Script" uid="uid://c8wrabxss5wxu" path="res://scenes/mini_games/hammer_time/nail.gd" id="1_v4fwy"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pewrt"]
 size = Vector2(80, 500)
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hi82f"]
 _data = {
-"RESET": SubResource("Animation_02eif"),
-"wobble": SubResource("Animation_gm3ip")
+&"RESET": SubResource("Animation_02eif"),
+&"wobble": SubResource("Animation_gm3ip")
 }
 
 [node name="Nail" type="Node2D"]

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=19 format=3 uid="uid://b50j7bic8wgdn"]
 
-[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_xfyet"]
-[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_8bs8w"]
-[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_ymaky"]
+[ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_xfyet"]
+[ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="2_8bs8w"]
+[ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="2_ymaky"]
 [ext_resource type="Texture2D" uid="uid://cn7r6spwgqypy" path="res://assets/sprites/backgrounds/MAYOR-BG.png" id="3_selwb"]
 [ext_resource type="Texture2D" uid="uid://c5b6dxppxls4v" path="res://assets/ui/dialogs/MayorEd.png" id="4_ccjoa"]
 [ext_resource type="AudioStream" uid="uid://60wmbc4exlcs" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.wav" id="4_h00q7"]
 [ext_resource type="Texture2D" uid="uid://dlgsx5x2opcey" path="res://assets/sprites/characters/mayor/MAYOR-3.png" id="5_jtpxj"]
-[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="6_f5tyy"]
+[ext_resource type="Script" uid="uid://bvsxqu2v5u1u2" path="res://resources/actions/load_scene_action.gd" id="6_f5tyy"]
 [ext_resource type="Texture2D" uid="uid://i37xnogf4cqg" path="res://assets/sprites/characters/mayor/MAYOR-1.png" id="6_pxsvh"]
 [ext_resource type="Texture2D" uid="uid://1yl6f8hcln30" path="res://assets/sprites/characters/mayor/MAYOR-2.png" id="7_pqhdu"]
 

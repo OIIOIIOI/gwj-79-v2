@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=24 format=3 uid="uid://bqdj0hb75vmg4"]
 
-[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_uieiv"]
-[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_6my2g"]
-[ext_resource type="Script" path="res://resources/actions/action.gd" id="2_lksnl"]
+[ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_uieiv"]
+[ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="2_6my2g"]
+[ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="2_lksnl"]
 [ext_resource type="Texture2D" uid="uid://cbd8uu340cib2" path="res://assets/sprites/intro/INTRO-FRAME1.png" id="4_7j0eu"]
 [ext_resource type="AudioStream" uid="uid://60wmbc4exlcs" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.wav" id="5_0m07l"]
 [ext_resource type="Texture2D" uid="uid://wxkse1f1f74i" path="res://assets/sprites/backgrounds/ANTIQUE-BG.png" id="5_ld1tu"]
 [ext_resource type="Texture2D" uid="uid://yvrma3voydnx" path="res://assets/sprites/characters/antique_dealer/OLD ONE-3.png" id="7_0pmep"]
 [ext_resource type="Texture2D" uid="uid://c1pehpg8l6pa3" path="res://assets/ui/dialogs/OldOne.png" id="7_vvqay"]
-[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="8_u6wrn"]
+[ext_resource type="Script" uid="uid://bvsxqu2v5u1u2" path="res://resources/actions/load_scene_action.gd" id="8_u6wrn"]
 [ext_resource type="Texture2D" uid="uid://jh7typ13u7o1" path="res://assets/sprites/characters/antique_dealer/OLD ONE-2.png" id="8_vlr5w"]
 [ext_resource type="Texture2D" uid="uid://dsmbfc52o7tic" path="res://assets/sprites/characters/antique_dealer/OLD ONE-1.png" id="9_7g0kd"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dn8lncd01qa8f"]
 
 [ext_resource type="LabelSettings" uid="uid://djjsea4stxvof" path="res://assets/ui/notification_label_settings.tres" id="1_lsh48"]
-[ext_resource type="Script" path="res://scenes/ui/help_ui/help_ui.gd" id="1_trpfi"]
+[ext_resource type="Script" uid="uid://cod776kpo7jch" path="res://scenes/ui/help_ui/help_ui.gd" id="1_trpfi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4accx"]
 bg_color = Color(0, 0, 0, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cghqe17ct1qg6"]
 
-[ext_resource type="Script" path="res://scenes/ui/dialog_ui/dialog_ui.gd" id="1_g8obg"]
+[ext_resource type="Script" uid="uid://031chn5648bo" path="res://scenes/ui/dialog_ui/dialog_ui.gd" id="1_g8obg"]
 [ext_resource type="Texture2D" uid="uid://dg2eqc6i48pfr" path="res://assets/sprites/characters/mayor/MAYOR_dialog.png" id="2_2qbha"]
 [ext_resource type="Texture2D" uid="uid://c5b6dxppxls4v" path="res://assets/ui/dialogs/MayorEd.png" id="2_x8hni"]
 [ext_resource type="FontFile" uid="uid://dvbuw8pirnn4o" path="res://assets/ui/fonts/EBGaramond-Medium.woff2" id="4_wt1bl"]

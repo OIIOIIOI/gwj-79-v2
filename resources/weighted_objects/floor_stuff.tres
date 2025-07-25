@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeightedObject" load_steps=3 format=3 uid="uid://c2u16trud1xyg"]
 
-[ext_resource type="Script" path="res://resources/weighted_objects/weighted_object.gd" id="1_bpdoc"]
+[ext_resource type="Script" uid="uid://dfsj27db4jow0" path="res://resources/weighted_objects/weighted_object.gd" id="1_bpdoc"]
 [ext_resource type="PackedScene" uid="uid://so3u0vq2q1a0" path="res://scenes/locations/village/random_floor_stuff.tscn" id="1_iwp8o"]
 
 [resource]

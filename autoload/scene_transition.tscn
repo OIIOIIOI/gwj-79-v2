@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bhg6ngwcyfnce"]
 
-[ext_resource type="Script" path="res://autoload/scene_transition.gd" id="1_ei3ka"]
-[ext_resource type="Shader" path="res://assets/shaders/scene_transition.gdshader" id="2_ldblm"]
+[ext_resource type="Script" uid="uid://mkga761gkmqv" path="res://autoload/scene_transition.gd" id="1_ei3ka"]
+[ext_resource type="Shader" uid="uid://43k22hqitmls" path="res://assets/shaders/scene_transition.gdshader" id="2_ldblm"]
 
 [sub_resource type="Gradient" id="Gradient_u0mnl"]
 
@@ -13,8 +13,8 @@ fill_to = Vector2(0, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ws6xv"]
 shader = ExtResource("2_ldblm")
 shader_parameter/transition_color = Color(0, 0, 0, 1)
-shader_parameter/percent = 0.0
 shader_parameter/transition_texture = SubResource("GradientTexture2D_jjo0a")
+shader_parameter/percent = 0.0
 
 [sub_resource type="Animation" id="Animation_ws6xv"]
 length = 0.001
@@ -88,8 +88,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ws6xv"]
 _data = {
-"RESET": SubResource("Animation_ws6xv"),
-"default": SubResource("Animation_ldblm")
+&"RESET": SubResource("Animation_ws6xv"),
+&"default": SubResource("Animation_ldblm")
 }
 
 [node name="SceneTransition" type="CanvasLayer"]

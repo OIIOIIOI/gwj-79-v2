@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=23 format=3 uid="uid://by546dkcwp5o0"]
 
 [ext_resource type="Texture2D" uid="uid://cicijltqiaf0v" path="res://assets/sprites/backgrounds/GUARD-BG.png" id="1_kb2ev"]
-[ext_resource type="Script" path="res://resources/dialogs/dialog_chunk.gd" id="1_mloc0"]
-[ext_resource type="Script" path="res://resources/dialogs/dialog.gd" id="2_airru"]
-[ext_resource type="Script" path="res://resources/actions/action.gd" id="3_3t8kv"]
+[ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_mloc0"]
+[ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="2_airru"]
+[ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="3_3t8kv"]
 [ext_resource type="AudioStream" uid="uid://60wmbc4exlcs" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.wav" id="4_1ffo2"]
 [ext_resource type="Texture2D" uid="uid://dca1toabsko5v" path="res://assets/ui/dialogs/Keeper.png" id="4_co8yx"]
 [ext_resource type="Texture2D" uid="uid://djyehjnj4fl8y" path="res://assets/sprites/characters/guard/GUARD-3.png" id="5_mnvyy"]
-[ext_resource type="Script" path="res://resources/actions/load_scene_action.gd" id="6_0qpuk"]
+[ext_resource type="Script" uid="uid://bvsxqu2v5u1u2" path="res://resources/actions/load_scene_action.gd" id="6_0qpuk"]
 [ext_resource type="Texture2D" uid="uid://cb8k0lijpcmh7" path="res://assets/sprites/characters/guard/GUARD-2.png" id="6_eghvt"]
 [ext_resource type="Texture2D" uid="uid://i5fp2n4nnxbl" path="res://assets/sprites/characters/guard/GUARD-1.png" id="7_n3vus"]
 

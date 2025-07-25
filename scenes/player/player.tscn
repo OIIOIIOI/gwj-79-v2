@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://bm7lmhrturpas"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_35mox"]
+[ext_resource type="Script" uid="uid://cmy0ckwbknlcs" path="res://scenes/player/player.gd" id="1_35mox"]
 [ext_resource type="Texture2D" uid="uid://bt3v3wn3nmrqb" path="res://assets/sprites/characters/hero/HERO-IDLE-1.png" id="2_lefuw"]
 [ext_resource type="AudioStream" uid="uid://bfy7dst5p3qqa" path="res://assets/sfx/footsteps/FX_Foot1_footsteps.wav" id="3_06m6y"]
 [ext_resource type="Shape3D" uid="uid://bb5edubomhlx2" path="res://resources/character_collision_capsule.tres" id="3_ki2yo"]
@@ -147,12 +147,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v16u8"]
 _data = {
-"RESET": SubResource("Animation_wn4ym"),
-"book": SubResource("Animation_yd26n"),
-"idle": SubResource("Animation_rhmno"),
-"idle_no_book": SubResource("Animation_unlu8"),
-"walk": SubResource("Animation_xw6f1"),
-"walk_no_book": SubResource("Animation_rkujo")
+&"RESET": SubResource("Animation_wn4ym"),
+&"book": SubResource("Animation_yd26n"),
+&"idle": SubResource("Animation_rhmno"),
+&"idle_no_book": SubResource("Animation_unlu8"),
+&"walk": SubResource("Animation_xw6f1"),
+&"walk_no_book": SubResource("Animation_rkujo")
 }
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]

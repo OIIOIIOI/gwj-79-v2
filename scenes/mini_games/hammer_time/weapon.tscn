@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rv4bwyy31ntc"]
 
-[ext_resource type="Script" path="res://scenes/mini_games/hammer_time/weapon.gd" id="1_7y7ec"]
+[ext_resource type="Script" uid="uid://hie7jx75uu3a" path="res://scenes/mini_games/hammer_time/weapon.gd" id="1_7y7ec"]
 [ext_resource type="Texture2D" uid="uid://82o6xblwu15a" path="res://assets/sprites/mini_games/hammer_time/HandGuard.png" id="1_gumx3"]
 
 [node name="Weapon" type="Node2D"]

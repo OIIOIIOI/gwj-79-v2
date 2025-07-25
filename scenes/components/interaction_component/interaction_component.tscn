@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1ld03ghdjeed"]
 
-[ext_resource type="Script" path="res://scenes/components/interaction_component/interaction_component.gd" id="1_6cic1"]
+[ext_resource type="Script" uid="uid://dku0p60u4p7rx" path="res://scenes/components/interaction_component/interaction_component.gd" id="1_6cic1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7fefi"]
 radius = 1.0

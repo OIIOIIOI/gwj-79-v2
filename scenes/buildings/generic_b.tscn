@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkyw3ki8phb44"]
 
-[ext_resource type="Script" path="res://scenes/buildings/building.gd" id="1_usn7a"]
+[ext_resource type="Script" uid="uid://berhnbbbw8gce" path="res://scenes/buildings/building.gd" id="1_usn7a"]
 [ext_resource type="QuadMesh" uid="uid://ca5yi48anj4pf" path="res://assets/sprites/buildings/generic/generic_b_mesh.tres" id="2_yax4u"]
 [ext_resource type="Texture2D" uid="uid://c4vs4js12e4su" path="res://assets/sprites/decoration/ENV-wall 1.png" id="3_1o7yj"]
-[ext_resource type="Script" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_kc5n2"]
+[ext_resource type="Script" uid="uid://qgeq2li0a5tv" path="res://scenes/components/rotation_component/rotation_component.gd" id="4_kc5n2"]
 [ext_resource type="Texture2D" uid="uid://bhsmqenofhybf" path="res://assets/sprites/decoration/ENV-wall 4.png" id="5_8sigh"]
 [ext_resource type="Texture2D" uid="uid://cfmnb80dino8i" path="res://assets/sprites/decoration/ENV-wall 5.png" id="5_xt6k7"]
 [ext_resource type="Texture2D" uid="uid://15nj4pb88f5r" path="res://assets/sprites/decoration/ENV-graffiti.png" id="6_ibxav"]
