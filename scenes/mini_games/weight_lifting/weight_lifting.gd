@@ -57,8 +57,8 @@ func _process(delta: float) -> void:
 	if game_state == GAME_STATE.Ready:
 		# TODO Remove this
 		# Handle cheat
-		#if Input.is_action_just_pressed(&"open_book"):
-			#end_game()
+		# if Input.is_action_just_pressed(&"open_book"):
+			# end_game()
 		# Handle action
 		if Input.is_action_just_pressed(&"action"):
 			arm_target_position.y -= UP_SPEED * (1.0 - get_progress())

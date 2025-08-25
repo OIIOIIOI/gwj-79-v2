@@ -11,6 +11,7 @@ const SPEED = 3.0
 
 var has_book := true
 var is_book_open := false
+var camera_offset := Vector3.ZERO
 
 
 @onready var visuals: Node3D = $Visuals
@@ -22,7 +23,7 @@ var is_book_open := false
 
 
 func _ready() -> void:
-	if GameData.latest_player_position !=  Vector3.ZERO:
+	if GameData.latest_player_position != Vector3.ZERO:
 		position = GameData.latest_player_position
 		facing_left = GameData.latest_player_facing_left
 
@@ -87,7 +88,7 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_camera():
-	camera_controller.position = lerp(camera_controller.position, position, 0.15)
+	camera_controller.position = lerp(camera_controller.position, position + camera_offset, 0.15)
 
 
 func on_dialog_started() -> void:
@@ -106,11 +107,13 @@ func on_footsteps_timer_timeout() -> void:
 
 func on_book_update_started() -> void:
 	is_book_open = true
+	camera_offset = Vector3(0.0, -0.25, -1.0)
 	animation_player.play(&"book")
 
 
 func on_book_update_finished() -> void:
 	is_book_open = false
+	camera_offset = Vector3.ZERO
 
 
 func on_step_added(step: GameEnums.STEPS) -> void:
