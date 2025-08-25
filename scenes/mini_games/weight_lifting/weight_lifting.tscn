@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bclvvd40stsfw"]
 
 [ext_resource type="Script" uid="uid://bdaqhk22m46a1" path="res://scenes/mini_games/weight_lifting/weight_lifting.gd" id="1_up734"]
-[ext_resource type="Texture2D" uid="uid://vbbd4tvh6y6v" path="res://assets/sprites/backgrounds/SPORT_BG.png" id="2_ag8qd"]
+[ext_resource type="Texture2D" uid="uid://mioegdomk1oi" path="res://assets/sprites/backgrounds/SPORT_BG.jpg" id="2_erhe6"]
 [ext_resource type="Texture2D" uid="uid://b3aa8vq01qm5t" path="res://assets/sprites/mini_games/weight_lifting/DumbBellHand.png" id="3_sc3fx"]
 [ext_resource type="Texture2D" uid="uid://2anae5v05lk" path="res://assets/sprites/mini_games/weight_lifting/ThumbUp.png" id="4_cyya0"]
 [ext_resource type="Texture2D" uid="uid://rfadpghyphdd" path="res://assets/sprites/mini_games/hammer_time/SplashFail.png" id="4_t4sug"]
@@ -22,7 +22,7 @@ script = ExtResource("1_up734")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_ag8qd")
+texture = ExtResource("2_erhe6")
 
 [node name="Arm" type="Node2D" parent="."]
 position = Vector2(0, 832)

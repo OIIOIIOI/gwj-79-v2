@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b3m2qpro1x5nn" path="res://scenes/mini_games/memory/memory.gd" id="1_gecvb"]
 [ext_resource type="Resource" uid="uid://24huqm6j6v0p" path="res://resources/memory/all_items.tres" id="2_qtop4"]
-[ext_resource type="Texture2D" uid="uid://wxkse1f1f74i" path="res://assets/sprites/backgrounds/ANTIQUE-BG.png" id="3_l07eu"]
-[ext_resource type="Texture2D" uid="uid://dal5jnrsudjvf" path="res://assets/sprites/mini_games/memory/Meuble_holes.png" id="4_62ao0"]
+[ext_resource type="Texture2D" uid="uid://d0vdo86jo70xq" path="res://assets/sprites/backgrounds/ANTIQUE-BG.jpg" id="3_jhyuj"]
+[ext_resource type="Texture2D" uid="uid://cs1dkv3bt0iix" path="res://assets/sprites/mini_games/memory/Meuble_holes_opti.png" id="4_jhyuj"]
 [ext_resource type="PackedScene" uid="uid://b5sykdukwfa8h" path="res://scenes/mini_games/memory/final_drawer.tscn" id="5_xipkr"]
 [ext_resource type="PackedScene" uid="uid://u8tdxwhl1u6q" path="res://scenes/mini_games/memory/drawer.tscn" id="8_d2pkd"]
 [ext_resource type="AudioStream" uid="uid://dvumcwdtvx6fl" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.ogg" id="8_jhyuj"]
@@ -24,10 +24,10 @@ items = ExtResource("2_qtop4")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("3_l07eu")
+texture = ExtResource("3_jhyuj")
 
 [node name="Buffet" type="Sprite2D" parent="."]
-texture = ExtResource("4_62ao0")
+texture = ExtResource("4_jhyuj")
 
 [node name="BottomRow" type="Node2D" parent="."]
 position = Vector2(-32, 256)

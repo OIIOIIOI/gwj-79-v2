@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwyq2cqf6ldqj"]
 
 [ext_resource type="Script" uid="uid://bjcpmrbt7olej" path="res://scenes/mini_games/hammer_time/hammer_time.gd" id="1_2tw1a"]
-[ext_resource type="Texture2D" uid="uid://cicijltqiaf0v" path="res://assets/sprites/backgrounds/GUARD-BG.png" id="2_cvrx2"]
+[ext_resource type="Texture2D" uid="uid://bx5h2gsl16uba" path="res://assets/sprites/backgrounds/GUARD-BG.jpg" id="2_puwr4"]
 [ext_resource type="Texture2D" uid="uid://c1ies26xda3dj" path="res://assets/sprites/mini_games/hammer_time/BOISBARQUE.png" id="3_7h38u"]
 [ext_resource type="PackedScene" uid="uid://cronjuvewke5r" path="res://scenes/mini_games/hammer_time/nail_hand.tscn" id="4_2n148"]
 [ext_resource type="PackedScene" uid="uid://rv4bwyy31ntc" path="res://scenes/mini_games/hammer_time/weapon.tscn" id="5_xyxah"]
@@ -16,7 +16,7 @@ script = ExtResource("1_2tw1a")
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Environment"]
-texture = ExtResource("2_cvrx2")
+texture = ExtResource("2_puwr4")
 
 [node name="Wood" type="Sprite2D" parent="Environment"]
 position = Vector2(-960, 140)

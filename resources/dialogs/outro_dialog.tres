@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_i45xp"]
 [ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="2_cqxpk"]
-[ext_resource type="Texture2D" uid="uid://ddky3oeao0msq" path="res://assets/sprites/outro/OUTRO-FRAME1.png" id="3_c8lcw"]
-[ext_resource type="Texture2D" uid="uid://c5tjc8q8cl7v8" path="res://assets/sprites/outro/OUTRO-FRAME2.png" id="4_bdsv4"]
-[ext_resource type="Texture2D" uid="uid://c81dad50455fp" path="res://assets/sprites/outro/OUTRO-FRAME3.png" id="5_xb0im"]
+[ext_resource type="Texture2D" uid="uid://udg8jcel8d2h" path="res://assets/sprites/outro/OUTRO-FRAME1_opti.png" id="3_8w1wv"]
+[ext_resource type="Texture2D" uid="uid://cj1rbgecmyikl" path="res://assets/sprites/outro/OUTRO-FRAME2_opti.png" id="4_8sa41"]
+[ext_resource type="Texture2D" uid="uid://dw7jlf56vdy2x" path="res://assets/sprites/outro/OUTRO-FRAME3_opti.png" id="5_v8tbo"]
 [ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="9_bdvg8"]
 
 [sub_resource type="Resource" id="Resource_cefex"]
 script = ExtResource("1_i45xp")
-background = ExtResource("3_c8lcw")
+background = ExtResource("3_8w1wv")
 text = "The old town is no more. The waters have washed it away. In its place, a great tree rises, its branches stretching above the sea. The Prophecy has come true."
 style = 2
 duration = 0.0
@@ -17,7 +17,7 @@ actions = Array[ExtResource("2_cqxpk")]([])
 
 [sub_resource type="Resource" id="Resource_mqv0u"]
 script = ExtResource("1_i45xp")
-background = ExtResource("4_bdsv4")
+background = ExtResource("4_8sa41")
 text = "Weary but united, the villagers built a suspended village in the tree. Climbing was no easy task, but they found hope in their new home."
 style = 2
 duration = 0.0
@@ -25,7 +25,7 @@ actions = Array[ExtResource("2_cqxpk")]([])
 
 [sub_resource type="Resource" id="Resource_2i4kj"]
 script = ExtResource("1_i45xp")
-background = ExtResource("4_bdsv4")
+background = ExtResource("4_8sa41")
 text = "Laughter now fills the air, nets haul in the catch, and the tree's fruits hang heavy with promise."
 style = 2
 duration = 0.0
@@ -33,7 +33,7 @@ actions = Array[ExtResource("2_cqxpk")]([])
 
 [sub_resource type="Resource" id="Resource_hybxq"]
 script = ExtResource("1_i45xp")
-background = ExtResource("5_xb0im")
+background = ExtResource("5_v8tbo")
 text = "In the tallest branches, a new library stands, waiting for the stories yet to come."
 style = 2
 duration = 0.0

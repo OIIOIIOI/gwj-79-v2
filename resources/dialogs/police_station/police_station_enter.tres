@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=23 format=3 uid="uid://by546dkcwp5o0"]
 
-[ext_resource type="Texture2D" uid="uid://cicijltqiaf0v" path="res://assets/sprites/backgrounds/GUARD-BG.png" id="1_kb2ev"]
+[ext_resource type="Texture2D" uid="uid://bx5h2gsl16uba" path="res://assets/sprites/backgrounds/GUARD-BG.jpg" id="1_keb2d"]
 [ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_mloc0"]
 [ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="2_airru"]
 [ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="3_3t8kv"]
@@ -104,5 +104,5 @@ actions = Array[ExtResource("3_3t8kv")]([SubResource("Resource_mqffr")])
 
 [resource]
 script = ExtResource("2_airru")
-background = ExtResource("1_kb2ev")
+background = ExtResource("1_keb2d")
 chunks = Array[ExtResource("1_mloc0")]([SubResource("Resource_q7smg"), SubResource("Resource_7duqd"), SubResource("Resource_ya2tg"), SubResource("Resource_u33fm"), SubResource("Resource_op27f"), SubResource("Resource_u5bmy"), SubResource("Resource_1qdir"), SubResource("Resource_tl5lo"), SubResource("Resource_rbm54"), SubResource("Resource_qa4e3"), SubResource("Resource_4m7ar")])

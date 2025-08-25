@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0av3lgye5gb3"]
+[gd_scene load_steps=9 format=3 uid="uid://d0av3lgye5gb3"]
 
 [ext_resource type="Script" uid="uid://cnoq7jdegxh2w" path="res://scenes/ui/book_ui/book_ui.gd" id="1_x3hpw"]
-[ext_resource type="Texture2D" uid="uid://0y453bbsg2uu" path="res://assets/sprites/book/BOOK-STEP1-HINTS.png" id="2_72qhq"]
-[ext_resource type="Texture2D" uid="uid://c6itoqr7gl2vg" path="res://assets/sprites/book/BOOK-STEP1.png" id="2_k0lgd"]
-[ext_resource type="Texture2D" uid="uid://d4b78n4cqnmic" path="res://assets/sprites/book/BOOK-STEP2-HINTS.png" id="3_rjv6l"]
-[ext_resource type="Texture2D" uid="uid://csmcjkvrf4igp" path="res://assets/sprites/book/BOOK-STEP3-HINTS.png" id="4_esnpt"]
-[ext_resource type="Texture2D" uid="uid://8aijwx27fjpt" path="res://assets/sprites/book/BOOK-STEP4-HINTS.png" id="5_te88e"]
+[ext_resource type="Texture2D" uid="uid://ddec6fcwudkmw" path="res://assets/sprites/book/BOOK-STEP2-HINTS_opti.png" id="3_fdjhr"]
+[ext_resource type="Texture2D" uid="uid://c5s4wypyf1hjc" path="res://assets/sprites/book/BOOK-STEP3-HINTS_opti.png" id="4_oq2s3"]
+[ext_resource type="Texture2D" uid="uid://b2t5n88mn7jfk" path="res://assets/sprites/book/BOOK-STEP4-HINTS_opti.png" id="5_i4lae"]
+[ext_resource type="Texture2D" uid="uid://cb25xpuuo3dyh" path="res://assets/sprites/book/BOOK-STEP1-HINTS_opti.png" id="6_oq2s3"]
 [ext_resource type="AudioStream" uid="uid://iq0gauerduxk" path="res://assets/sfx/book/FX_BOOK_Open.ogg" id="7_oq2s3"]
 [ext_resource type="AudioStream" uid="uid://ccc0yp67eernh" path="res://assets/sfx/book/FX_Book_Combo.ogg" id="8_2mqkq"]
 [ext_resource type="AudioStream" uid="uid://ce4dxug3rc1mr" path="res://assets/sfx/book/FX_BOOK_Close.ogg" id="8_i4lae"]
@@ -13,10 +12,10 @@
 [node name="BookUI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_x3hpw")
-step_1_texture = ExtResource("2_72qhq")
-step_2_texture = ExtResource("3_rjv6l")
-step_3_texture = ExtResource("4_esnpt")
-step_4_texture = ExtResource("5_te88e")
+step_1_texture = ExtResource("6_oq2s3")
+step_2_texture = ExtResource("3_fdjhr")
+step_3_texture = ExtResource("4_oq2s3")
+step_4_texture = ExtResource("5_i4lae")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -34,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_k0lgd")
+texture = ExtResource("6_oq2s3")
 
 [node name="OpenSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oq2s3")

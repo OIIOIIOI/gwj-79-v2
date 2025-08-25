@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_uieiv"]
 [ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="2_6my2g"]
 [ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="2_lksnl"]
-[ext_resource type="Texture2D" uid="uid://cbd8uu340cib2" path="res://assets/sprites/intro/INTRO-FRAME1.png" id="4_7j0eu"]
+[ext_resource type="Texture2D" uid="uid://dqws3yap5xlxi" path="res://assets/sprites/intro/INTRO-FRAME1.jpg" id="3_dfnnl"]
+[ext_resource type="Texture2D" uid="uid://d0vdo86jo70xq" path="res://assets/sprites/backgrounds/ANTIQUE-BG.jpg" id="4_dfnnl"]
 [ext_resource type="AudioStream" uid="uid://j1ncfx87772o" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.ogg" id="5_dfnnl"]
-[ext_resource type="Texture2D" uid="uid://wxkse1f1f74i" path="res://assets/sprites/backgrounds/ANTIQUE-BG.png" id="5_ld1tu"]
 [ext_resource type="Texture2D" uid="uid://yvrma3voydnx" path="res://assets/sprites/characters/antique_dealer/OLD ONE-3.png" id="7_0pmep"]
 [ext_resource type="Texture2D" uid="uid://c1pehpg8l6pa3" path="res://assets/ui/dialogs/OldOne.png" id="7_vvqay"]
 [ext_resource type="Script" uid="uid://bvsxqu2v5u1u2" path="res://resources/actions/load_scene_action.gd" id="8_u6wrn"]
@@ -14,7 +14,7 @@
 
 [sub_resource type="Resource" id="Resource_h3ipn"]
 script = ExtResource("1_uieiv")
-background = ExtResource("4_7j0eu")
+background = ExtResource("3_dfnnl")
 text = "A short journey through the flooded avenues brings you to the antique shop."
 style = 2
 duration = 0.0
@@ -29,7 +29,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_mhxux"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 text = "Inside, you find the old man, comfortably settled in a large armchair.
 He turns to you, a smile that hasn't lost its warmth on his face."
 style = 2
@@ -39,7 +39,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_ool6x"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 speaker_name = ExtResource("7_vvqay")
 speaker_sprite = ExtResource("7_0pmep")
 text = "Hello, I'm glad to see you! Interested in some antiques?"
@@ -49,7 +49,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_5xjni"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 text = "Surprised by his reaction, you remind him of the sad reality his failing memory had pushed aside, telling him of the prophecy that could save them all."
 style = 2
 duration = 0.0
@@ -57,7 +57,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_0kbd8"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 speaker_name = ExtResource("7_vvqay")
 speaker_sprite = ExtResource("8_vlr5w")
 text = "Ah yes, I remember now. You see, our dear old town and I share the same fate. We're both fading away little by little."
@@ -67,7 +67,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_umfik"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 speaker_name = ExtResource("7_vvqay")
 speaker_sprite = ExtResource("9_7g0kd")
 text = "Nothing sad about it, it's the natural course of things. I've seen the best the world had to offer and I’d be happy to see your magical tree grow before I take my leave."
@@ -77,7 +77,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_aijvp"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 speaker_name = ExtResource("7_vvqay")
 speaker_sprite = ExtResource("7_0pmep")
 text = "You need some kind of jewel then?
@@ -88,7 +88,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_f3e8a"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 speaker_name = ExtResource("7_vvqay")
 speaker_sprite = ExtResource("9_7g0kd")
 text = "The only thing I want before I go is to have everything in order, but it’s harder now with my memory. Could you help me sort through my collection?"
@@ -98,7 +98,7 @@ actions = Array[ExtResource("2_lksnl")]([])
 
 [sub_resource type="Resource" id="Resource_0fce7"]
 script = ExtResource("1_uieiv")
-background = ExtResource("5_ld1tu")
+background = ExtResource("4_dfnnl")
 text = "The old man gestures toward a large cabinet at the back of the shop."
 style = 2
 duration = 0.0

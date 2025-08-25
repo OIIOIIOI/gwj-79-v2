@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Dialog" load_steps=19 format=3 uid="uid://b50j7bic8wgdn"]
 
+[ext_resource type="Texture2D" uid="uid://dqw1colbsh6xe" path="res://assets/sprites/backgrounds/MAYOR-BG.jpg" id="1_3u1lw"]
 [ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_xfyet"]
 [ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="2_8bs8w"]
 [ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="2_ymaky"]
-[ext_resource type="Texture2D" uid="uid://cn7r6spwgqypy" path="res://assets/sprites/backgrounds/MAYOR-BG.png" id="3_selwb"]
 [ext_resource type="AudioStream" uid="uid://j1ncfx87772o" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.ogg" id="4_3u1lw"]
 [ext_resource type="Texture2D" uid="uid://c5b6dxppxls4v" path="res://assets/ui/dialogs/MayorEd.png" id="4_ccjoa"]
 [ext_resource type="Texture2D" uid="uid://dlgsx5x2opcey" path="res://assets/sprites/characters/mayor/MAYOR-3.png" id="5_jtpxj"]
@@ -74,5 +74,5 @@ actions = Array[ExtResource("2_8bs8w")]([SubResource("Resource_o7l6c")])
 
 [resource]
 script = ExtResource("2_ymaky")
-background = ExtResource("3_selwb")
+background = ExtResource("1_3u1lw")
 chunks = Array[ExtResource("1_xfyet")]([SubResource("Resource_42hwg"), SubResource("Resource_klfdg"), SubResource("Resource_pquyf"), SubResource("Resource_qdfoi"), SubResource("Resource_yierx"), SubResource("Resource_kj8jd"), SubResource("Resource_0glvk")])
