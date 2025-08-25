@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://43k22hqitmls" path="res://assets/shaders/scene_transition.gdshader" id="2_ldblm"]
 
 [sub_resource type="Gradient" id="Gradient_u0mnl"]
+colors = PackedColorArray(0.00392157, 0.00392157, 0.00392157, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jjo0a"]
 gradient = SubResource("Gradient_u0mnl")
@@ -46,7 +47,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_ldblm"]
 resource_name = "default"
 length = 0.4
-step = 0.1
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,5 +110,5 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ws6xv")
+&"": SubResource("AnimationLibrary_ws6xv")
 }
