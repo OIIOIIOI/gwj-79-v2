@@ -25,6 +25,9 @@ enum STEPS {
 	Step_GameStarted,
 	Step_BookChecked,
 	Step_GameEnded,
+	Step_CompletedSeedDrop,
+	Step_CompletedWeaponDrop,
+	Step_CompletedEmeraldDrop,
 }
 
 enum OBJECTS {

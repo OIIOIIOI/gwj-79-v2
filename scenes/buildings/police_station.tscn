@@ -16,7 +16,7 @@
 
 [sub_resource type="Resource" id="Resource_l8j4q"]
 script = ExtResource("8_hpngc")
-step = 3
+step = 12
 invert = false
 
 [sub_resource type="Resource" id="Resource_ppnvu"]

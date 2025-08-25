@@ -44,6 +44,8 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			await tree_sfx.finished
 			cpu_particles_3d.emitting = false
 			GameEvents.tree_grown.emit()
+			# Set step to complete
+			GameEvents.step_added.emit(GameEnums.STEPS.Step_CompletedSeedDrop)
 
 		GameEnums.STEPS.Step_DroppedWeapon:
 			drop_sequence()
@@ -54,6 +56,8 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			await tree_sfx.finished
 			cpu_particles_3d.emitting = false
 			GameEvents.tree_grown.emit()
+			# Set step to complete
+			GameEvents.step_added.emit(GameEnums.STEPS.Step_CompletedWeaponDrop)
 
 		GameEnums.STEPS.Step_DroppedEmerald:
 			drop_sequence()
@@ -64,6 +68,8 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 			await tree_sfx.finished
 			cpu_particles_3d.emitting = false
 			GameEvents.tree_grown.emit()
+			# Set step to complete
+			GameEvents.step_added.emit(GameEnums.STEPS.Step_CompletedEmeraldDrop)
 
 		GameEnums.STEPS.Step_DroppedBook:
 			drop_sequence()
@@ -88,4 +94,4 @@ func drop_sequence() -> void:
 
 func grow_tree(texture: Texture2D) -> void:
 	tree_sprite.texture = texture
-	tree_sprite.offset.x = -texture.get_size().x * 0.5
+	tree_sprite.offset.x = - texture.get_size().x * 0.5

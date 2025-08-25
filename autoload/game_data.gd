@@ -27,7 +27,7 @@ func on_step_added(step: GameEnums.STEPS) -> void:
 	var step_name = GameEnums.STEPS.find_key(step)
 	if !steps.has(step_name):
 		steps.append(step_name)
-		print("Step added: ", step_name)
+		# print("Step added: ", step_name)
 
 
 func on_scene_transition_requested(_scene: GameEnums.SCENES) -> void:

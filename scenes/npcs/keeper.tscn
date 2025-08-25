@@ -19,7 +19,7 @@ invert = false
 
 [sub_resource type="Resource" id="Resource_n85ab"]
 script = ExtResource("7_cpv00")
-step = 5
+step = 13
 invert = false
 
 [sub_resource type="Resource" id="Resource_d4hxt"]

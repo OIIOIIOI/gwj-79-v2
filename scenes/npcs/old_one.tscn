@@ -18,7 +18,7 @@ invert = false
 
 [sub_resource type="Resource" id="Resource_lswmn"]
 script = ExtResource("7_oxuum")
-step = 7
+step = 14
 invert = false
 
 [sub_resource type="Resource" id="Resource_1uuj8"]

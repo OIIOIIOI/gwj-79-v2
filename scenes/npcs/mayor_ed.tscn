@@ -19,17 +19,17 @@ invert = false
 
 [sub_resource type="Resource" id="Resource_aw0sq"]
 script = ExtResource("7_pwx67")
-step = 3
+step = 12
 invert = false
 
 [sub_resource type="Resource" id="Resource_ooebp"]
 script = ExtResource("7_pwx67")
-step = 5
+step = 13
 invert = false
 
 [sub_resource type="Resource" id="Resource_rns2o"]
 script = ExtResource("7_pwx67")
-step = 7
+step = 14
 invert = false
 
 [node name="MayorEd" type="StaticBody3D"]

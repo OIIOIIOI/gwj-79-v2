@@ -42,7 +42,7 @@ invert = false
 
 [sub_resource type="Resource" id="Resource_lc076"]
 script = ExtResource("6_l477j")
-step = 7
+step = 14
 invert = false
 
 [sub_resource type="Animation" id="Animation_u2h3m"]

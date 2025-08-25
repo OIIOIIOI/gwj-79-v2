@@ -73,11 +73,17 @@ func close():
 
 
 func update_book_texture() -> void:
-	if GameData.is_current_step(GameEnums.STEPS.Step_DroppedSeed) || GameData.is_current_step(GameEnums.STEPS.Step_ObtainedWeapon):
+	# print("  > update_book_texture: ", GameData.steps.back())
+	if GameData.is_current_step(GameEnums.STEPS.Step_DroppedSeed) || \
+		GameData.is_current_step(GameEnums.STEPS.Step_CompletedSeedDrop) || \
+		GameData.is_current_step(GameEnums.STEPS.Step_ObtainedWeapon):
 		book_texture.texture = step_2_texture
-	elif GameData.is_current_step(GameEnums.STEPS.Step_DroppedWeapon) || GameData.is_current_step(GameEnums.STEPS.Step_ObtainedEmerald):
+	elif GameData.is_current_step(GameEnums.STEPS.Step_DroppedWeapon) || \
+		GameData.is_current_step(GameEnums.STEPS.Step_CompletedWeaponDrop) || \
+		GameData.is_current_step(GameEnums.STEPS.Step_ObtainedEmerald):
 		book_texture.texture = step_3_texture
-	elif GameData.is_current_step(GameEnums.STEPS.Step_DroppedEmerald):
+	elif GameData.is_current_step(GameEnums.STEPS.Step_DroppedEmerald) || \
+		GameData.is_current_step(GameEnums.STEPS.Step_CompletedEmeraldDrop):
 		book_texture.texture = step_4_texture
 	else:
 		book_texture.texture = step_1_texture
