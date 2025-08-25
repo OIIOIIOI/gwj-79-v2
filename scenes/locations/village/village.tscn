@@ -41,8 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://bu5hdos48tclo" path="res://assets/sprites/decoration/bag3 copy.png" id="30_ussei"]
 [ext_resource type="Texture2D" uid="uid://cba2dk5dvlyiv" path="res://assets/sprites/decoration/bag3.png" id="31_mnpcw"]
 [ext_resource type="PackedScene" uid="uid://dh5tp8jkngtvo" path="res://scenes/locations/village/lamp_post.tscn" id="34_otbkj"]
-[ext_resource type="AudioStream" uid="uid://bpvk5rt6j0lgk" path="res://assets/sfx/soundscape/FX_Ocean.wav" id="42_lw8mh"]
-[ext_resource type="AudioStream" uid="uid://b0edfx4rilxa6" path="res://assets/sfx/soundscape/FX_Seagull.wav" id="43_3nf2n"]
+[ext_resource type="AudioStream" uid="uid://damhlxklryyef" path="res://assets/sfx/soundscape/FX_Ocean.ogg" id="42_85pn6"]
+[ext_resource type="AudioStream" uid="uid://tjeu7l80a5mn" path="res://assets/sfx/soundscape/FX_Seagull.ogg" id="43_5cvor"]
 [ext_resource type="Script" uid="uid://qen6cgpqkhoj" path="res://scenes/components/random_audio_pause_component/random_audio_pause_component.gd" id="44_i1dgs"]
 [ext_resource type="AudioStream" uid="uid://cml68ypc317ug" path="res://assets/sfx/soundscape/FX_Wind.ogg" id="45_nxvp7"]
 
@@ -489,7 +489,7 @@ shape = SubResource("WorldBoundaryShape3D_k3jay")
 
 [node name="OceanLeft" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1, 0)
-stream = ExtResource("42_lw8mh")
+stream = ExtResource("42_85pn6")
 max_db = 1.0
 autoplay = true
 max_distance = 20.0
@@ -497,7 +497,7 @@ bus = &"SFX"
 
 [node name="OceanRight" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1, 0)
-stream = ExtResource("42_lw8mh")
+stream = ExtResource("42_85pn6")
 max_db = 1.0
 autoplay = true
 max_distance = 20.0
@@ -505,7 +505,7 @@ bus = &"SFX"
 
 [node name="SeagullsLeft" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 1, 0)
-stream = ExtResource("43_3nf2n")
+stream = ExtResource("43_5cvor")
 max_db = 1.0
 max_distance = 15.0
 bus = &"SFX"
@@ -515,7 +515,7 @@ script = ExtResource("44_i1dgs")
 
 [node name="SeagullsRight" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1, 0)
-stream = ExtResource("43_3nf2n")
+stream = ExtResource("43_5cvor")
 max_db = 1.0
 max_distance = 15.0
 bus = &"SFX"

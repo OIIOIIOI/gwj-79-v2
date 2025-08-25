@@ -25,6 +25,9 @@ func _ready() -> void:
 	if get_parent() == null || !(get_parent() is AudioStreamPlayer3D):
 		return
 
+	if Engine.is_editor_hint():
+		return
+
 	asp = get_parent() as AudioStreamPlayer3D
 	await get_parent().ready
 

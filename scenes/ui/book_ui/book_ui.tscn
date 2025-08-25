@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://cnoq7jdegxh2w" path="res://scenes/ui/book_ui/book_ui.gd" id="1_x3hpw"]
 [ext_resource type="Texture2D" uid="uid://0y453bbsg2uu" path="res://assets/sprites/book/BOOK-STEP1-HINTS.png" id="2_72qhq"]
 [ext_resource type="Texture2D" uid="uid://c6itoqr7gl2vg" path="res://assets/sprites/book/BOOK-STEP1.png" id="2_k0lgd"]
-[ext_resource type="AudioStream" uid="uid://d4gpefu80bbnc" path="res://assets/sfx/book/FX_BOOK_Open.wav" id="3_au8rr"]
 [ext_resource type="Texture2D" uid="uid://d4b78n4cqnmic" path="res://assets/sprites/book/BOOK-STEP2-HINTS.png" id="3_rjv6l"]
 [ext_resource type="Texture2D" uid="uid://csmcjkvrf4igp" path="res://assets/sprites/book/BOOK-STEP3-HINTS.png" id="4_esnpt"]
-[ext_resource type="AudioStream" uid="uid://mqu5kuj23yma" path="res://assets/sfx/book/FX_BOOK_Close.wav" id="4_gcx33"]
 [ext_resource type="Texture2D" uid="uid://8aijwx27fjpt" path="res://assets/sprites/book/BOOK-STEP4-HINTS.png" id="5_te88e"]
+[ext_resource type="AudioStream" uid="uid://iq0gauerduxk" path="res://assets/sfx/book/FX_BOOK_Open.ogg" id="7_oq2s3"]
 [ext_resource type="AudioStream" uid="uid://ccc0yp67eernh" path="res://assets/sfx/book/FX_Book_Combo.ogg" id="8_2mqkq"]
+[ext_resource type="AudioStream" uid="uid://ce4dxug3rc1mr" path="res://assets/sfx/book/FX_BOOK_Close.ogg" id="8_i4lae"]
 
 [node name="BookUI" type="CanvasLayer"]
 process_mode = 3
@@ -37,12 +37,12 @@ mouse_filter = 2
 texture = ExtResource("2_k0lgd")
 
 [node name="OpenSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_au8rr")
+stream = ExtResource("7_oq2s3")
 volume_db = 5.0
 bus = &"SFX"
 
 [node name="CloseSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_gcx33")
+stream = ExtResource("8_i4lae")
 volume_db = 3.0
 bus = &"SFX"
 

@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c1ies26xda3dj" path="res://assets/sprites/mini_games/hammer_time/BOISBARQUE.png" id="3_7h38u"]
 [ext_resource type="PackedScene" uid="uid://cronjuvewke5r" path="res://scenes/mini_games/hammer_time/nail_hand.tscn" id="4_2n148"]
 [ext_resource type="PackedScene" uid="uid://rv4bwyy31ntc" path="res://scenes/mini_games/hammer_time/weapon.tscn" id="5_xyxah"]
-[ext_resource type="AudioStream" uid="uid://ixrtvtw24f8h" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.wav" id="7_jtbdu"]
-[ext_resource type="AudioStream" uid="uid://d1fmhjs8mgonf" path="res://assets/sfx/mini_games/FX_HammerMetal.wav" id="8_1g141"]
-[ext_resource type="AudioStream" uid="uid://bri7pgyih3kqk" path="res://assets/sfx/mini_games/FX_HammerWood.wav" id="9_1ivgh"]
-[ext_resource type="AudioStream" uid="uid://bcd5sgvfo72u" path="res://assets/sfx/mini_games/FX_Douleur1.wav" id="10_nwpe7"]
+[ext_resource type="AudioStream" uid="uid://borob72rwqwpl" path="res://assets/sfx/mini_games/FX_HammerMetal.ogg" id="6_puwr4"]
+[ext_resource type="AudioStream" uid="uid://dnfa8d60fav6" path="res://assets/sfx/mini_games/FX_HammerWood.ogg" id="7_xrh2i"]
+[ext_resource type="AudioStream" uid="uid://cmctbqwguej4h" path="res://assets/sfx/mini_games/FX_Douleur1.ogg" id="8_66flo"]
+[ext_resource type="AudioStream" uid="uid://dvumcwdtvx6fl" path="res://assets/sfx/mini_games/FX_GAME_Win_1.3.ogg" id="9_xrjv6"]
 
 [node name="HammerTime" type="Node2D"]
 script = ExtResource("1_2tw1a")
@@ -42,14 +42,14 @@ one_shot = true
 one_shot = true
 
 [node name="HitSuccessSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_1g141")
+stream = ExtResource("6_puwr4")
 
 [node name="HitFailSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_1ivgh")
+stream = ExtResource("7_xrh2i")
 
 [node name="HitHandSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_nwpe7")
+stream = ExtResource("8_66flo")
 
 [node name="WinSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_jtbdu")
+stream = ExtResource("9_xrjv6")
 bus = &"SFX"

@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cmy0ckwbknlcs" path="res://scenes/player/player.gd" id="1_35mox"]
 [ext_resource type="Texture2D" uid="uid://bt3v3wn3nmrqb" path="res://assets/sprites/characters/hero/HERO-IDLE-1.png" id="2_lefuw"]
-[ext_resource type="AudioStream" uid="uid://bfy7dst5p3qqa" path="res://assets/sfx/footsteps/FX_Foot1_footsteps.wav" id="3_06m6y"]
 [ext_resource type="Shape3D" uid="uid://bb5edubomhlx2" path="res://resources/character_collision_capsule.tres" id="3_ki2yo"]
-[ext_resource type="AudioStream" uid="uid://drttofiotxt2n" path="res://assets/sfx/footsteps/FX_Foot2_footsteps.wav" id="4_ijbmc"]
-[ext_resource type="AudioStream" uid="uid://b82053bklg43j" path="res://assets/sfx/footsteps/FX_Foot3_footsteps.wav" id="5_tfewm"]
-[ext_resource type="AudioStream" uid="uid://y3suy187lmh5" path="res://assets/sfx/footsteps/FX_Foot4_footsteps.wav" id="6_61b44"]
+[ext_resource type="AudioStream" uid="uid://bqyo3ftelvopm" path="res://assets/sfx/footsteps/FX_Foot1_footsteps.ogg" id="4_cnsyf"]
+[ext_resource type="AudioStream" uid="uid://c7tn6hc4hdge7" path="res://assets/sfx/footsteps/FX_Foot2_footsteps.ogg" id="5_007i1"]
+[ext_resource type="AudioStream" uid="uid://ci8f0afdlp70w" path="res://assets/sfx/footsteps/FX_Foot3_footsteps.ogg" id="6_6cv16"]
 [ext_resource type="Texture2D" uid="uid://bk6hnjcq5hmpo" path="res://assets/sprites/characters/hero/HERO-IDLE-2.png" id="7_bnuut"]
+[ext_resource type="AudioStream" uid="uid://dm8q1h7mxwn65" path="res://assets/sfx/footsteps/FX_Foot4_footsteps.ogg" id="7_j4nxn"]
 [ext_resource type="Texture2D" uid="uid://qo0lvpka5uce" path="res://assets/sprites/characters/hero/HERO-IDLE-3.png" id="8_woa6i"]
 [ext_resource type="Texture2D" uid="uid://dhjpnq10f4iul" path="res://assets/sprites/characters/hero/HERO-IDLE-4.png" id="9_5ps4o"]
 [ext_resource type="Texture2D" uid="uid://x6fjhsyn2yw1" path="res://assets/sprites/characters/hero/HERO-WALK-1.png" id="10_qmirk"]
@@ -38,10 +38,10 @@ albedo_color = Color(1, 1, 1, 0)
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hdsop"]
 random_pitch = 1.5
 streams_count = 4
-stream_0/stream = ExtResource("3_06m6y")
-stream_1/stream = ExtResource("4_ijbmc")
-stream_2/stream = ExtResource("5_tfewm")
-stream_3/stream = ExtResource("6_61b44")
+stream_0/stream = ExtResource("4_cnsyf")
+stream_1/stream = ExtResource("5_007i1")
+stream_2/stream = ExtResource("6_6cv16")
+stream_3/stream = ExtResource("7_j4nxn")
 
 [sub_resource type="Animation" id="Animation_wn4ym"]
 length = 0.001
@@ -202,6 +202,6 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_v16u8")
+&"": SubResource("AnimationLibrary_v16u8")
 }
 autoplay = "idle"

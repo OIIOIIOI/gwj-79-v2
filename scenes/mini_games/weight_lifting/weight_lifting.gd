@@ -30,6 +30,7 @@ var held_time := 0.0
 
 @onready var star: Sprite2D = $Star
 @onready var win_sfx: AudioStreamPlayer = $WinSFX
+@onready var lift_sfx: AudioStreamPlayer = $LiftSFX
 
 
 func _ready() -> void:
@@ -58,10 +59,10 @@ func _process(delta: float) -> void:
 		# Handle cheat
 		#if Input.is_action_just_pressed(&"open_book"):
 			#end_game()
-
 		# Handle action
 		if Input.is_action_just_pressed(&"action"):
 			arm_target_position.y -= UP_SPEED * (1.0 - get_progress())
+			play_lift_sfx()
 		# Move down
 		if (arm_target_position.y < start_marker.global_position.y):
 			arm_target_position.y += DOWN_SPEED * delta
@@ -95,6 +96,13 @@ func get_progress(clamped := true) -> float:
 func get_hold_progress() -> float:
 	var r = inverse_lerp(0.0, WIN_HOLD_DURATION, held_time)
 	return absf(clampf(r, 0.0, 1.0))
+
+
+func play_lift_sfx():
+	if lift_sfx.playing || randf() < 0.5:
+		return
+	
+	lift_sfx.play()
 
 
 func reset_visuals() -> void:

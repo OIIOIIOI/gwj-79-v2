@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://tmjwug4o7ec8" path="res://resources/dialogs/dialog_chunk.gd" id="1_mloc0"]
 [ext_resource type="Script" uid="uid://dc0y6mamfpuh6" path="res://resources/dialogs/dialog.gd" id="2_airru"]
 [ext_resource type="Script" uid="uid://clvqs5h4px1l" path="res://resources/actions/action.gd" id="3_3t8kv"]
-[ext_resource type="AudioStream" uid="uid://60wmbc4exlcs" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.wav" id="4_1ffo2"]
 [ext_resource type="Texture2D" uid="uid://dca1toabsko5v" path="res://assets/ui/dialogs/Keeper.png" id="4_co8yx"]
+[ext_resource type="AudioStream" uid="uid://j1ncfx87772o" path="res://assets/sfx/dialogs/FX_DOOR_OpenClose.ogg" id="4_keb2d"]
 [ext_resource type="Texture2D" uid="uid://djyehjnj4fl8y" path="res://assets/sprites/characters/guard/GUARD-3.png" id="5_mnvyy"]
 [ext_resource type="Script" uid="uid://bvsxqu2v5u1u2" path="res://resources/actions/load_scene_action.gd" id="6_0qpuk"]
 [ext_resource type="Texture2D" uid="uid://cb8k0lijpcmh7" path="res://assets/sprites/characters/guard/GUARD-2.png" id="6_eghvt"]
@@ -16,7 +16,7 @@ script = ExtResource("1_mloc0")
 text = "You enter the station. It's probably one of the only buildings in the city that will maintain the same level of austerity before, during, and likely after the end of the world."
 style = 2
 duration = 0.0
-sfx = ExtResource("4_1ffo2")
+sfx = ExtResource("4_keb2d")
 actions = Array[ExtResource("3_3t8kv")]([])
 
 [sub_resource type="Resource" id="Resource_7duqd"]
